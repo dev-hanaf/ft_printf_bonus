@@ -1,0 +1,1 @@
+1 => get numbers before '.' to add sapces * "the gettin number - count".
