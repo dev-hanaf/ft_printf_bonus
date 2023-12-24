@@ -7,3 +7,4 @@ printf("%.10d",100); - The field width is not specified and the precision is 10.
 
 printf("%10.10d",100); - The field width is 10 and the precision is 10. The number 100 is printed with leading zeros to make the total number of digits 10. If the number of digits is less than the field width, additional spaces are printed before the number.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+3 => step to upgrade my code to be norminated and working at the next flag '-' and handle the return count

@@ -6,7 +6,7 @@
 /*   By: new <new@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 01:51:45 by ahanaf            #+#    #+#             */
-/*   Updated: 2023/12/24 03:59:14 by new              ###   ########.fr       */
+/*   Updated: 2023/12/24 05:45:38 by new              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,9 @@ int		ft_check_flags(char f);
 
 int		ft_isdigit(int c);
 int		ft_putchar(char c);
+int		ft_putnbr(int num);
 
-int		ft_putnbr(t_val *flag, int num);
-
-int ft_precision(t_val *flag, const char *str);
+int ft_precision(t_val *flag, const char *str, int num);
 
 int count_val_flags(t_val *flag);
 

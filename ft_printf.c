@@ -6,7 +6,7 @@
 /*   By: new <new@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 19:00:00 by new               #+#    #+#             */
-/*   Updated: 2023/12/24 01:39:39 by new              ###   ########.fr       */
+/*   Updated: 2023/12/24 05:04:43 by new              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ t_val	ft_bonus(char f, int mode)
 		if (f == '#')
 			flag.hash = 1;
 		if (ft_isdigit(f))
-			flag.number = 1;
+			flag.number += 1;
 	}else
 	{
 		flag.precision = 0;
@@ -96,8 +96,8 @@ void	ft_format(va_list ap, char f, int *count,int index,const char *str)
 	if (f == 'd')
 	{
 		flag.end_index = index;
-		ft_precision(&flag, str);
-		*count += ft_putnbr(&flag, va_arg(ap, int));
+		ft_precision(&flag, str,va_arg(ap,int));
+		// *count += ft_putnbr(&flag, va_arg(ap, int));
 		mode = 1;
 		flag = ft_bonus(f, mode);
 	}

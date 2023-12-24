@@ -6,7 +6,7 @@
 /*   By: new <new@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 03:56:18 by new               #+#    #+#             */
-/*   Updated: 2023/12/24 03:56:44 by new              ###   ########.fr       */
+/*   Updated: 2023/12/24 04:43:58 by new              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ int count_val_flags(t_val *flag)
     if (flag->hash)
         counter++; 
     if (flag->number)
-        counter++;  
+        counter += flag->number;
     return (counter);
 }

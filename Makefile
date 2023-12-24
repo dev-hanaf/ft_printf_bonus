@@ -7,7 +7,9 @@ SRC = ft_printf.c \
 		ft_dicimal.c \
 		ft_utils.c \
 		ft_precision.c \
-		count_val_flags.c  
+		count_val_flags.c  \
+		ft_putchar.c
+		
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)

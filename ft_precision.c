@@ -6,7 +6,7 @@
 /*   By: new <new@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 05:00:59 by new               #+#    #+#             */
-/*   Updated: 2023/12/24 03:56:40 by new              ###   ########.fr       */
+/*   Updated: 2023/12/24 05:48:11 by new              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,28 @@ char *ft_parser(const char *str,int start, int end)
     prs[i] = '\0';
     return (prs);
 }
-int ft_precision(t_val *flag, const char *str)
+
+int counter_number(int num)
+{
+    int i = 0;
+    
+    if (num == 0)
+        return (1);
+    if (num < 0)
+    {
+        num *= -1;
+        i++;
+    }
+    while (num > 0)
+    {
+        num /= 10;
+        i++;
+    }
+    return (i);
+}
+
+
+int ft_precision(t_val *flag, const char *str, int num)
 {
     flag->start_index = flag->end_index  - count_val_flags(flag);
     char *prs = ft_parser(str, flag->start_index, flag->end_index);
@@ -37,33 +58,58 @@ int ft_precision(t_val *flag, const char *str)
     int width = 0;
     int precision = 0;
     
-    while (prs[i] != '.' && prs[i])
+    while (prs[i] != '.')
     {
         if (ft_isdigit(prs[i]))
             width = width * 10 + (prs[i] - '0');
         i++;
     }
-    i = 0;
+    i++;
     while (prs[i])
     {
-        if (i == '.')
-        {
-            i++;
-            while (ft_isdigit(prs[i]))
-            {
-                precision = precision * 10 + (prs[i] - '0');
-                i++;
-            }
-        }
+        if (ft_isdigit(prs[i]))
+            precision = precision * 10 + (prs[i] - '0');
         i++;
     }
-    printf(CYAN"%d\n"NC,width);
-    printf(RED"%d\n"NC,precision);    
 
+    
+    int len = counter_number(num);
+    printf(RED"len %d\n"NC,len);
+
+    if (width > (len + precision))
+    {
+        if (num < 0)
+            width--;
+        while ((width - precision) > 0)
+        {
+            printf(" ");
+            width--;
+        }
+    }
+    if (num < 0)
+    {
+        printf("-");
+        num *= -1;
+    }
+    if (precision > len)
+    {
+        while ((precision - len) >= 0)
+        {
+            printf("0");
+            precision--;
+        }   
+    }
+    printf("%d",num);
+
+    
     free(prs);
     return (0);
 }
-
+    // printf("%s\n",prs);
+    // printf(CYAN"width => %d\n"NC,width);
+    // printf(GREEN"precision => %d\n"NC,precision); 
+    
+    // puts("\n");
 
     // printf(BLUE"%d",count_val_flags(flag));
     

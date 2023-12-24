@@ -6,13 +6,13 @@
 /*   By: new <new@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 02:00:56 by new               #+#    #+#             */
-/*   Updated: 2023/12/23 05:42:20 by new              ###   ########.fr       */
+/*   Updated: 2023/12/24 05:11:14 by new              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	ft_putnbr(t_val *flag, int num)
+int	ft_putnbr(int num)
 {
 	int count;
 	count = 0;
@@ -28,8 +28,8 @@ int	ft_putnbr(t_val *flag, int num)
 	}
 	if (num > 9)
 	{
-		count += ft_putnbr(flag, num / 10);
-		count += ft_putnbr(flag, num % 10);
+		count += ft_putnbr( num / 10);
+		count += ft_putnbr( num % 10);
 	}
 	else
 		count += ft_putchar(num + '0');
