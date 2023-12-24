@@ -6,8 +6,8 @@ AR = ar rcs
 SRC = ft_printf.c \
 		ft_dicimal.c \
 		ft_utils.c \
-		ft_precision.c
-
+		ft_precision.c \
+		count_val_flags.c  
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
@@ -23,6 +23,7 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
+	rm -f a.out
 
 re : fclean all
 

@@ -6,7 +6,7 @@
 /*   By: new <new@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 01:51:45 by ahanaf            #+#    #+#             */
-/*   Updated: 2023/12/23 05:05:36 by new              ###   ########.fr       */
+/*   Updated: 2023/12/24 03:59:14 by new              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_val
 	int	plus;
 	int	minus;
 	int	zero;
+	int	number;
 	int	space;
 	int	hash;
 	int	precision;
@@ -42,15 +43,19 @@ typedef struct s_val
 }		t_val;
 
 int		ft_printf(const char *str, ...);
-void	ft_format(va_list ap, char f, int *count,int index);
-t_val	ft_bonus(char f);
+void	ft_format(va_list ap, char f, int *count,int index,const char *str);
+t_val	ft_bonus(char f, int mode);
 int		ft_check_flags(char f);
+
 
 int		ft_isdigit(int c);
 int		ft_putchar(char c);
 
 int		ft_putnbr(t_val *flag, int num);
 
-int ft_precision(t_val *flag);
+int ft_precision(t_val *flag, const char *str);
+
+int count_val_flags(t_val *flag);
+
 
 #endif

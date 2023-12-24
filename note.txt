@@ -1,1 +1,9 @@
 1 => get numbers before '.' to add sapces * "the gettin number - count".
+2 => should handle ft_bonus(char f,int fd) to be able to count flags on each concatination ex:"%5.5d %+d"
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+printf("%10.d",100); - The field width is 10 and the precision is not specified. The number 100 is printed with leading spaces to make the total width 10.
+
+printf("%.10d",100); - The field width is not specified and the precision is 10. The number 100 is printed with leading zeros to make the total number of digits 10.
+
+printf("%10.10d",100); - The field width is 10 and the precision is 10. The number 100 is printed with leading zeros to make the total number of digits 10. If the number of digits is less than the field width, additional spaces are printed before the number.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

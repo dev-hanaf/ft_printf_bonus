@@ -1,22 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   count_val_flags.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: new <new@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/23 04:14:30 by new               #+#    #+#             */
-/*   Updated: 2023/12/24 03:55:28 by new              ###   ########.fr       */
+/*   Created: 2023/12/24 03:56:18 by new               #+#    #+#             */
+/*   Updated: 2023/12/24 03:56:44 by new              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	main(void)
+int count_val_flags(t_val *flag)
 {
-	int n = 10;
-	int x = ft_printf("%.d", n);
-	
-	// printf("\n%d", x);
-	return (0);
+    int counter;
+
+    counter = 0;
+    if (flag->precision)
+        counter++;
+    if (flag->zero)
+        counter++;
+    if (flag->minus)
+        counter++;
+    if (flag->plus)
+        counter++;
+    if (flag->space)
+        counter++;
+    if (flag->hash)
+        counter++; 
+    if (flag->number)
+        counter++;  
+    return (counter);
 }
