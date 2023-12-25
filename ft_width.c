@@ -12,20 +12,22 @@
 
 #include "libftprintf.h"
 
-int ft_width(char *prs)
+int	ft_width(char *prs)
 {
-    int i = 0;
-    int width = 0;
-    while (prs[i])
-    {
-        if(ft_isdigit(prs[i]))
-        {
-            width = width * 10 + (prs[i] - '0');
-            if (!ft_isdigit(prs[i + 1]))
-                return (width);  
-        }
-        i++;
-     
-    }
-    return (width);
+	int	i;
+	int	width;
+
+	i = 0;
+	width = 0;
+	while (prs[i])
+	{
+		if (ft_isdigit(prs[i]))
+		{
+			width = width * 10 + (prs[i] - '0');
+			if (!ft_isdigit(prs[i + 1]))
+				return (width);
+		}
+		i++;
+	}
+	return (width);
 }

@@ -12,7 +12,7 @@ SRC = ft_printf.c \
 		ft_minus.c\
 		ft_width.c\
 		ft_parser.c\
-		ft_get_precision.c ft_precision.c
+		ft_get_precision.c ft_precision.c ft_zero.c
 		
 OBJ = $(SRC:.c=.o)
 

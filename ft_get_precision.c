@@ -12,19 +12,21 @@
 
 #include "libftprintf.h"
 
-int ft_get_precision(char *prs)
+int	ft_get_precision(char *prs)
 {
-    int precision = 0;
-    int i = 0;
-    
-    while (prs[i] != '.')
-        i++;
-    i++; 
-    while (prs[i])
-    {
-        if (ft_isdigit(prs[i]))
-            precision = precision * 10 + (prs[i] - '0');
-        i++;
-    }
-    return (precision);
+	int	precision;
+	int	i;
+
+	precision = 0;
+	i = 0;
+	while (prs[i] != '.')
+		i++;
+	i++;
+	while (prs[i])
+	{
+		if (ft_isdigit(prs[i]))
+			precision = precision * 10 + (prs[i] - '0');
+		i++;
+	}
+	return (precision);
 }

@@ -42,6 +42,7 @@ int	ft_check_flags(char f)
 t_val	ft_bonus(char f, int mode)
 {
 	static t_val	flag;
+
 	if (mode == 0)
 	{
 		if (f == '.')
@@ -58,7 +59,8 @@ t_val	ft_bonus(char f, int mode)
 			flag.hash = 1;
 		if (ft_isdigit(f))
 			flag.number += 1;
-	}else
+	}
+	else
 	{
 		flag.precision = 0;
 		flag.zero = 0;
@@ -71,7 +73,7 @@ t_val	ft_bonus(char f, int mode)
 	return (flag);
 }
 
-int ft_mandatory_flags(char f)
+int	ft_mandatory_flags(char f)
 {
 	if (f == 'p')
 		return (1);
@@ -80,16 +82,17 @@ int ft_mandatory_flags(char f)
 	if (f == 'x' || f == 'X')
 		return (1);
 	if (f == 'c' || f == 's')
-	if (f == '%')
-		return (1);
+		if (f == '%')
+			return (1);
 	return (0);
 }
 // on the line 91 mode to reset my structure t_val to 0
 
-void	ft_format(va_list ap, char f, int *count,int index,const char *str)
+void	ft_format(va_list ap, char f, int *count, int index, const char *str)
 {
 	static t_val	flag;
-	static int mode;
+	static int		mode;
+
 	if (ft_mandatory_flags(f) == 0)
 		mode = 0;
 	flag = ft_bonus(f, mode);
@@ -104,7 +107,6 @@ void	ft_format(va_list ap, char f, int *count,int index,const char *str)
 	}
 	else if (f == 'c')
 		*count += ft_putchar(va_arg(ap, int));
-	
 	else if (f == '%')
 		*count += ft_putchar('%');
 }
@@ -114,6 +116,7 @@ int	ft_printf(const char *str, ...)
 	va_list	ap;
 	int		i;
 	int		count;
+
 	va_start(ap, str);
 	i = 0;
 	count = 0;
@@ -124,8 +127,8 @@ int	ft_printf(const char *str, ...)
 			i++;
 			while (ft_check_flags(str[i]))
 			{
-				ft_format(ap, str[i], &count, i,str);
-				if(ft_mandatory_flags(str[i]))
+				ft_format(ap, str[i], &count, i, str);
+				if (ft_mandatory_flags(str[i]))
 					break ;
 				i++;
 			}

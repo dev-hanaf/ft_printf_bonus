@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parser.c                                        :+:      :+:    :+:   */
+/*   ft_zero.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/24 17:51:59 by ahanaf            #+#    #+#             */
-/*   Updated: 2023/12/25 02:14:26 by ahanaf           ###   ########.fr       */
+/*   Created: 2023/12/25 02:32:04 by ahanaf            #+#    #+#             */
+/*   Updated: 2023/12/25 05:11:42 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-// end +1 to included the formats by example % -+d in this case we add 1 to end to include d 
-char *ft_parser(const char *str, int start, int end)
+// add zeros * width - len 
+int ft_zero(int num, int width)
 {
-	char	*prs;
-	int		i;
+    int count;
+    int len;
 
-	prs = (char *)malloc(sizeof(char) * ((end + 1) - start + 1));
-	if (!prs)
-		return (NULL);
-	i = 0;
-	while (i <= end - start)
-	{
-		prs[i] = str[start + i];
-		i++;
-	}
-	prs[i] = '\0';
-	return (prs);
+    len = counter_number(num);
+    count = 0;
+    if (num < 0)
+    {
+        count += ft_putchar('-');
+        num *= -1;
+    }
+    while (width-- - len > 0)
+        count += ft_putchar('0');
+    count += ft_putnbr(num);   
+    return (count);
 }

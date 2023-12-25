@@ -14,7 +14,8 @@
 
 int	ft_putnbr(int num)
 {
-	int count;
+	int	count;
+
 	count = 0;
 	if (num == -2147483648)
 	{
@@ -28,8 +29,8 @@ int	ft_putnbr(int num)
 	}
 	if (num > 9)
 	{
-		count += ft_putnbr( num / 10);
-		count += ft_putnbr( num % 10);
+		count += ft_putnbr(num / 10);
+		count += ft_putnbr(num % 10);
 	}
 	else
 		count += ft_putchar(num + '0');

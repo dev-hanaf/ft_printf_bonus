@@ -6,30 +6,28 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 04:14:30 by new               #+#    #+#             */
-/*   Updated: 2023/12/25 02:10:49 by ahanaf           ###   ########.fr       */
+/*   Updated: 2023/12/25 05:42:42 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-// int	main(void)
-// {
-// 	int n = 123;
-// 	int x = ft_printf(":%50.12d:", n);
-// 	puts("\n");
-// 	int y = printf(":%50.12d:", n);
-// 	printf("\n%d %d",x,y);
-	
+int	main(void)
+{
+	int n = -123;
+	int x = ft_printf(":%15.10d:", n);
+	puts("\n");
+	int y = printf(":%15.10d:", n);
+	printf("\n%d %d",x,y);
+}
 // 	// printf("%20.5d\n", n);
 // 	return (0);
 // }
 
-
-
 // int main(void)
 // {
 //     int n = 123;
-    
+
 //     // // Test 1
 //     int x1 = ft_printf(":%d:", n);
 //     puts("\n");
@@ -69,33 +67,27 @@
 //     return (0);
 // }
 
+// int	main(void)
+// {
+// 	int	n;
+// 	int	negative;
 
-
-int main(void)
-{
-    int n = 123;
-
-    // Test 1: Basic width and precision
-    ft_printf(":%10.5d:\n", n);
-    printf(":%10.5d:\n", n);
-
-    // Test 2: Left-justified with width and precision
-    ft_printf(":%-10.5d:\n", n);
-    printf(":%-10.5d:\n", n);
-
-    // Test 3: Precision without width
-    ft_printf(":%.3d:\n", n);
-    printf(":%.3d:\n", n);
-
-
-    // Test 5: Precision greater than the number's length
-    ft_printf(":%.8d:\n", n);
-    printf(":%.8d:\n", n);
-
-    // Test 6: Precision and width with a negative number
-    int negative = -456;
-    ft_printf(":%10.4d:\n", negative);
-    printf(":%10.4d:\n", negative);
-
-    return 0;
-}
+// 	n = 123;
+// 	// Test 1: Basic width and precision
+// 	ft_printf(":%10.5d:\n", n);
+// 	printf(":%10.5d:\n", n);
+// 	// Test 2: Left-justified with width and precision
+// 	ft_printf(":%-10.5d:\n", n);
+// 	printf(":%-10.5d:\n", n);
+// 	// Test 3: Precision without width
+// 	ft_printf(":%.3d:\n", n);
+// 	printf(":%.3d:\n", n);
+// 	// Test 5: Precision greater than the number's length
+// 	ft_printf(":%.8d:\n", n);
+// 	printf(":%.8d:\n", n);
+// 	// Test 6: Precision and width with a negative number
+// 	negative = -456;
+// 	ft_printf(":%10.4d:\n", negative);
+// 	printf(":%10.4d:\n", negative);
+// 	return (0);
+// }

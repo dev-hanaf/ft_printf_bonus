@@ -12,24 +12,24 @@
 
 #include "libftprintf.h"
 
-int count_val_flags(t_val *flag)
+int	count_val_flags(t_val *flag)
 {
-    int counter;
+	int	counter;
 
-    counter = 0;
-    if (flag->precision)
-        counter++;
-    if (flag->zero)
-        counter++;
-    if (flag->minus)
-        counter++;
-    if (flag->plus)
-        counter++;
-    if (flag->space)
-        counter++;
-    if (flag->hash)
-        counter++; 
-    if (flag->number)
-        counter += flag->number;
-    return (counter);
+	counter = 0;
+	if (flag->precision)
+		counter++;
+	if (flag->zero)
+		counter++;
+	if (flag->minus)
+		counter++;
+	if (flag->plus)
+		counter++;
+	if (flag->space)
+		counter++;
+	if (flag->hash)
+		counter++;
+	if (flag->number)
+		counter += flag->number;
+	return (counter);
 }
