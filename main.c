@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 04:14:30 by new               #+#    #+#             */
-/*   Updated: 2023/12/25 01:57:17 by ahanaf           ###   ########.fr       */
+/*   Updated: 2023/12/25 02:10:49 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@
 // }
 
 
+
 int main(void)
 {
     int n = 123;
@@ -79,16 +80,13 @@ int main(void)
     printf(":%10.5d:\n", n);
 
     // Test 2: Left-justified with width and precision
-    ft_printf(":%10.-5d:\n", n);
-    printf(":%10.5d:\n", n);
+    ft_printf(":%-10.5d:\n", n);
+    printf(":%-10.5d:\n", n);
 
     // Test 3: Precision without width
     ft_printf(":%.3d:\n", n);
     printf(":%.3d:\n", n);
 
-    // Test 4: Zero padding with width and precision
-    ft_printf(":%010.5d:\n", n);
-    printf(":%010.5d:\n", n);
 
     // Test 5: Precision greater than the number's length
     ft_printf(":%.8d:\n", n);
