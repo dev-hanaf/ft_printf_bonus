@@ -1,39 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utils.c                                         :+:      :+:    :+:   */
+/*   ft_parser.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/23 02:02:40 by new               #+#    #+#             */
-/*   Updated: 2023/12/24 18:16:43 by ahanaf           ###   ########.fr       */
+/*   Created: 2023/12/24 17:51:59 by ahanaf            #+#    #+#             */
+/*   Updated: 2023/12/24 17:56:15 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	ft_isdigit(int c)
+//end +1 to included the formats by example %-+d   in this case we add 1 to end to include d
+char *ft_parser(const char *str,int start, int end)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
-}
-
-int counter_number(int num)
-{
+    char *prs;
+    prs = (char *)malloc(sizeof(char) * ((end + 1) - start + 1));
+    if (!prs)
+        return (NULL);
     int i = 0;
-    
-    if (num == 0)
-        return (1);
-    if (num < 0)
+    while (i <= end - start)
     {
-        num *= -1;
+        prs[i] = str[start + i];
         i++;
     }
-    while (num > 0)
-    {
-        num /= 10;
-        i++;
-    }
-    return (i);
+    prs[i] = '\0';
+    return (prs);
 }

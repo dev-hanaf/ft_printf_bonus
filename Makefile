@@ -6,9 +6,13 @@ AR = ar rcs
 SRC = ft_printf.c \
 		ft_dicimal.c \
 		ft_utils.c \
-		ft_precision.c \
 		count_val_flags.c  \
-		ft_putchar.c
+		ft_putchar.c \
+		rond_point.c \
+		ft_minus.c\
+		ft_width.c\
+		ft_parser.c\
+		ft_get_precision.c ft_precision.c
 		
 OBJ = $(SRC:.c=.o)
 

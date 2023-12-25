@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libftprintf.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: new <new@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 01:51:45 by ahanaf            #+#    #+#             */
-/*   Updated: 2023/12/24 05:45:38 by new              ###   ########.fr       */
+/*   Updated: 2023/12/25 00:11:22 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,18 @@ int		ft_isdigit(int c);
 int		ft_putchar(char c);
 int		ft_putnbr(int num);
 
-int ft_precision(t_val *flag, const char *str, int num);
 
 int count_val_flags(t_val *flag);
+
+char *ft_parser(const char *str,int start, int end);
+int counter_number(int num);
+int ft_minus(int num, int width);
+int ft_width(char *prs);
+int ft_get_precision(char *prs);
+int ft_precision(int num, int precision, int width);
+
+int rond_point(t_val *flag, const char *str, int num);
+
 
 
 #endif

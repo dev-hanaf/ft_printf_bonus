@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: new <new@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 19:00:00 by new               #+#    #+#             */
-/*   Updated: 2023/12/24 05:04:43 by new              ###   ########.fr       */
+/*   Updated: 2023/12/24 17:58:21 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,8 @@ void	ft_format(va_list ap, char f, int *count,int index,const char *str)
 	if (f == 'd')
 	{
 		flag.end_index = index;
-		ft_precision(&flag, str,va_arg(ap,int));
+		// ft_precision(&flag, str,va_arg(ap,int));
+		*count += rond_point(&flag, str, va_arg(ap, int));
 		// *count += ft_putnbr(&flag, va_arg(ap, int));
 		mode = 1;
 		flag = ft_bonus(f, mode);

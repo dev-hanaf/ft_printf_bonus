@@ -1,39 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utils.c                                         :+:      :+:    :+:   */
+/*   ft_width.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/23 02:02:40 by new               #+#    #+#             */
-/*   Updated: 2023/12/24 18:16:43 by ahanaf           ###   ########.fr       */
+/*   Created: 2023/12/24 18:26:04 by ahanaf            #+#    #+#             */
+/*   Updated: 2023/12/25 01:36:39 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	ft_isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
-}
-
-int counter_number(int num)
+int ft_width(char *prs)
 {
     int i = 0;
-    
-    if (num == 0)
-        return (1);
-    if (num < 0)
+    int width = 0;
+    while (prs[i])
     {
-        num *= -1;
+        if(ft_isdigit(prs[i]))
+        {
+            width = width * 10 + (prs[i] - '0');
+            if (!ft_isdigit(prs[i + 1]))
+                return (width);  
+        }
         i++;
+     
     }
-    while (num > 0)
-    {
-        num /= 10;
-        i++;
-    }
-    return (i);
+    return (width);
 }

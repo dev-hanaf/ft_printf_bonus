@@ -1,39 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utils.c                                         :+:      :+:    :+:   */
+/*   ft_minus.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/23 02:02:40 by new               #+#    #+#             */
-/*   Updated: 2023/12/24 18:16:43 by ahanaf           ###   ########.fr       */
+/*   Created: 2023/12/24 18:14:00 by ahanaf            #+#    #+#             */
+/*   Updated: 2023/12/25 01:38:03 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	ft_isdigit(int c)
+int ft_minus(int num, int width)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
+    int count = 0;
+    int len = counter_number(num);
+    
+    count += ft_putnbr(num);
+    if (num < 0)
+        width--;
+    while (width - len > 0)
+    {
+        count += ft_putchar(' ');
+        width--;
+    }
+    return (count);
 }
 
-int counter_number(int num)
-{
-    int i = 0;
-    
-    if (num == 0)
-        return (1);
-    if (num < 0)
-    {
-        num *= -1;
-        i++;
-    }
-    while (num > 0)
-    {
-        num /= 10;
-        i++;
-    }
-    return (i);
-}
+
