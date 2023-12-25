@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 05:00:59 by new               #+#    #+#             */
-/*   Updated: 2023/12/25 05:46:58 by ahanaf           ###   ########.fr       */
+/*   Updated: 2023/12/25 20:11:41 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,33 +33,40 @@ int	ft_precision2(int num, int precision, int width)
 			count += ft_putchar('0');
 	}
 	count += ft_putnbr(num);
-	if (width > (len + precision))
+	if (width > len && width > tmp)
 	{
-		if (num < 0)
-			width--;
-		while (width-- - tmp > 0)
-			count += ft_putchar(' ');
+		if (tmp && num < 0)
+		{
+			if (num < 0)
+				width--;
+			while (width-- - len > 0)
+				count += ft_putchar(' ');
+		}
+		else
+			while (width-- - tmp > 0)
+				count += ft_putchar(' ');
 	}
 	return (count);
 }
-// precision add zero
-// width add spaces
-////////////////////////////////////////////////////// fix ft _precision look at the main test
+
 int	ft_precision(int num, int precision, int width)
 {
 	int	len;
 	int	count;
-	// printf(CYAN"width => %d\n"NC,width);
-	// printf(GREEN"precision => %d\n"NC,precision);
 	len = counter_number(num);
 	count = 0;
-	if (width > (len + precision))
+	
+	if (width > precision && width > len)
 	{
-		// if (num < 0)
-		// 	width--;
-		width = width - precision - len;
-		while (width-- > 0)
-			count += ft_putchar(' ');
+		if (precision && num < 0)
+		{	if (num < 0)
+				width--;
+			while (width-- - precision > 0)
+				count += ft_putchar(' ');
+		}
+		else
+			while (width-- - len > 0)
+				count += ft_putchar(' ');
 	}
 	if (num < 0)
 	{
@@ -72,7 +79,8 @@ int	ft_precision(int num, int precision, int width)
 		while ((precision-- - len) > 0)
 			count += ft_putchar('0');
 	}
-	count += ft_putnbr(num);
+	if (num != 0)
+		count += ft_putnbr(num);
 	return (count);
 }
 

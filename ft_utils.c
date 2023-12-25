@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 02:02:40 by new               #+#    #+#             */
-/*   Updated: 2023/12/24 18:16:43 by ahanaf           ###   ########.fr       */
+/*   Updated: 2023/12/25 17:03:03 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ int	counter_number(int num)
 	int	i;
 
 	i = 0;
-	if (num == 0)
-		return (1);
+	// if (num == 0)
+	// 	return (1);
 	if (num < 0)
 	{
 		num *= -1;
