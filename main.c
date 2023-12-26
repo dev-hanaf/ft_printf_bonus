@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 04:14:30 by new               #+#    #+#             */
-/*   Updated: 2023/12/26 01:36:33 by ahanaf           ###   ########.fr       */
+/*   Updated: 2023/12/26 03:11:55 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,12 @@
 
 int	main(void)
 {
-	ft_printf("%5d", 5);
-	return (0);
+	int n = 1;
+	int x = ft_printf(":%5.2d:", n);
+	puts("\n");
+	int y = printf(":%5.2d:", n);
+	printf("\n%d %d",x,y);
 }
-// int	main(void)
-// {
-// 	int n = 1;
-// 	int x = ft_printf(":%-5.2d:", n);
-// 	puts("\n");
-// 	int y = printf(":%-5.2d:", n);
-// 	printf("\n%d %d",x,y);
-// }
 
 // int main(void)
 // {

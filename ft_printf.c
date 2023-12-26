@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 19:00:00 by new               #+#    #+#             */
-/*   Updated: 2023/12/26 01:52:33 by ahanaf           ###   ########.fr       */
+/*   Updated: 2023/12/26 03:11:30 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,17 +78,18 @@ t_val	ft_bonus(char f, int mode)
 	return (flag);
 }
 
-void 	ft_my_while(va_list ap, int *i, char *str, t_format_args *args)
+void	ft_my_while(va_list ap, int *i, const char *str, t_format_args *args)
 {
+
 	while (ft_check_flags(str[*i]))
 	{
+		args->index = *i;
 		ft_format(ap, str[*i], args);
 		if (ft_mandatory_flags(str[*i]))
 			break ;
-		i++;
-	}	
+		*i= *i + 1;
+	}
 }
-
 
 int	ft_printf(const char *str, ...)
 {
@@ -105,11 +106,14 @@ int	ft_printf(const char *str, ...)
 		if (str[i] == '%')
 		{
 			i++;
+			args.count = &count;
+			args.str = str;
 			ft_my_while(ap, &i, str, &args);
 		}
 		else
 			count += ft_putchar(str[i]);
 		i++;
 	}
+	va_end(ap);
 	return (count);
 }
