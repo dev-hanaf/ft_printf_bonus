@@ -53,13 +53,14 @@ int	ft_precision(int num, int precision, int width)
 {
 	int	len;
 	int	count;
+
 	len = counter_number(num);
 	count = 0;
-	
 	if (width > precision && width > len)
 	{
 		if (precision && num < 0)
-		{	if (num < 0)
+		{
+			if (num < 0)
 				width--;
 			while (width-- - precision > 0)
 				count += ft_putchar(' ');

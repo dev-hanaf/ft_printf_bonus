@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 01:51:45 by ahanaf            #+#    #+#             */
-/*   Updated: 2023/12/25 02:37:47 by ahanaf           ###   ########.fr       */
+/*   Updated: 2023/12/26 00:01:43 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,39 +29,58 @@
 # define CYAN "\033[36m"
 
 # define FLAGS "diucspxX%"
+
 typedef struct s_val
 {
-	int	plus;
-	int	minus;
-	int	zero;
-	int	number;
-	int	space;
-	int	hash;
-	int	precision;
-	int	start_index;
-	int	end_index;
-}		t_val;
+	char		*prs;
+	int			plus;
+	int			minus;
+	int			zero;
+	int			number;
+	int			space;
+	int			hash;
+	int			precision;
+	int			width;
+	int			after_width;
+	int			start_index;
+	int			end_index;
+}				t_val;
 
-int		ft_printf(const char *str, ...);
-void	ft_format(va_list ap, char f, int *count, int index, const char *str);
-t_val	ft_bonus(char f, int mode);
-int		ft_check_flags(char f);
+typedef struct s_format_args
+{
+	int			*count;
+	int			index;
+	const char	*str;
+}				t_format_args;
 
-int		ft_isdigit(int c);
-int		ft_putchar(char c);
-int		ft_putnbr(int num);
+// ft_fromat.c
+void			ft_format(va_list ap, char f, t_format_args *args);
 
-int		count_val_flags(t_val *flag);
+// ft_printf.c
+int				ft_check_flags(char f);
+void			ft_reset_t_val(t_val *flag);
+t_val			ft_bonus(char f, int mode);
+int				ft_mandatory_flags(char f);
+int				ft_printf(const char *str, ...);
 
-char	*ft_parser(const char *str, int start, int end);
-int		counter_number(int num);
-int		ft_minus(int num, int width);
-int		ft_width(char *prs);
-int		ft_get_precision(char *prs);
-int		ft_precision(int num, int precision, int width);
-int		ft_precision2(int num, int precision, int width);
-int ft_zero(int num, int width);
+// ft_utils.c
+int				ft_isdigit(int c);
+int				ft_putchar(char c);
 
-int		rond_point(t_val *flag, const char *str, int num);
+// ft_dicimal.c
+int				ft_putnbr(int num);
+
+int				count_val_flags(t_val *flag);
+
+char			*ft_parser(const char *str, int start, int end);
+int				counter_number(int num);
+int				ft_minus(int num, int width);
+int				ft_width(char *prs);
+int				ft_get_precision(char *prs);
+int				ft_precision(int num, int precision, int width);
+int				ft_precision2(int num, int precision, int width);
+int				ft_zero(int num, int width);
+
+int				rond_point(t_val *flag, const char *str, int num);
 
 #endif
