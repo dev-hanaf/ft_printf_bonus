@@ -3,49 +3,50 @@
 /*                                                        :::      ::::::::   */
 /*   ft_precision.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
+/*   By: new <new@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 05:00:59 by new               #+#    #+#             */
-/*   Updated: 2023/12/25 20:11:41 by ahanaf           ###   ########.fr       */
+/*   Updated: 2023/12/27 05:22:17 by new              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	ft_precision2(int num, int precision, int width)
-{
-	int	len;
-	int	count;
-	int	tmp;
+int ft_precision2(int num, int precision, int width) {
+    int len;
+    int count = 0;
+    int tmp;
 
-	len = counter_number(num);
-	count = 0;
-	tmp = precision;
-	if (num < 0)
-	{
-		ft_putchar('-');
-		precision++;
-		num *= -1;
-	}
-	if (precision > len)
-	{
-		while ((precision-- - len) > 0)
-			count += ft_putchar('0');
-	}
-	count += ft_putnbr(num);
-	if (width > len && width > tmp)
-	{
-		if (tmp && num < 0)
-		{
-			if (num < 0)
-				width--;
-			while (width-- - len > 0)
-				count += ft_putchar(' ');
-		}
+    len = counter_number(num);
+
+    if (num < 0) {
+        ft_putchar('-');
+        precision++;
+        num *= -1;
+    }
+    tmp = precision;
+
+	if (num == 0)
+		precision--;
+
+
+    if (precision > len) {
+        while ((precision-- - len) > 0)
+            count += ft_putchar('0');
+    }
+
+    count += ft_putnbr(num);
+
+
+    if (width > len && width > tmp) {
+		if (tmp)
+			width -= tmp;
 		else
-			while (width-- - tmp > 0)
-				count += ft_putchar(' ');
-	}
+			width -= len;
+        while (width-- > 0)
+            count += ft_putchar(' ');
+    }
+
 	return (count);
 }
 
@@ -58,16 +59,16 @@ int	ft_precision(int num, int precision, int width)
 	count = 0;
 	if (width > precision && width > len)
 	{
-		if (precision && num < 0)
+		if (precision)
 		{
+			width -= precision;
 			if (num < 0)
-				width--;
-			while (width-- - precision > 0)
-				count += ft_putchar(' ');
+				width--;	
 		}
 		else
-			while (width-- - len > 0)
-				count += ft_putchar(' ');
+			width -= len;
+		while(width--)
+			count += ft_putchar(' ');
 	}
 	if (num < 0)
 	{

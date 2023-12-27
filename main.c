@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
+/*   By: new <new@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 04:14:30 by new               #+#    #+#             */
-/*   Updated: 2023/12/26 03:11:55 by ahanaf           ###   ########.fr       */
+/*   Updated: 2023/12/27 08:38:07 by new              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	main(void)
+int	main(int c, char**v)
 {
-	int n = 1;
-	int x = ft_printf(":%5.2d:", n);
+	int n = atoi(v[2]);
+	int x = ft_printf(v[1], n);
 	puts("\n");
-	int y = printf(":%5.2d:", n);
+	int y = printf(v[1], n);
 	printf("\n%d %d",x,y);
 }
 
