@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 01:51:45 by ahanaf            #+#    #+#             */
-/*   Updated: 2023/12/26 02:17:27 by ahanaf           ###   ########.fr       */
+/*   Updated: 2023/12/27 11:37:45 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,8 @@ int				ft_check_flags(char f);
 void			ft_reset_t_val(t_val *flag);
 t_val			ft_bonus(char f, int mode);
 int				ft_mandatory_flags(char f);
-void	ft_my_while(va_list ap, int *i, const char *str, t_format_args *args);
+void			ft_my_while(va_list ap, int *i, const char *str,
+					t_format_args *args);
 int				ft_printf(const char *str, ...);
 
 // ft_utils.c
@@ -79,7 +80,7 @@ int				ft_minus(int num, int width);
 int				ft_width(char *prs);
 int				ft_get_precision(char *prs);
 int				ft_precision(int num, int precision, int width);
-int				ft_precision2(int num, int precision, int width);
+int				ft_precision_of_minus(int num, int precision, int width);
 int				ft_zero(int num, int width);
 
 int				rond_point(t_val *flag, const char *str, int num);

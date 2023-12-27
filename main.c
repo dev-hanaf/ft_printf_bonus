@@ -3,23 +3,62 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: new <new@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 04:14:30 by new               #+#    #+#             */
-/*   Updated: 2023/12/27 08:38:07 by new              ###   ########.fr       */
+/*   Updated: 2023/12/27 11:54:08 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	main(int c, char**v)
-{
-	int n = atoi(v[2]);
-	int x = ft_printf(v[1], n);
-	puts("\n");
-	int y = printf(v[1], n);
-	printf("\n%d %d",x,y);
-}
+// int	main(int c, char**v)
+// {
+// 	int n = atoi(v[2]);
+// 	int x = ft_printf(v[1], n);
+// 	puts("\n");
+// 	int y = printf(v[1], n);
+// 	printf("\n%d %d",x,y);
+// }
+
+// int main(void)
+// {
+//     int n = 123;
+
+//         // Vary width, precision, and the presence of '-' and '0' flags
+//         // printf(":%-5d:\n", n);
+//         // ft_printf(":%-5d:\n", n);
+//         // printf(":%-05d:\n", n);
+//         // ft_printf(":%-05d:\n", n);
+//         // printf(":%5d:\n", n);
+//         // ft_printf(":%5d:\n", n);
+//         // printf(":%05d:\n", n);
+//         // ft_printf(":%05d:\n", n);
+//         // printf(":%.2d:\n", n);
+//         // ft_printf(":%.2d:\n", n);
+
+//         // printf(":%.5d:\n", n);
+//         // ft_printf(":%.5d:\n", n);
+//         printf(":%-5.2d:\n", n);
+//         ft_printf(":%-5.2d:\n", n);
+//         printf(":%-5.5d:\n", n);
+//         ft_printf(":%-5.5d:\n", n);
+//         printf(":%-05.2d:\n", n);
+//         ft_printf(":%-05.2d:\n", n);
+//         printf(":%05.5d:\n", n);
+//         ft_printf(":%05.5d:\n", n);
+//         printf(":%-10.2d:\n", n);
+//         ft_printf(":%-10.2d:\n", n);
+//         printf(":%-10.5d:\n", n);
+//         ft_printf(":%-10.5d:\n", n);
+//         printf(":%-010.2d:\n", n);
+//         ft_printf(":%-010.2d:\n", n);
+//         printf(":%010.5d:\n", n);
+//         ft_printf(":%010.5d:\n", n);
+//         printf("\n");
+
+//     return (0);
+// }
 
 // int main(void)
 // {
@@ -86,5 +125,24 @@ int	main(int c, char**v)
 // 	negative = -456;
 // 	ft_printf(":%10.4d:\n", negative);
 // 	printf(":%10.4d:\n", negative);
+// 	return (0);
+// }
+
+// int	main(void)
+// {
+// 	int num = 422;
+
+// 	// Experiment with different format specifiers
+// 	printf(":1. %d:\n", num);
+// 	ft_printf(":1. %d:\n", num);
+// 	printf(":2. %.d:\n", num);
+// 	ft_printf(":2. %.d:\n", num);
+// 	printf(":3. %-.d:\n", num);
+// 	ft_printf(":3. %-.d:\n", num);
+// 	printf(":4. %0d:\n", num);
+// 	ft_printf(":4. %0d:\n", num);
+// 	printf(":5. %-0d:\n", num);
+// 	ft_printf(":5. %-0d:\n", num);
+
 // 	return (0);
 // }

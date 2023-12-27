@@ -3,51 +3,84 @@
 /*                                                        :::      ::::::::   */
 /*   ft_precision.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: new <new@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 05:00:59 by new               #+#    #+#             */
-/*   Updated: 2023/12/27 05:22:17 by new              ###   ########.fr       */
+/*   Updated: 2023/12/27 11:53:07 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int ft_precision2(int num, int precision, int width) {
-    int len;
-    int count = 0;
-    int tmp;
+void	ft_completion_of_minus(int width, int precision, int num, int *count)
+{
+	int	len;
 
-    len = counter_number(num);
+	len = counter_number(num);
+	if (width > len && width > precision)
+	{
+		if (precision > len)
+		{
+			if (num < 0)
+				width -= precision + 1;
+			else
+				width -= precision;
+			while (width-- > 0)
+				*count += ft_putchar(' ');
+		}
+		else
+		{
+			width -= len;
+			while (width-- > 0)
+				*count += ft_putchar(' ');
+		}
+	}
+}
 
-    if (num < 0) {
-        ft_putchar('-');
-        precision++;
-        num *= -1;
-    }
-    tmp = precision;
+int	ft_precision_of_minus(int num, int precision, int width)
+{
+	int	len;
+	int	count;
+	int	tmp;
+	int	tmp_num;
 
+	count = 0;
+	len = counter_number(num);
+	tmp = precision;
+	tmp_num = num;
 	if (num == 0)
 		precision--;
-
-
-    if (precision > len) {
-        while ((precision-- - len) > 0)
-            count += ft_putchar('0');
-    }
-
-    count += ft_putnbr(num);
-
-
-    if (width > len && width > tmp) {
-		if (tmp)
-			width -= tmp;
-		else
-			width -= len;
-        while (width-- > 0)
-            count += ft_putchar(' ');
-    }
-
+	if (num < 0)
+	{
+		count += ft_putchar('-');
+		precision++;
+		num *= -1;
+	}
+	if (precision > len)
+	{
+		while ((precision-- - len) > 0)
+			count += ft_putchar('0');
+	}
+	count += ft_putnbr(num);
+	ft_completion_of_minus(width, tmp, tmp_num, &count);
 	return (count);
+}
+
+void	ft_completion_of_regular(int len, int precision, int num, int *count)
+{
+	if (num < 0)
+	{
+		*count += ft_putchar('-');
+		precision++;
+		num *= -1;
+	}
+	if (precision > len)
+	{
+		while ((precision-- - len) > 0)
+			*count += ft_putchar('0');
+	}
+	if (num != 0)
+		*count += ft_putnbr(num);
 }
 
 int	ft_precision(int num, int precision, int width)
@@ -63,26 +96,14 @@ int	ft_precision(int num, int precision, int width)
 		{
 			width -= precision;
 			if (num < 0)
-				width--;	
+				width--;
 		}
 		else
 			width -= len;
-		while(width--)
+		while (width--)
 			count += ft_putchar(' ');
 	}
-	if (num < 0)
-	{
-		count += ft_putchar('-');
-		precision++;
-		num *= -1;
-	}
-	if (precision > len)
-	{
-		while ((precision-- - len) > 0)
-			count += ft_putchar('0');
-	}
-	if (num != 0)
-		count += ft_putnbr(num);
+	ft_completion_of_regular(len, precision, num, &count);
 	return (count);
 }
 

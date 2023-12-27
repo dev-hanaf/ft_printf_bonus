@@ -80,14 +80,13 @@ t_val	ft_bonus(char f, int mode)
 
 void	ft_my_while(va_list ap, int *i, const char *str, t_format_args *args)
 {
-
 	while (ft_check_flags(str[*i]))
 	{
 		args->index = *i;
 		ft_format(ap, str[*i], args);
 		if (ft_mandatory_flags(str[*i]))
 			break ;
-		*i= *i + 1;
+		*i = *i + 1;
 	}
 }
 
