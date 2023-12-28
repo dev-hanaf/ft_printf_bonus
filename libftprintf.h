@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 01:51:45 by ahanaf            #+#    #+#             */
-/*   Updated: 2023/12/28 01:18:12 by ahanaf           ###   ########.fr       */
+/*   Updated: 2023/12/28 12:27:16 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int				ft_printf(const char *str, ...);
 // ft_utils.c
 int				ft_isdigit(int c);
 int				ft_putchar(char c);
-size_t			ft_strlen(char *str);
+size_t			ft_strlen(const char *str);
 // ft_dicimal.c
 int				ft_putnbr(int num);
 int				ft_putnbr_u(unsigned int n);

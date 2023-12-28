@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_format.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: new <new@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 22:44:47 by ahanaf            #+#    #+#             */
-/*   Updated: 2023/12/28 03:10:55 by new              ###   ########.fr       */
+/*   Updated: 2023/12/28 12:27:25 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,5 @@ void	ft_format(va_list ap, char f, t_format_args *args)
 		*(args->count) += ft_putchar(va_arg(ap, int));
 	else if (f == '%')
 		*(args->count) += ft_putchar('%');
+
 }

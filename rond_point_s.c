@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rond_point_s.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: new <new@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 17:45:15 by ahanaf            #+#    #+#             */
-/*   Updated: 2023/12/28 03:34:34 by new              ###   ########.fr       */
+/*   Updated: 2023/12/28 09:43:03 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ void	first_condition_part_s(char *arg, t_val *flag, int *count)
 		*count += add_spaces_s(arg, flag->width);
 		*count += ft_putstr(arg);
 	}
+	else
+		*count += ft_putstr(arg);
 	// else if (count_val_flags(flag) == 0 && !flag->width)
 		// *count += ft_putnbr(num);
 		// else

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: new <new@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 19:00:00 by new               #+#    #+#             */
-/*   Updated: 2023/12/28 03:35:12 by new              ###   ########.fr       */
+/*   Updated: 2023/12/28 12:47:15 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,17 @@ t_val	ft_bonus(char f, int mode)
 
 void	ft_my_while(va_list ap, int *i, const char *str, t_format_args *args)
 {
+	if (!str[*i])
+	{
+		*(args->count) = -1;
+		return ;
+	}
+	// if (!ft_check_flags(str[*i]))
+	// {		
+	// 	*(args->count) += ft_putchar('%');
+	// 	*(args->count) += ft_putchar(str[*i]);
+	// 	return;
+	// }
 	while (ft_check_flags(str[*i]))
 	{
 		args->index = *i;
@@ -87,10 +98,11 @@ void	ft_my_while(va_list ap, int *i, const char *str, t_format_args *args)
 		if (ft_mandatory_flags(str[*i]))
 		{
 			*i = *i + 1;
-			break ;
+			return;
 		}
 		*i = *i + 1;
 	}
+	*i = *i - 1;
 }
 
 int	ft_printf(const char *str, ...)
@@ -103,7 +115,7 @@ int	ft_printf(const char *str, ...)
 	va_start(ap, str);
 	i = 0;
 	count = 0;
-	while (str[i])
+	while (i < (int)ft_strlen(str) && str[i])
 	{
 		if (str[i] == '%')
 		{
@@ -111,8 +123,9 @@ int	ft_printf(const char *str, ...)
 			args.count = &count;
 			args.str = str;
 			ft_my_while(ap, &i, str, &args);
+			// i--;
 		}
-		else
+		else 
 			count += ft_putchar(str[i]);
 		i++;
 	}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_precision_s.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: new <new@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 05:00:59 by new               #+#    #+#             */
-/*   Updated: 2023/12/28 03:08:38 by new              ###   ########.fr       */
+/*   Updated: 2023/12/28 14:06:46 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ void	ft_completion_of_minus_s(int width, int precision, char *arg,
 	{
 		if (precision > (int)len)
 		{
-			width -= precision;
-			while (width-- > 0)
+			// width -= precision;
+			while (width-- - len > 0)
 				*count += ft_putchar(' ');
 		}
 		else
 		{
-			width -= (int)len;
+			// width -= (int)len;
 			while (width-- > 0)
 				*count += ft_putchar(' ');
 		}
@@ -48,7 +48,7 @@ int	ft_precision_of_minus_s(char *arg, int precision, int width)
 	tmp_arg = arg;
 	if (precision > (int)len)
 	{
-		while ((precision-- - (int)len) > 0)
+		while ((precision--) > 0 && *arg)
 		{
 			count += ft_putchar(*arg);
 			arg++;
@@ -62,16 +62,15 @@ void	ft_completion_of_regular_s(size_t len, int precision, char *arg,
 		int *count)
 {
 	int	i;
-
+	(void)len;
 	i = 0;
-	if (precision > (int)len)
+	// printf(RED"%d\n"NC,precision);
+	while ((precision--) > 0 && arg[i])
 	{
-		while ((precision-- - (int)len) > 0)
-		{
-			*count += ft_putchar(arg[i]);
-			i++;
-		}
+		*count += ft_putchar(arg[i]);
+		i++;
 	}
+	
 }
 
 int	ft_precision_s(char *arg, int precision, int width)
