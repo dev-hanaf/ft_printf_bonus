@@ -3,28 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   rond_point_s.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
+/*   By: new <new@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 17:45:15 by ahanaf            #+#    #+#             */
-/*   Updated: 2023/12/28 01:19:42 by ahanaf           ###   ########.fr       */
+/*   Updated: 2023/12/28 03:34:34 by new              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	add_spaces_s(int num, int width)
+int	add_spaces_s(char *arg, int width)
 {
 	int	count;
-	int	len;
+	size_t	len;
 
 	count = 0;
-	len = counter_number(num);
-	if (num == 0)
-		width--;
-	if (num < 0)
-		num *= -1;
-	while (width-- - len > 0)
+	len = ft_strlen(arg);
+
+	while (width - (int)len > 0)
+	{
 		count += ft_putchar(' ');
+		width--;
+	}
 	return (count);
 }
 
@@ -54,16 +54,16 @@ void	first_condition_part_s(char *arg, t_val *flag, int *count)
 		flag->after_width = ft_get_precision(flag->prs);
 		*count += ft_precision_of_minus_s(arg, flag->after_width, flag->width);
 	}
-	else if (flag->precision)
+	else if (flag->precision && flag->width)
 	{
 		flag->after_width = ft_get_precision(flag->prs);
 		*count += ft_precision_s(arg, flag->after_width, flag->width);
 	}
-	// else if (flag->width && !flag->precision)
-	// {
-	// 	*count += add_spaces_s(arg, flag->width);
-	// 	// *count += ft_putnbr(num);
-	// }
+	else if (flag->width && !flag->precision)
+	{
+		*count += add_spaces_s(arg, flag->width);
+		*count += ft_putstr(arg);
+	}
 	// else if (count_val_flags(flag) == 0 && !flag->width)
 		// *count += ft_putnbr(num);
 		// else
@@ -73,7 +73,6 @@ void	first_condition_part_s(char *arg, t_val *flag, int *count)
 int	rond_point_s(t_val *flag, const char *str, char *arg)
 {
 	int	count;
-	// int	is_zero;
 
 	flag->start_index = flag->end_index - count_val_flags(flag);
 	flag->prs = ft_parser(str, flag->start_index, flag->end_index);

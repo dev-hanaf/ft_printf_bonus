@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
+/*   By: new <new@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 19:00:00 by new               #+#    #+#             */
-/*   Updated: 2023/12/26 03:11:30 by ahanaf           ###   ########.fr       */
+/*   Updated: 2023/12/28 03:35:12 by new              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,10 @@ void	ft_my_while(va_list ap, int *i, const char *str, t_format_args *args)
 		args->index = *i;
 		ft_format(ap, str[*i], args);
 		if (ft_mandatory_flags(str[*i]))
+		{
+			*i = *i + 1;
 			break ;
+		}
 		*i = *i + 1;
 	}
 }

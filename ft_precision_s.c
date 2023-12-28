@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_precision_s.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
+/*   By: new <new@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 05:00:59 by new               #+#    #+#             */
-/*   Updated: 2023/12/28 01:19:14 by ahanaf           ###   ########.fr       */
+/*   Updated: 2023/12/28 03:08:38 by new              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,12 @@ int	ft_precision_s(char *arg, int precision, int width)
 
 	len = ft_strlen(arg);
 	count = 0;
-	if (width > precision && width > (int)len)
+	if (width && !precision)
+	{
+		while (width-- > 0)
+			count += ft_putchar(' ');
+	}
+	else if (width > precision && width > (int)len)
 	{
 		if (precision)
 		{
