@@ -6,20 +6,24 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 04:14:30 by new               #+#    #+#             */
-/*   Updated: 2023/12/27 14:01:16 by ahanaf           ###   ########.fr       */
+/*   Updated: 2023/12/28 01:20:18 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-// int	main(int c, char**v)
-// {
-// 	int n = atoi(v[2]);
-// 	int x = ft_printf(v[1], n);
-// 	puts("\n");
-// 	int y = printf(v[1], n);
-// 	printf("\n%d %d",x,y);
-// }
+int	main(int c, char **v)
+{
+	char	*n;
+	int		y;
+
+	// unsigned int n = atoi(v[2]);
+	n = v[2];
+	int x = ft_printf(v[1], n);
+	puts("\n");
+	y = printf(v[1], n);
+	printf("\n%d %d", x, y);
+}
 
 // int main(void)
 // {

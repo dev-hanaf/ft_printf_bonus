@@ -6,13 +6,13 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 17:45:15 by ahanaf            #+#    #+#             */
-/*   Updated: 2023/12/27 13:51:38 by ahanaf           ###   ########.fr       */
+/*   Updated: 2023/12/27 23:32:28 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	add_spaces(unsigned int num, int width)
+int	add_spaces_u(unsigned int num, int width)
 {
 	int	count;
 	int	len;
@@ -26,7 +26,7 @@ int	add_spaces(unsigned int num, int width)
 	return (count);
 }
 
-int	check_zero_is_flag(char *prs)
+int	check_zero_is_flag_u(char *prs)
 {
 	int	i;
 
@@ -43,7 +43,7 @@ int	check_zero_is_flag(char *prs)
 	return (0);
 }
 
-void	first_condition_part(unsigned int num, int is_zero, t_val *flag,
+void	first_condition_part_u(unsigned int num, int is_zero, t_val *flag,
 		int *count)
 {
 	if (is_zero && !flag->precision && flag->width)
@@ -62,7 +62,7 @@ void	first_condition_part(unsigned int num, int is_zero, t_val *flag,
 	}
 	else if (flag->width && !flag->precision && !is_zero)
 	{
-		*count += add_spaces(num, flag->width);
+		*count += add_spaces_u(num, flag->width);
 		*count += ft_putnbr_u(num);
 	}
 	else if (count_val_flags(flag) == 0 && !flag->width)
@@ -78,10 +78,10 @@ int	rond_point_u(t_val *flag, const char *str, unsigned int num)
 
 	flag->start_index = flag->end_index - count_val_flags(flag);
 	flag->prs = ft_parser(str, flag->start_index, flag->end_index);
-	is_zero = check_zero_is_flag(flag->prs);
+	is_zero = check_zero_is_flag_u(flag->prs);
 	count = 0;
 	flag->width = ft_width(flag->prs);
-	first_condition_part(num, is_zero, flag, &count);
+	first_condition_part_u(num, is_zero, flag, &count);
 	free(flag->prs);
 	return (count);
 }

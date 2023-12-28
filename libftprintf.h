@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 01:51:45 by ahanaf            #+#    #+#             */
-/*   Updated: 2023/12/27 13:49:23 by ahanaf           ###   ########.fr       */
+/*   Updated: 2023/12/28 01:18:12 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,12 @@ int				ft_printf(const char *str, ...);
 // ft_utils.c
 int				ft_isdigit(int c);
 int				ft_putchar(char c);
-
+size_t			ft_strlen(char *str);
 // ft_dicimal.c
 int				ft_putnbr(int num);
 int				ft_putnbr_u(unsigned int n);
+
+int				ft_putstr(char *s);
 
 int				count_val_flags(t_val *flag);
 
@@ -80,19 +82,23 @@ int				counter_number(int num);
 int				counter_number_u(unsigned int num);
 int				ft_minus(int num, int width);
 int				ft_minus_u(unsigned int num, int width);
+int				ft_minus_s(char *arg, int width);
 int				ft_width(char *prs);
 int				ft_get_precision(char *prs);
 int				ft_precision(int num, int precision, int width);
 int				ft_precision_u(unsigned int num, int precision, int width);
+int	ft_precision_s(char *arg, int precision, int width);
+
 
 int				ft_precision_of_minus(int num, int precision, int width);
 int				ft_precision_of_minus_u(unsigned int num, int precision,
 					int width);
+int				ft_precision_of_minus_s(char *arg, int precision, int width);
 
 int				ft_zero(int num, int width);
 int				ft_zero_u(unsigned int num, int width);
 
 int				rond_point(t_val *flag, const char *str, int num);
 int				rond_point_u(t_val *flag, const char *str, unsigned int num);
-
+int				rond_point_s(t_val *flag, const char *str, char *arg);
 #endif
