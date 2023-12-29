@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 01:51:45 by ahanaf            #+#    #+#             */
-/*   Updated: 2023/12/28 12:27:16 by ahanaf           ###   ########.fr       */
+/*   Updated: 2023/12/29 07:02:28 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ int				ft_putnbr_u(unsigned int n);
 
 int				ft_putstr(char *s);
 
+int 			ft_puthexa(unsigned int num, char f);
 int				count_val_flags(t_val *flag);
 
 char			*ft_parser(const char *str, int start, int end);
@@ -83,22 +84,30 @@ int				counter_number_u(unsigned int num);
 int				ft_minus(int num, int width);
 int				ft_minus_u(unsigned int num, int width);
 int				ft_minus_s(char *arg, int width);
+int				ft_minus_x_X(unsigned int num, int width);
+
 int				ft_width(char *prs);
 int				ft_get_precision(char *prs);
 int				ft_precision(int num, int precision, int width);
 int				ft_precision_u(unsigned int num, int precision, int width);
-int	ft_precision_s(char *arg, int precision, int width);
+int				ft_precision_s(char *arg, int precision, int width);
+int				ft_precision_x_X(unsigned int num, int precision, int width);
+
 
 
 int				ft_precision_of_minus(int num, int precision, int width);
 int				ft_precision_of_minus_u(unsigned int num, int precision,
 					int width);
 int				ft_precision_of_minus_s(char *arg, int precision, int width);
+int				ft_precision_of_minus_x_X(unsigned int num, int precision, int width);
+
 
 int				ft_zero(int num, int width);
 int				ft_zero_u(unsigned int num, int width);
+int				ft_zero_x_X(unsigned int num, int width);
 
 int				rond_point(t_val *flag, const char *str, int num);
 int				rond_point_u(t_val *flag, const char *str, unsigned int num);
 int				rond_point_s(t_val *flag, const char *str, char *arg);
+int				rond_point_x_X(t_val *flag, const char *str, unsigned int num,char f);
 #endif

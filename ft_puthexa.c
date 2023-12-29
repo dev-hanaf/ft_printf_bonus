@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mandatory_flags.c                               :+:      :+:    :+:   */
+/*   ft_puthexa.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/26 00:11:05 by ahanaf            #+#    #+#             */
-/*   Updated: 2023/12/29 04:26:51 by ahanaf           ###   ########.fr       */
+/*   Created: 2023/12/29 05:10:23 by ahanaf            #+#    #+#             */
+/*   Updated: 2023/12/29 06:57:24 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	ft_mandatory_flags(char f)
+int ft_puthexa(unsigned int num, char f)
 {
-	if (f == 'p')
-		return (1);
-	if (f == 'd')
-		return (1);
-	if (f == 'i')
-		return (1);
-	if (f == 'u')
-		return (1);
-	if (f == 'x' )
-		return (1);	
-	if (f == 'X')
-		return (1);
-	if (f == 's')
-		return 1;
-	if (f == 'c')
-		return (1);
-	if (f == '%')
-		return (1);
-	return (0);
+    static int count = 0;
+
+    if (num >= 16)
+    {
+        ft_puthexa(num / 16, f);
+        num = num % 16;
+    }      
+    if (f == 'x')
+        count += ft_putchar("0123456789abcdef"[num]);
+    else if (f == 'X')
+        count += ft_putchar("0123456789ABCDEF"[num]);
+    
+    return (count);
 }

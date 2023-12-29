@@ -14,3 +14,23 @@ printf("%10.10d",100); - The field width is 10 and the precision is 10. The numb
 printf("%-5d",100); - the field witdh normaly added spaces on the right but will reverse it ""
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 6 => go to the next flag u (copy past) change only the type
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+7 => %s: Basic string formatting.
+    %.s: An empty precision specification. It will print an empty string.
+    %10s: Right-justify the string within a field of width 10, padding with spaces on the left.
+    %-10s: Left-justify the string within a field of width 10, padding with spaces on the right.
+    %10.5s: Right-justify the string within a field of width 10, and limit the string to 5 characters (precision).
+    %-10.5s: Left-justify the string within a field of width 10, and limit the string to 5 characters (precision).
+    Here's a quick breakdown:
+
+    %s: Basic string formatting.
+    . (precision):
+    %.s: Empty precision, prints an empty string.
+    %10.5s: Specifies a precision of 5 characters, limiting the string to that length.
+    0 (zero-padding):
+    %010s: Zero-padding on the left to reach a field width of 10.
+    - (left-justify):
+    %-10s: Left-justifies the string within a field of width 10.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+

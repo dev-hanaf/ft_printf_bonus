@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 17:45:15 by ahanaf            #+#    #+#             */
-/*   Updated: 2023/12/27 23:32:28 by ahanaf           ###   ########.fr       */
+/*   Updated: 2023/12/29 06:46:07 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	check_zero_is_flag_u(char *prs)
 void	first_condition_part_u(unsigned int num, int is_zero, t_val *flag,
 		int *count)
 {
-	if (is_zero && !flag->precision && flag->width)
+	if (is_zero && !flag->precision && flag->width && !flag->minus)
 		*count += ft_zero_u(num, flag->width);
 	else if (flag->minus && flag->width && !flag->precision)
 		*count += ft_minus_u(num, flag->width);

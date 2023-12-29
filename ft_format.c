@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 22:44:47 by ahanaf            #+#    #+#             */
-/*   Updated: 2023/12/28 12:27:25 by ahanaf           ###   ########.fr       */
+/*   Updated: 2023/12/29 05:11:22 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,13 @@ void	ft_format(va_list ap, char f, t_format_args *args)
 	}
 	else if (f == 'c')
 		*(args->count) += ft_putchar(va_arg(ap, int));
+	else if (f == 'x' || f == 'X')
+	{
+		flag.end_index = args->index;
+		*(args->count) += rond_point_x_X(&flag, args->str, va_arg(ap, unsigned int),f);
+		mode = 1;
+		flag = ft_bonus(f, mode);
+	}
 	else if (f == '%')
 		*(args->count) += ft_putchar('%');
 

@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 19:00:00 by new               #+#    #+#             */
-/*   Updated: 2023/12/28 12:47:15 by ahanaf           ###   ########.fr       */
+/*   Updated: 2023/12/29 04:29:18 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 int	ft_check_flags(char f)
 {
 	if (f == '.')
+		return (1);
+	if (f == 's')
 		return (1);
 	if (f == '0')
 		return (1);
@@ -32,7 +34,7 @@ int	ft_check_flags(char f)
 		return (1);
 	if (f == 'x' || f == 'X')
 		return (1);
-	if (f == 'c' || f == 's')
+	if (f == 'c')
 		return (1);
 	if (f == '%')
 		return (1);
@@ -85,13 +87,8 @@ void	ft_my_while(va_list ap, int *i, const char *str, t_format_args *args)
 		*(args->count) = -1;
 		return ;
 	}
-	// if (!ft_check_flags(str[*i]))
-	// {		
-	// 	*(args->count) += ft_putchar('%');
-	// 	*(args->count) += ft_putchar(str[*i]);
-	// 	return;
-	// }
-	while (ft_check_flags(str[*i]))
+	int inedx_save = *i;
+	while (str[*i])
 	{
 		args->index = *i;
 		ft_format(ap, str[*i], args);
@@ -99,10 +96,14 @@ void	ft_my_while(va_list ap, int *i, const char *str, t_format_args *args)
 		{
 			*i = *i + 1;
 			return;
+		}else if (ft_check_flags(str[*i]) == 0){
+
+			*(args->count) += ft_putchar('%');
+			*i = inedx_save;
+			return ;
 		}
 		*i = *i + 1;
 	}
-	*i = *i - 1;
 }
 
 int	ft_printf(const char *str, ...)
@@ -123,11 +124,12 @@ int	ft_printf(const char *str, ...)
 			args.count = &count;
 			args.str = str;
 			ft_my_while(ap, &i, str, &args);
-			// i--;
 		}
 		else 
+		{
 			count += ft_putchar(str[i]);
-		i++;
+			i++;
+		}	
 	}
 	va_end(ap);
 	return (count);

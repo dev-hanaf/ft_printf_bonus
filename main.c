@@ -6,24 +6,24 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 04:14:30 by new               #+#    #+#             */
-/*   Updated: 2023/12/28 14:07:04 by ahanaf           ###   ########.fr       */
+/*   Updated: 2023/12/29 06:58:25 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 	// int x = ft_printf(":%.rs:",n);
 
-int	main()
+int	main(int c,char **v)
 {
-	char	*n = "hello world";
+	// printf(v[1]	,(unsigned int)atoi(v[2]));
+	// // char	*n = "Hi";
 	int		y;
 
-	// unsigned int n = atoi(v[2]);
-	// n = v[2];
-
-	int x = ft_printf(":%-.12s:",n);
+	int n = atoi(v[2]);
+	(unsigned int)n;
+	int x = ft_printf(v[1],n);
 	printf("\n");
-	y = printf(":%-.12s:",n);
+	y = printf(v[1],n);
 	printf("\n%d | %d",x , y);
 }
 

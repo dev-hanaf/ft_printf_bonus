@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 17:45:15 by ahanaf            #+#    #+#             */
-/*   Updated: 2023/12/28 09:43:03 by ahanaf           ###   ########.fr       */
+/*   Updated: 2023/12/29 06:24:18 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,10 @@ void	first_condition_part_s(char *arg, t_val *flag, int *count)
 	{
 		flag->after_width = ft_get_precision(flag->prs);
 		*count += ft_precision_s(arg, flag->after_width, flag->width);
+	}
+	else if (flag->precision)
+	{
+		return;
 	}
 	else if (flag->width && !flag->precision)
 	{
