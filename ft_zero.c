@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 02:32:04 by ahanaf            #+#    #+#             */
-/*   Updated: 2023/12/29 07:00:31 by ahanaf           ###   ########.fr       */
+/*   Updated: 2023/12/29 15:01:05 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,3 +55,17 @@ int	ft_zero_x_X(unsigned int num, int width)
 	count += ft_puthexa(num, 'x');
 	return (count);
 }
+
+int	ft_zero_p(unsigned long long num, int width)
+{
+	int	count;
+	int	len;
+
+	len = counter_number_p(num);
+	count = 0;
+	while (width-- - len > 0)
+		count += ft_putchar('0');
+	count += ft_putaddresse(num);
+	return (count);
+}
+

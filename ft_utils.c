@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 02:02:40 by new               #+#    #+#             */
-/*   Updated: 2023/12/28 09:56:02 by ahanaf           ###   ########.fr       */
+/*   Updated: 2023/12/29 14:53:15 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,18 @@ int	counter_number(int num)
 }
 
 int	counter_number_u(unsigned int num)
+{
+	int	i;
+
+	i = 0;
+	while (num > 0)
+	{
+		num /= 10;
+		i++;
+	}
+	return (i);
+}
+int	counter_number_p(unsigned long long  num)
 {
 	int	i;
 
