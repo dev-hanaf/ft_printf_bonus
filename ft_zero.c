@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 02:32:04 by ahanaf            #+#    #+#             */
-/*   Updated: 2023/12/29 15:01:05 by ahanaf           ###   ########.fr       */
+/*   Updated: 2023/12/29 18:52:45 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	ft_zero_u(unsigned int num, int width)
 	count += ft_putnbr_u(num);
 	return (count);
 }
-int	ft_zero_x_X(unsigned int num, int width)
+int	ft_zero_x(unsigned int num, int width)
 {
 	int	count;
 	int	len;

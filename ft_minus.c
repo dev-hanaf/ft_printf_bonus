@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 18:14:00 by ahanaf            #+#    #+#             */
-/*   Updated: 2023/12/29 15:00:44 by ahanaf           ###   ########.fr       */
+/*   Updated: 2023/12/29 18:49:15 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	ft_minus_s(char *arg, int width)
 	return (count);
 }
 
-int	ft_minus_x_X(unsigned int num, int width)
+int	ft_minus_x(unsigned int num, int width)
 {
 	int	count;
 	int	len;

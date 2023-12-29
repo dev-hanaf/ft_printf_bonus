@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 01:51:45 by ahanaf            #+#    #+#             */
-/*   Updated: 2023/12/29 14:59:25 by ahanaf           ###   ########.fr       */
+/*   Updated: 2023/12/29 18:52:06 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,8 @@ int				ft_putnbr_u(unsigned int n);
 
 int				ft_putstr(char *s);
 
-void ft_putaddresse_helper(unsigned long long num, int* count);
-int	ft_putaddresse(unsigned long long num);
+void 			ft_putaddresse_helper(unsigned long long num, int* count);
+int				ft_putaddresse(unsigned long long num);
 
 int 			ft_puthexa(unsigned int num, char f);
 int				count_val_flags(t_val *flag);
@@ -90,7 +90,7 @@ int				ft_minus(int num, int width);
 int				ft_minus_u(unsigned int num, int width);
 int				ft_minus_s(char *arg, int width);
 int				ft_minus_x(unsigned int num, int width);
-int				ft_minus_X(unsigned int num, int width);
+// int				ft_minus_X(unsigned int num, int width);
 int				ft_minus_p(unsigned long long num, int width);
 
 int				ft_width(char *prs);
@@ -99,7 +99,7 @@ int				ft_precision(int num, int precision, int width);
 int				ft_precision_u(unsigned int num, int precision, int width);
 int				ft_precision_s(char *arg, int precision, int width);
 int				ft_precision_x(unsigned int num, int precision, int width);
-int				ft_precision_X(unsigned int num, int precision, int width);
+// int				ft_precision_X(unsigned int num, int precision, int width);
 int				ft_precision_p(unsigned long long num, int precision, int width);
 
 
@@ -109,20 +109,20 @@ int				ft_precision_of_minus_u(unsigned int num, int precision,
 					int width);
 int				ft_precision_of_minus_s(char *arg, int precision, int width);
 int				ft_precision_of_minus_x(unsigned int num, int precision, int width);
-int				ft_precision_of_minus_X(unsigned int num, int precision, int width);
+// int				ft_precision_of_minus_X(unsigned int num, int precision, int width);
 int				ft_precision_of_minus_p(unsigned long long num, int precision, int width);
 
 
 int				ft_zero(int num, int width);
 int				ft_zero_u(unsigned int num, int width);
 int				ft_zero_x(unsigned int num, int width);
-int				ft_zero_X(unsigned int num, int width);
+// int				ft_zero_X(unsigned int num, int width);
 int				ft_zero_p(unsigned long long num, int width);
 
 int				rond_point(t_val *flag, const char *str, int num);
 int				rond_point_u(t_val *flag, const char *str, unsigned int num);
 int				rond_point_s(t_val *flag, const char *str, char *arg);
 int				rond_point_x(t_val *flag, const char *str, unsigned int num);
-int				rond_point_X(t_val *flag, const char *str, unsigned int num);
+// int				rond_point_X(t_val *flag, const char *str, unsigned int num);
 int				rond_point_p(t_val *flag, const char *str, unsigned long long num);
 #endif

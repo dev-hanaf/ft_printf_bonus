@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 17:45:15 by ahanaf            #+#    #+#             */
-/*   Updated: 2023/12/28 21:41:18 by ahanaf           ###   ########.fr       */
+/*   Updated: 2023/12/29 22:35:18 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,20 +47,47 @@ int	check_zero_is_flag(char *prs)
 
 void	first_condition_part(int num, int is_zero, t_val *flag, int *count)
 {
-	if (is_zero && !flag->precision && flag->width && !flag->minus)
+	if (is_zero && !flag->precision && flag->width && !flag->minus && !flag->plus)
 		*count += ft_zero(num, flag->width);
-	else if (flag->minus && flag->width && !flag->precision)
-		*count += ft_minus(num, flag->width);
-	else if (flag->minus && flag->width && flag->precision)
+	else if (flag->plus && is_zero && !flag->precision && flag->width && !flag->minus)
+	{	*count += ft_putchar('+');
+		*count += ft_zero(num, flag->width - 1);
+	}
+	////////////////////////////////////////////////////////////////////
+	else if (flag->minus && flag->width && !flag->precision && flag->plus)
+	{	
+			*count += ft_putchar('+');
+			*count += ft_minus(num, flag->width - 1);
+	}	
+	else if (flag->minus && flag->width && !flag->precision && !flag->plus)
+	{	
+			*count += ft_minus(num, flag->width);
+	}	
+	/////////////////////////////////////////////////////////////////////////////
+	else if (flag->minus && flag->width && flag->precision && !flag->plus)
 	{
 		flag->after_width = ft_get_precision(flag->prs);
 		*count += ft_precision_of_minus(num, flag->after_width, flag->width);
 	}
-	else if (flag->precision)
+	else if (flag->minus && flag->width && flag->precision && flag->plus)
+	{
+		*count += ft_putchar('+');
+		flag->after_width = ft_get_precision(flag->prs);
+		*count += ft_precision_of_minus(num, flag->after_width , flag->width -1);
+	}
+	/////////////////////////////////////////////////////////////////////////////
+	else if (flag->precision && !flag->plus)
 	{
 		flag->after_width = ft_get_precision(flag->prs);
 		*count += ft_precision(num, flag->after_width, flag->width);
 	}
+	else if (flag->precision && flag->plus)
+	{
+		flag->after_width = ft_get_precision(flag->prs);
+		*count += ft_precision(num, flag->after_width, flag->width - 1);
+	}
+	/////////////////////////////////////////////////////////////////////////////
+	
 	else if (flag->width && !flag->precision && !is_zero)
 	{
 		*count += add_spaces(num, flag->width);

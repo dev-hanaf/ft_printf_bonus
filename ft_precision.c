@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 05:00:59 by new               #+#    #+#             */
-/*   Updated: 2023/12/27 11:53:07 by ahanaf           ###   ########.fr       */
+/*   Updated: 2023/12/29 22:37:22 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,9 @@ void	ft_completion_of_regular(int len, int precision, int num, int *count)
 			*count += ft_putchar('0');
 	}
 	if (num != 0)
+	{
 		*count += ft_putnbr(num);
+	}
 }
 
 int	ft_precision(int num, int precision, int width)
