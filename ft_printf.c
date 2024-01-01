@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 19:00:00 by new               #+#    #+#             */
-/*   Updated: 2023/12/29 18:55:57 by ahanaf           ###   ########.fr       */
+/*   Updated: 2023/12/31 05:49:17 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,26 @@ t_val	ft_bonus(char f, int mode)
 		ft_reset_t_val(&flag);
 	return (flag);
 }
-
+// int get_lentgh_flag(const char *str)
+// {
+// 	int i = 0;
+// 	while (str[i])
+// 	{
+// 		if (ft_mandatory_flags(str[i]))
+// 			return (i);
+// 		i++;
+// 	}
+// 	return (i);
+// }
+// int ft_handle_error(const char *str, int *i)
+// {
+// 	int index = get_lentgh_flag(str +*i);
+// 	int is_ok = 0;
+// 	while (*i < index)
+// 	{
+// 		if (str[*i])
+// 	}
+// }
 void	ft_my_while(va_list ap, int *i, const char *str, t_format_args *args)
 {
 	if (!str[*i])
@@ -125,11 +144,11 @@ int	ft_printf(const char *str, ...)
 			args.str = str;
 			ft_my_while(ap, &i, str, &args);
 		}
-		else 
+		else
 		{
 			count += ft_putchar(str[i]);
 			i++;
-		}	
+		}
 	}
 	va_end(ap);
 	return (count);

@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 18:14:00 by ahanaf            #+#    #+#             */
-/*   Updated: 2023/12/29 18:49:15 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/01 03:59:23 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	ft_minus(int num, int width)
 
 	count = 0;
 	len = counter_number(num);
+	if (num <= 0)
+		width--;
 	count += ft_putnbr(num);
 	while (width - len > 0)
 	{

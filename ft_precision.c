@@ -6,77 +6,76 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 05:00:59 by new               #+#    #+#             */
-/*   Updated: 2023/12/29 22:37:22 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/01 06:30:41 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	ft_completion_of_minus(int width, int precision, int num, int *count)
+
+void	ft_completion_of_minus(t_val *flag, int num, int *count)
 {
-	int	len;
+	int len;
 
 	len = counter_number(num);
-	if (width > len && width > precision)
+	int width = 0;
+	if (flag->width > flag->after_width && num < 0)
+		flag->width--;
+	if (flag->after_width > len)
+		width = flag->width - (flag->after_width - len) - len;
+	else if (flag->width > len)
+		width = flag->width - len;
+	if (num >= 0 && flag->plus)
+		width--;
+	if (width > 0)
 	{
-		if (precision > len)
-		{
-			if (num < 0)
-				width -= precision + 1;
-			else
-				width -= precision;
-			while (width-- > 0)
-				*count += ft_putchar(' ');
-		}
-		else
-		{
-			width -= len;
-			while (width-- > 0)
-				*count += ft_putchar(' ');
-		}
+		while (width-- > 0)
+			*count += ft_putchar(' ');
 	}
 }
 
-int	ft_precision_of_minus(int num, int precision, int width)
+int	ft_precision_of_minus(int num,t_val *flag)
 {
-	int	len;
-	int	count;
-	int	tmp;
-	int	tmp_num;
-
+	int len;
+	int count;
+	int precision = flag->after_width;
+	int tmp;
+	
+	tmp  = num;
 	count = 0;
-	len = counter_number(num);
-	tmp = precision;
-	tmp_num = num;
-	if (num == 0)
-		precision--;
-	if (num < 0)
+	len = counter_number(tmp);
+	if (tmp >= 0 && flag->plus)
+		count += ft_putchar('+');
+	if(tmp < 0)
 	{
 		count += ft_putchar('-');
-		precision++;
-		num *= -1;
+		tmp *= - 1;
 	}
 	if (precision > len)
 	{
-		while ((precision-- - len) > 0)
+		while (precision-- -len > 0)
+		{
 			count += ft_putchar('0');
+		}
 	}
-	count += ft_putnbr(num);
-	ft_completion_of_minus(width, tmp, tmp_num, &count);
+	count += ft_putnbr(tmp);
+	ft_completion_of_minus(flag, num,&count);
 	return (count);
 }
 
-void	ft_completion_of_regular(int len, int precision, int num, int *count)
+void	ft_completion_of_regular(int len, t_val *flag, int num, int *count)
 {
+	if (num >= 0 && flag->plus)
+		*count += ft_putchar('+');
 	if (num < 0)
 	{
 		*count += ft_putchar('-');
-		precision++;
 		num *= -1;
 	}
-	if (precision > len)
+	if (flag->after_width > len)
 	{
-		while ((precision-- - len) > 0)
+		int precision = flag->after_width - len; 
+		while (precision-- > 0)
 			*count += ft_putchar('0');
 	}
 	if (num != 0)
@@ -85,45 +84,27 @@ void	ft_completion_of_regular(int len, int precision, int num, int *count)
 	}
 }
 
-int	ft_precision(int num, int precision, int width)
+int	ft_precision(int num, t_val *flag)
 {
 	int	len;
 	int	count;
 
 	len = counter_number(num);
 	count = 0;
-	if (width > precision && width > len)
+	int width = 0;
+	if (flag->width > flag->after_width && num < 0)
+		flag->width--;
+	if (flag->after_width > len)
+		width = flag->width - (flag->after_width - len) - len;
+	else if (flag->width > len)
+		width = flag->width - len;
+	if (num >= 0 && flag->plus)
+		width--;
+	if (width > 0)
 	{
-		if (precision)
-		{
-			width -= precision;
-			if (num < 0)
-				width--;
-		}
-		else
-			width -= len;
-		while (width--)
+		while (width-- > 0)
 			count += ft_putchar(' ');
 	}
-	ft_completion_of_regular(len, precision, num, &count);
+	ft_completion_of_regular(len, flag, num, &count);
 	return (count);
 }
-
-// printf("%s\n",prs);
-// printf(CYAN"width => %d\n"NC,width);
-// printf(GREEN"precision => %d\n"NC,precision);
-
-// puts("\n");
-
-// printf(BLUE"%d",count_val_flags(flag));
-
-// printf(RED"\n--------------------------------------------\n"NC);
-// printf(CYAN"%s\n"NC,ft_parser(str, flag->start_index, flag->end_index));
-// printf("\033[0;33mflag => precision %d\n", flag->precision);
-// printf("flag => zero %d\n", flag->zero);
-// printf("flag => minus %d\n", flag->minus);
-// printf("flag => plus %d\n", flag->plus);
-// printf("flag => space %d\n", flag->space);
-// printf("flag => hash %d\n", flag->hash);
-// printf("flag => start index %d\n", flag->start_index);
-// printf("flag => end index %d\033[0;0m\n", flag->end_index);

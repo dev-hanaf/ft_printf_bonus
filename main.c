@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 04:14:30 by new               #+#    #+#             */
-/*   Updated: 2023/12/29 22:20:37 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/01 03:39:34 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int	main(int c,char **v)
 	// char	*n = v[2];
 	// char n = 'a';
 	int		y;
-
 	int n = atoi(v[2]);
 	// (unsigned int)n;
 	int x = ft_printf(v[1],n);

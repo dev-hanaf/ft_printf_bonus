@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 17:45:15 by ahanaf            #+#    #+#             */
-/*   Updated: 2023/12/29 22:35:18 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/01 06:47:44 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,8 @@ int	add_spaces(int num, int width)
 
 	count = 0;
 	len = counter_number(num);
-	if (num == 0)
+	if (num <= 0)
 		width--;
-	if (num < 0)
-		num *= -1;
 	while (width-- - len > 0)
 		count += ft_putchar(' ');
 	return (count);
@@ -50,47 +48,64 @@ void	first_condition_part(int num, int is_zero, t_val *flag, int *count)
 	if (is_zero && !flag->precision && flag->width && !flag->minus && !flag->plus)
 		*count += ft_zero(num, flag->width);
 	else if (flag->plus && is_zero && !flag->precision && flag->width && !flag->minus)
-	{	*count += ft_putchar('+');
-		*count += ft_zero(num, flag->width - 1);
+	{	
+		if (num >= 0)
+		{
+			*count += ft_putchar('+');
+			flag->width--;
+		}
+		*count += ft_zero(num, flag->width);
 	}
 	////////////////////////////////////////////////////////////////////
 	else if (flag->minus && flag->width && !flag->precision && flag->plus)
 	{	
+		if(num >= 0 )
+		{
 			*count += ft_putchar('+');
-			*count += ft_minus(num, flag->width - 1);
+			flag->width--;
+		}
+		*count += ft_minus(num, flag->width);
 	}	
 	else if (flag->minus && flag->width && !flag->precision && !flag->plus)
-	{	
 			*count += ft_minus(num, flag->width);
-	}	
 	/////////////////////////////////////////////////////////////////////////////
 	else if (flag->minus && flag->width && flag->precision && !flag->plus)
 	{
 		flag->after_width = ft_get_precision(flag->prs);
-		*count += ft_precision_of_minus(num, flag->after_width, flag->width);
+		*count += ft_precision_of_minus(num,flag);
 	}
 	else if (flag->minus && flag->width && flag->precision && flag->plus)
 	{
-		*count += ft_putchar('+');
 		flag->after_width = ft_get_precision(flag->prs);
-		*count += ft_precision_of_minus(num, flag->after_width , flag->width -1);
+		*count += ft_precision_of_minus(num, flag);
 	}
 	/////////////////////////////////////////////////////////////////////////////
-	else if (flag->precision && !flag->plus)
+	else if (flag->precision)
 	{
 		flag->after_width = ft_get_precision(flag->prs);
-		*count += ft_precision(num, flag->after_width, flag->width);
-	}
-	else if (flag->precision && flag->plus)
-	{
-		flag->after_width = ft_get_precision(flag->prs);
-		*count += ft_precision(num, flag->after_width, flag->width - 1);
+		*count += ft_precision(num,flag);
 	}
 	/////////////////////////////////////////////////////////////////////////////
-	
-	else if (flag->width && !flag->precision && !is_zero)
+	else if (flag->width && !flag->plus && !flag->precision && !is_zero)
 	{
 		*count += add_spaces(num, flag->width);
+		*count += ft_putnbr(num);
+	}
+	else if (flag->width && flag->plus && !flag->precision && !is_zero)
+	{
+		if (num >= 0)
+			flag->width--;
+		*count += add_spaces(num, flag->width);
+		if (num >= 0)
+			*count += ft_putchar('+');
+		*count += ft_putnbr(num);
+	}
+	//////////////ZSH_THEME="agnoster"
+///////////////////////////////////////////////////////////////
+	else if (flag->plus)
+	{
+		if (num >= 0)
+			*count += ft_putchar('+');
 		*count += ft_putnbr(num);
 	}
 	else if (count_val_flags(flag) == 0 && !flag->width)
