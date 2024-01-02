@@ -6,112 +6,66 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 17:45:15 by ahanaf            #+#    #+#             */
-/*   Updated: 2024/01/01 06:47:44 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/02 19:09:10 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	add_spaces(int num, int width)
+void	handle_width(int num, int is_zero, t_val *flag, int *count)
 {
-	int	count;
-	int	len;
-
-	count = 0;
-	len = counter_number(num);
-	if (num <= 0)
-		width--;
-	while (width-- - len > 0)
-		count += ft_putchar(' ');
-	return (count);
+	if (flag->minus)
+	{
+		if (!flag->plus)
+			ft_print_space(num, count, flag);
+		ft_print_plus_minus(num, count, flag);
+		*count += ft_minus(num, flag->width);
+	}
+	else if (is_zero)
+	{
+		ft_print_plus_minus(num, count, flag);
+		*count += ft_zero(num, flag->width);
+	}
+	else
+	{
+		if (flag->plus && num >= 0)
+			flag->width--;
+		*count += add_spaces(num, flag->width);
+		ft_print_plus_minus(num, count, flag);
+		*count += ft_putnbr(num);
+	}
 }
 
-int	check_zero_is_flag(char *prs)
+void	handle_width_precision(int num, t_val *flag, int *count)
 {
-	int	i;
-
-	i = 0;
-	while (prs[i])
+	if (flag->minus)
 	{
-		if (prs[i] == '0' && i > 0)
-		{
-			if (!ft_isdigit(prs[i - 1]))
-				return (1);
-		}
-		i++;
+		ft_print_space(num, count, flag);
+		flag->after_width = ft_get_precision(flag->prs);
+		*count += ft_precision_of_minus(num, flag);
 	}
-	return (0);
+	else
+	{
+		flag->after_width = ft_get_precision(flag->prs);
+		*count += ft_precision(num, flag);
+	}
 }
 
 void	first_condition_part(int num, int is_zero, t_val *flag, int *count)
 {
-	if (is_zero && !flag->precision && flag->width && !flag->minus && !flag->plus)
-		*count += ft_zero(num, flag->width);
-	else if (flag->plus && is_zero && !flag->precision && flag->width && !flag->minus)
-	{	
-		if (num >= 0)
-		{
-			*count += ft_putchar('+');
-			flag->width--;
-		}
-		*count += ft_zero(num, flag->width);
-	}
-	////////////////////////////////////////////////////////////////////
-	else if (flag->minus && flag->width && !flag->precision && flag->plus)
-	{	
-		if(num >= 0 )
-		{
-			*count += ft_putchar('+');
-			flag->width--;
-		}
-		*count += ft_minus(num, flag->width);
-	}	
-	else if (flag->minus && flag->width && !flag->precision && !flag->plus)
-			*count += ft_minus(num, flag->width);
-	/////////////////////////////////////////////////////////////////////////////
-	else if (flag->minus && flag->width && flag->precision && !flag->plus)
-	{
-		flag->after_width = ft_get_precision(flag->prs);
-		*count += ft_precision_of_minus(num,flag);
-	}
-	else if (flag->minus && flag->width && flag->precision && flag->plus)
-	{
-		flag->after_width = ft_get_precision(flag->prs);
-		*count += ft_precision_of_minus(num, flag);
-	}
-	/////////////////////////////////////////////////////////////////////////////
-	else if (flag->precision)
-	{
-		flag->after_width = ft_get_precision(flag->prs);
-		*count += ft_precision(num,flag);
-	}
-	/////////////////////////////////////////////////////////////////////////////
-	else if (flag->width && !flag->plus && !flag->precision && !is_zero)
-	{
-		*count += add_spaces(num, flag->width);
+	if (count_val_flags(flag) == 0)
 		*count += ft_putnbr(num);
-	}
-	else if (flag->width && flag->plus && !flag->precision && !is_zero)
-	{
-		if (num >= 0)
-			flag->width--;
-		*count += add_spaces(num, flag->width);
-		if (num >= 0)
-			*count += ft_putchar('+');
-		*count += ft_putnbr(num);
-	}
-	//////////////ZSH_THEME="agnoster"
-///////////////////////////////////////////////////////////////
-	else if (flag->plus)
-	{
-		if (num >= 0)
-			*count += ft_putchar('+');
-		*count += ft_putnbr(num);
-	}
-	else if (count_val_flags(flag) == 0 && !flag->width)
-		*count += ft_putnbr(num);
+	else if (flag->width && !flag->precision)
+		handle_width(num, is_zero, flag, count);
+	else if (flag->width && flag->precision)
+		handle_width_precision(num, flag, count);
 	else
+	{
+		if (!flag->plus)
+			ft_print_space(num, count, flag);
+		ft_print_plus_minus(num, count, flag);
 		*count += ft_putnbr(num);
+	}
 }
 
 int	rond_point(t_val *flag, const char *str, int num)
@@ -128,15 +82,3 @@ int	rond_point(t_val *flag, const char *str, int num)
 	free(flag->prs);
 	return (count);
 }
-
-// printf(RED"\n--------------------------------------------\n"NC);
-// printf(CYAN"%s\n"NC,ft_parser(str, flag->start_index, flag->end_index));
-// printf("\033[0;33mflag => precision %d\n", flag->precision);
-// printf("flag => zero %d\n", flag->zero);
-// printf("flag => minus %d\n", flag->minus);
-// printf("flag => plus %d\n", flag->plus);
-// printf("flag => space %d\n", flag->space);
-// printf("flag => number %d\n", flag->number);
-// printf("flag => hash %d\n", flag->hash);
-// printf("flag => start index %d\n", flag->start_index);
-// printf("flag => end index %d\033[0;0m\n", flag->end_index);

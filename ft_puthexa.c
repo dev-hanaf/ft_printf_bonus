@@ -12,19 +12,18 @@
 
 #include "libftprintf.h"
 
-int ft_puthexa(unsigned int num, char f)
+int	ft_puthexa(unsigned int num, char f)
 {
-    static int count = 0;
+	static int	count = 0;
 
-    if (num >= 16)
-    {
-        ft_puthexa(num / 16, f);
-        num = num % 16;
-    }      
-    if (f == 'x')
-        count += ft_putchar("0123456789abcdef"[num]);
-    else if (f == 'X')
-        count += ft_putchar("0123456789ABCDEF"[num]);
-    
-    return (count);
+	if (num >= 16)
+	{
+		ft_puthexa(num / 16, f);
+		num = num % 16;
+	}
+	if (f == 'x')
+		count += ft_putchar("0123456789abcdef"[num]);
+	else if (f == 'X')
+		count += ft_putchar("0123456789ABCDEF"[num]);
+	return (count);
 }

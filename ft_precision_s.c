@@ -18,7 +18,7 @@ void	ft_completion_of_minus_s(int width, int precision, char *arg,
 	size_t	len;
 
 	len = ft_strlen(arg);
-	 if (width > precision)
+	if (width > precision)
 	{
 		if (precision > (int)len)
 		{
@@ -27,7 +27,7 @@ void	ft_completion_of_minus_s(int width, int precision, char *arg,
 		}
 		else
 		{
-			while (width--> 0)
+			while (width-- > 0)
 				*count += ft_putchar(' ');
 		}
 	}
@@ -37,12 +37,11 @@ int	ft_precision_of_minus_s(char *arg, int precision, int width)
 {
 	int		count;
 	int		tmp;
-	char *		tmp_arg;
+	char	*tmp_arg;
 
 	count = 0;
 	tmp = precision;
 	tmp_arg = arg;
-
 	while ((precision--) > 0 && *arg)
 	{
 		count += ft_putchar(*arg);
@@ -56,6 +55,7 @@ void	ft_completion_of_regular_s(size_t len, int precision, char *arg,
 		int *count)
 {
 	int	i;
+
 	(void)len;
 	i = 0;
 	while ((precision--) > 0 && arg[i])
@@ -63,7 +63,6 @@ void	ft_completion_of_regular_s(size_t len, int precision, char *arg,
 		*count += ft_putchar(arg[i]);
 		i++;
 	}
-	
 }
 
 int	ft_precision_s(char *arg, int precision, int width)
@@ -78,9 +77,9 @@ int	ft_precision_s(char *arg, int precision, int width)
 		while (width-- > 0)
 			count += ft_putchar(' ');
 	}
-	else if (width > precision )
+	else if (width > precision)
 	{
-		while (width-- -(int)len)
+		while (width-- - (int)len)
 			count += ft_putchar(' ');
 	}
 	ft_completion_of_regular_s(len, precision, arg, &count);

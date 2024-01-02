@@ -15,9 +15,9 @@ SRC = ft_printf.c \
 		ft_get_precision.c ft_precision.c ft_zero.c ft_format.c \
 		ft_mandatory_flags.c \
 		rond_point_u.c ft_precision_u.c ft_putnbr_u.c \
-		rond_point_s.c ft_precision_s.c ft_putstr.c \
 		rond_point_x.c ft_precision_x.c ft_puthexa.c \
-		rond_point_p.c ft_precision_p.c ft_putaddresse.c 
+		rond_point_s.c ft_precision_s.c ft_putstr.c \
+		ft_bonus_utils.c ft_bonus_utils_u.c  ft_bonus_utils_x.c 
 		
 OBJ = $(SRC:.c=.o)
 

@@ -12,26 +12,26 @@
 
 #include "libftprintf.h"
 
-void ft_putaddresse_helper(unsigned long long num, int* count)
+void	ft_putaddresse_helper(unsigned long long num, int *count)
 {
-    if (num >= 16)
-    {
-        ft_putaddresse_helper(num / 16, count);
-        num = num % 16;
-    }
-    *count += ft_putchar("0123456789abcdef"[num]);
+	if (num >= 16)
+	{
+		ft_putaddresse_helper(num / 16, count);
+		num = num % 16;
+	}
+	*count += ft_putchar("0123456789abcdef"[num]);
 }
 
 int	ft_putaddresse(unsigned long long num)
 {
-    static int count = 0;
+	static int	count = 0;
 
-    if (num == 0)
-    {
-        count += ft_putstr("(nil)");
-        return (count);
-    }
-    count += ft_putstr("0x");
-    ft_putaddresse_helper(num, &count);
-    return (count);
+	if (num == 0)
+	{
+		count += ft_putstr("(nil)");
+		return (count);
+	}
+	count += ft_putstr("0x");
+	ft_putaddresse_helper(num, &count);
+	return (count);
 }

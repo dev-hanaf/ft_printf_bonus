@@ -22,12 +22,12 @@ int	ft_mandatory_flags(char f)
 		return (1);
 	if (f == 'u')
 		return (1);
-	if (f == 'x' )
-		return (1);	
+	if (f == 'x')
+		return (1);
 	if (f == 'X')
 		return (1);
 	if (f == 's')
-		return 1;
+		return (1);
 	if (f == 'c')
 		return (1);
 	if (f == '%')

@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 02:32:04 by ahanaf            #+#    #+#             */
-/*   Updated: 2024/01/01 06:47:27 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/02 18:36:21 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	ft_zero(int num, int width)
 	if (num < 0)
 	{
 		count += ft_putchar('-');
+		width--;
 		num *= -1;
 	}
 	while (width-- - len > 0)
@@ -56,16 +57,15 @@ int	ft_zero_x(unsigned int num, int width)
 	return (count);
 }
 
-int	ft_zero_p(unsigned long long num, int width)
-{
-	int	count;
-	int	len;
+// int	ft_zero_p(unsigned long long num, int width)
+// {
+// 	int	count;
+// 	int	len;
 
-	len = counter_number_p(num);
-	count = 0;
-	while (width-- - len > 0)
-		count += ft_putchar('0');
-	count += ft_putaddresse(num);
-	return (count);
-}
-
+// 	len = counter_number_p(num);
+// 	count = 0;
+// 	while (width-- - len > 0)
+// 		count += ft_putchar('0');
+// 	count += ft_putaddresse(num);
+// 	return (count);
+// }

@@ -13,3 +13,39 @@ if width > precision &&  num < 0 => width--
 ------------------------------------------------'-.'----------------------------------------------
 change the placement of the precision with the width place
 
+--------------------------------------------------------------------------------------------------
+If the number is positive and no sign flag (+) is present, a space is added before the number.
+If the number is negative, the space is ignored and the negative sign is printed.
+If both the space and + flags are present, the space flag is ignored.
+
+
+--------------------------------------------------------------------------------------------------
+
+if (flag = 0)
+    printf(num)
+
+else if (falg->widht && !flag->precision)
+{
+    if (flag->plus)
+    {
+        ft_printf_plus();
+        printf(num);
+    }
+    else if (flag->minus)
+    {
+        ft_minus();
+    }
+    else 
+    {
+        add_spaces();
+        printf(num);
+    }
+}
+
+
+0 flag ignored with '-'
+' ' flag ignored with '+'
+
+if (count_val_count(flag) = 0)
+    count += ft_putnbr(num);
+else if ()

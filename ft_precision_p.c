@@ -12,8 +12,8 @@
 
 #include "libftprintf.h"
 
-void	ft_completion_of_minus_p(int width, int precision, unsigned long long num,
-		int *count)
+void	ft_completion_of_minus_p(int width, int precision,
+		unsigned long long num, int *count)
 {
 	int	len;
 
@@ -53,13 +53,13 @@ int	ft_precision_of_minus_p(unsigned long long num, int precision, int width)
 		while ((precision-- - len) > 0)
 			count += ft_putchar('0');
 	}
-		count += ft_putaddresse(num);
+	count += ft_putaddresse(num);
 	ft_completion_of_minus_p(width, tmp, tmp_num, &count);
 	return (count);
 }
 
-void	ft_completion_of_regular_p(int len, int precision, unsigned long long num,
-		int *count)
+void	ft_completion_of_regular_p(int len, int precision,
+		unsigned long long num, int *count)
 {
 	if (precision > len)
 	{

@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 02:02:40 by new               #+#    #+#             */
-/*   Updated: 2024/01/01 02:12:13 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/02 19:12:41 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,15 @@ int	counter_number_u(unsigned int num)
 	}
 	return (i);
 }
-int	counter_number_p(unsigned long long  num)
+
+int	counter_number_x(unsigned int num)
 {
 	int	i;
 
 	i = 0;
 	while (num > 0)
 	{
-		num /= 10;
+		num /= 16;
 		i++;
 	}
 	return (i);
@@ -70,3 +71,16 @@ size_t	ft_strlen(const char *str)
 		i++;
 	return (i);
 }
+
+// int	counter_number_p(unsigned long long  num)
+// {
+// 	int	i;
+
+// 	i = 0;
+// 	while (num > 0)
+// 	{
+// 		num /= 10;
+// 		i++;
+// 	}
+// 	return (i);
+// }

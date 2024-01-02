@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 19:00:00 by new               #+#    #+#             */
-/*   Updated: 2023/12/31 05:49:17 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/02 18:23:12 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,34 +79,17 @@ t_val	ft_bonus(char f, int mode)
 		ft_reset_t_val(&flag);
 	return (flag);
 }
-// int get_lentgh_flag(const char *str)
-// {
-// 	int i = 0;
-// 	while (str[i])
-// 	{
-// 		if (ft_mandatory_flags(str[i]))
-// 			return (i);
-// 		i++;
-// 	}
-// 	return (i);
-// }
-// int ft_handle_error(const char *str, int *i)
-// {
-// 	int index = get_lentgh_flag(str +*i);
-// 	int is_ok = 0;
-// 	while (*i < index)
-// 	{
-// 		if (str[*i])
-// 	}
-// }
+
 void	ft_my_while(va_list ap, int *i, const char *str, t_format_args *args)
 {
+	int	inedx_save;
+
 	if (!str[*i])
 	{
 		*(args->count) = -1;
 		return ;
 	}
-	int inedx_save = *i;
+	inedx_save = *i;
 	while (str[*i])
 	{
 		args->index = *i;
@@ -114,9 +97,10 @@ void	ft_my_while(va_list ap, int *i, const char *str, t_format_args *args)
 		if (ft_mandatory_flags(str[*i]))
 		{
 			*i = *i + 1;
-			return;
-		}else if (ft_check_flags(str[*i]) == 0){
-
+			return ;
+		}
+		else if (ft_check_flags(str[*i]) == 0)
+		{
 			*(args->count) += ft_putchar('%');
 			*i = inedx_save;
 			return ;

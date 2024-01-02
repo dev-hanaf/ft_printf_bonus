@@ -6,21 +6,21 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 04:14:30 by new               #+#    #+#             */
-/*   Updated: 2024/01/01 03:39:34 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/02 19:07:18 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-	// int x = ft_printf(":%.rs:",n);
 
-int	main(int c,char **v)
+
+int	main(int c , char **v)
 {
 	// printf(v[1]	,(unsigned int)atoi(v[2]));
 	// char	*n = v[2];
 	// char n = 'a';
 	int		y;
 	int n = atoi(v[2]);
-	// (unsigned int)n;
+	(unsigned int)n;
 	int x = ft_printf(v[1],n);
 	printf("\n");
 	y = printf(v[1],n);
@@ -29,38 +29,38 @@ int	main(int c,char **v)
 
 // int main(void)
 // {
-//     int n = 123;
+//     unsigned int  n = 123;
 
 //         // Vary width, precision, and the presence of '-' and '0' flags
-//         // printf(":%-5d:\n", n);
-//         // ft_printf(":%-5d:\n", n);
-//         // printf(":%-05d:\n", n);
-//         // ft_printf(":%-05d:\n", n);
-//         // printf(":%5d:\n", n);
-//         // ft_printf(":%5d:\n", n);
-//         // printf(":%05d:\n", n);
-//         // ft_printf(":%05d:\n", n);
-//         // printf(":%.2d:\n", n);
-//         // ft_printf(":%.2d:\n", n);
+//         printf(":%-5x:\n", n);
+//         ft_printf(":%-5x:\n", n);
+//         printf(":%-05x:\n", n);
+//         ft_printf(":%-05x:\n", n);
+//         printf(":%5x:\n", n);
+//         ft_printf(":%5x:\n", n);
+//         printf(":%05x:\n", n);
+//         ft_printf(":%05x:\n", n);
+//         printf(":%.2x:\n", n);
+//         ft_printf(":%.2x:\n", n);
 
-//         // printf(":%.5d:\n", n);
-//         // ft_printf(":%.5d:\n", n);
-//         printf(":%-5.2d:\n", n);
-//         ft_printf(":%-5.2d:\n", n);
-//         printf(":%-5.5d:\n", n);
-//         ft_printf(":%-5.5d:\n", n);
-//         printf(":%-05.2d:\n", n);
-//         ft_printf(":%-05.2d:\n", n);
-//         printf(":%05.5d:\n", n);
-//         ft_printf(":%05.5d:\n", n);
-//         printf(":%-10.2d:\n", n);
-//         ft_printf(":%-10.2d:\n", n);
-//         printf(":%-10.5d:\n", n);
-//         ft_printf(":%-10.5d:\n", n);
-//         printf(":%-010.2d:\n", n);
-//         ft_printf(":%-010.2d:\n", n);
-//         printf(":%010.5d:\n", n);
-//         ft_printf(":%010.5d:\n", n);
+//         printf(":%.5x:\n", n);
+//         ft_printf(":%.5x:\n", n);
+//         printf(":%-5.2x:\n", n);
+//         ft_printf(":%-5.2x:\n", n);
+//         printf(":%-5.5x:\n", n);
+//         ft_printf(":%-5.5x:\n", n);
+//         printf(":%-05.2x:\n", n);
+//         ft_printf(":%-05.2x:\n", n);
+//         printf(":%05.5x:\n", n);
+//         ft_printf(":%05.5x:\n", n);
+//         printf(":%-10.2x:\n", n);
+//         ft_printf(":%-10.2x:\n", n);
+//         printf(":%-10.5x:\n", n);
+//         ft_printf(":%-10.5x:\n", n);
+//         printf(":%-010.2x:\n", n);
+//         ft_printf(":%-010.2x:\n", n);
+//         printf(":%010.5x:\n", n);
+//         ft_printf(":%010.5x:\n", n);
 //         printf("\n");
 
 //     return (0);
