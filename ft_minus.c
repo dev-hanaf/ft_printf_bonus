@@ -6,11 +6,11 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 18:14:00 by ahanaf            #+#    #+#             */
-/*   Updated: 2024/01/03 18:21:05 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/03 20:26:33 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_minus(int num, int width)
 {
@@ -78,7 +78,7 @@ int	ft_minus_x(unsigned int num, int width, t_val *flag)
 	return (count);
 }
 
-int	ft_minus_X(unsigned int num, int width, t_val *flag)
+int	ft_minus_xx(unsigned int num, int width, t_val *flag)
 {
 	int	count;
 	int	len;

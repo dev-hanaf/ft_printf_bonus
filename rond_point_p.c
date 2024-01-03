@@ -6,11 +6,11 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 17:45:15 by ahanaf            #+#    #+#             */
-/*   Updated: 2024/01/03 18:39:56 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/03 20:14:59 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 void	handle_width_p(unsigned long long num, int is_zero, t_val *flag, int *count)
 {

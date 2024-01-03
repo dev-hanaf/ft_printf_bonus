@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   count_val_flags.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: new <new@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 03:56:18 by new               #+#    #+#             */
-/*   Updated: 2023/12/24 04:43:58 by new              ###   ########.fr       */
+/*   Updated: 2024/01/03 20:14:59 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	count_val_flags(t_val *flag)
 {

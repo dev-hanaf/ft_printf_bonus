@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_precision_X.c                                   :+:      :+:    :+:   */
+/*   ft_precision_xx.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 05:00:59 by new               #+#    #+#             */
-/*   Updated: 2024/01/03 13:33:15 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/03 20:14:59 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-void	ft_completion_of_minus_X(t_val *flag, unsigned int num, int *count)
+void	ft_completion_of_minus_xx(t_val *flag, unsigned int num, int *count)
 {
 	int	len;
 	int	width;
@@ -32,7 +32,7 @@ void	ft_completion_of_minus_X(t_val *flag, unsigned int num, int *count)
 	}
 }
 
-int	ft_precision_of_minus_X(unsigned int num, t_val *flag)
+int	ft_precision_of_minus_xx(unsigned int num, t_val *flag)
 {
 	int				len;
 	int				count;
@@ -57,11 +57,11 @@ int	ft_precision_of_minus_X(unsigned int num, t_val *flag)
 	}
 	if (tmp != 0)
 		count += ft_puthexa(tmp, 'X');
-	ft_completion_of_minus_X(flag, num, &count);
+	ft_completion_of_minus_xx(flag, num, &count);
 	return (count);
 }
 
-void	ft_completion_of_regular_X(int len, t_val *flag, unsigned int num,
+void	ft_completion_of_regular_xx(int len, t_val *flag, unsigned int num,
 		int *count)
 {
 	int	precision;
@@ -83,7 +83,7 @@ void	ft_completion_of_regular_X(int len, t_val *flag, unsigned int num,
 	}
 }
 
-int	ft_precision_X(unsigned int num, t_val *flag)
+int	ft_precision_xx(unsigned int num, t_val *flag)
 {
 	int	len;
 	int	count;
@@ -103,6 +103,6 @@ int	ft_precision_X(unsigned int num, t_val *flag)
 		while (width-- > 0)
 			count += ft_putchar(' ');
 	}
-	ft_completion_of_regular_X(len, flag, num, &count);
+	ft_completion_of_regular_xx(len, flag, num, &count);
 	return (count);
 }

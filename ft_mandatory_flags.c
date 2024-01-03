@@ -6,11 +6,11 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 00:11:05 by ahanaf            #+#    #+#             */
-/*   Updated: 2023/12/29 04:26:51 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/03 20:14:59 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_mandatory_flags(char f)
 {

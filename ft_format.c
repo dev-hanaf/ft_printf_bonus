@@ -6,11 +6,11 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 22:44:47 by ahanaf            #+#    #+#             */
-/*   Updated: 2024/01/03 14:06:13 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/03 20:29:22 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 // on the line 91 mode to reset my structure t_val to 0
 
@@ -55,7 +55,7 @@ void	ft_format(va_list ap, char f, t_format_args *args)
 	else if (f == 'X')
 	{
 		flag.end_index = args->index;
-		*(args->count) += rond_point_X(&flag, args->str, va_arg(ap,
+		*(args->count) += rond_point_xx(&flag, args->str, va_arg(ap,
 					unsigned int));
 		mode = 1;
 		flag = ft_bonus(f, mode);
