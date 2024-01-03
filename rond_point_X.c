@@ -1,41 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rond_point_x.c                                     :+:      :+:    :+:   */
+/*   rond_point_X.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 17:45:15 by ahanaf            #+#    #+#             */
-/*   Updated: 2024/01/02 22:56:53 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/03 13:34:06 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	handle_width_x(unsigned int num, int is_zero, t_val *flag, int *count)
+void	handle_width_X(unsigned int num, int is_zero, t_val *flag, int *count)
 {
 	if (flag->minus)
 	{
 		if (flag->hash && num != 0)
-			*count += ft_putstr("0x");
-		*count += ft_minus_x(num, flag->width, flag);
+			*count += ft_putstr("0X");
+		*count += ft_minus_X(num, flag->width, flag);
 	}
 	else if (is_zero)
 	{
 		if (flag->hash && num != 0)
-			*count += ft_putstr("0x");
-		*count += ft_zero_x(num, flag->width, flag);
+			*count += ft_putstr("0X");
+		*count += ft_zero_X(num, flag->width, flag);
 	}
 	else
 	{
-		*count += add_spaces_x(num, flag->width, flag);
+		*count += add_spaces_X(num, flag->width, flag);
 		if (flag->hash && num != 0)
-			*count += ft_putstr("0x");
-		*count += ft_puthexa(num, 'x');
+			*count += ft_putstr("0X");
+		*count += ft_puthexa(num, 'X');
 	}
 }
 
-void	handle_width_precision_x(unsigned int num, t_val *flag, int *count)
+void	handle_width_precision_X(unsigned int num, t_val *flag, int *count)
 {
 	if (flag->minus)
 	{
@@ -44,7 +44,7 @@ void	handle_width_precision_x(unsigned int num, t_val *flag, int *count)
 			flag->width += 2;
 		if (flag->hash && num != 0 && flag->width > flag->after_width)
 			flag->width -= 2;
-		*count += ft_precision_of_minus_x(num, flag);
+		*count += ft_precision_of_minus_X(num, flag);
 	}
 	else
 	{
@@ -53,28 +53,28 @@ void	handle_width_precision_x(unsigned int num, t_val *flag, int *count)
 			flag->width += 2;
 		if (flag->hash && num != 0 && flag->width > flag->after_width)
 			flag->width -= 2;
-		*count += ft_precision_x(num, flag);
+		*count += ft_precision_X(num, flag);
 	}
 }
 
-void	first_condition_part_x(unsigned int num, int is_zero, t_val *flag,
+void	first_condition_part_X(unsigned int num, int is_zero, t_val *flag,
 		int *count)
 {
 	if (count_val_flags(flag) == 0)
-		*count += ft_puthexa(num, 'x');
+		*count += ft_puthexa(num, 'X');
 	else if (flag->width && !flag->precision)
-		handle_width_x(num, is_zero, flag, count);
+		handle_width_X(num, is_zero, flag, count);
 	else if (flag->width && flag->precision)
-		handle_width_precision_x(num, flag, count);
+		handle_width_precision_X(num, flag, count);
 	else
 	{
 		if (num != 0 && flag->hash)
-			*count += ft_putstr("0x");
-		*count += ft_puthexa(num, 'x');
+			*count += ft_putstr("0X");
+		*count += ft_puthexa(num, 'X');
 	}
 }
 
-int	rond_point_x(t_val *flag, const char *str, unsigned int num)
+int	rond_point_X(t_val *flag, const char *str, unsigned int num)
 {
 	int	count;
 	int	is_zero;
@@ -84,7 +84,7 @@ int	rond_point_x(t_val *flag, const char *str, unsigned int num)
 	is_zero = check_zero_is_flag(flag->prs);
 	count = 0;
 	flag->width = ft_width(flag->prs);
-	first_condition_part_x(num, is_zero, flag, &count);
+	first_condition_part_X(num, is_zero, flag, &count);
 	free(flag->prs);
 	return (count);
 }

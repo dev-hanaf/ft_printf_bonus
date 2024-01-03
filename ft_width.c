@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 18:26:04 by ahanaf            #+#    #+#             */
-/*   Updated: 2024/01/01 21:55:57 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/03 09:09:16 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ int	ft_width(char *prs)
 	i = 0;
 	width = 0;
 	while (prs[i])
-	{
+	{	
+		if (prs[i] == '.')
+			return (width);
 		if (ft_isdigit(prs[i]))
 		{
 			width = width * 10 + (prs[i] - '0');

@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 01:51:45 by ahanaf            #+#    #+#             */
-/*   Updated: 2024/01/02 19:19:17 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/03 13:57:02 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,54 +84,47 @@ int				count_val_flags(t_val *flag);
 char			*ft_parser(const char *str, int start, int end);
 int				counter_number(int num);
 int				counter_number_u(unsigned int num);
-int				counter_number_x(unsigned int num);
-
-// int				counter_number_p(unsigned long long num);
+int				counter_number_x(unsigned int num, t_val *flag);
+int				counter_number_p(unsigned long long num);
 
 int				ft_minus(int num, int width);
 int				ft_minus_u(unsigned int num, int width);
 int				ft_minus_s(char *arg, int width);
-int				ft_minus_x(unsigned int num, int width);
-// int				ft_minus_X(unsigned int num, int width);
+int				ft_minus_x(unsigned int num, int width, t_val *flag);
+int				ft_minus_X(unsigned int num, int width, t_val *flag);
 int				ft_minus_p(unsigned long long num, int width);
 
 int				ft_width(char *prs);
 int				ft_get_precision(char *prs);
-// int				ft_precision(int num, int precision, int width, int is_plus);
 int				ft_precision(int num, t_val *flag);
 int				ft_precision_u(unsigned int num, t_val *flag);
 int				ft_precision_x(unsigned int num, t_val *flag);
-
+int				ft_precision_X(unsigned int num, t_val *flag);
 int				ft_precision_s(char *arg, int precision, int width);
-// int				ft_precision_x(unsigned int num, int precision, int width);
-// int				ft_precision_X(unsigned int num, int precision, int width);
-// int				ft_precision_p(unsigned long long num, int precision, int width);
+int				ft_precision_p(unsigned long long num, t_val *flag);
 
 
 
 int				ft_precision_of_minus(int num,t_val *flag);
 int				ft_precision_of_minus_u(unsigned int num, t_val *flag);
 int				ft_precision_of_minus_x(unsigned int num, t_val *flag);
+int				ft_precision_of_minus_X(unsigned int num, t_val *flag);
 int				ft_precision_of_minus_s(char *arg, int precision, int width);
-// int				ft_precision_of_minus_x(unsigned int num, int precision, int width);
-// int				ft_precision_of_minus_X(unsigned int num, int precision, int width);
-// int				ft_precision_of_minus_p(unsigned long long num, int precision, int width);
+int				ft_precision_of_minus_p(unsigned long long num, t_val *flag);
 
 
 int				ft_zero(int num, int width);
 int				ft_zero_u(unsigned int num, int width);
-int				ft_zero_x(unsigned int num, int width);
-// int				ft_zero_X(unsigned int num, int width);
-// int				ft_zero_p(unsigned long long num, int width);
+int				ft_zero_x(unsigned int num, int width, t_val *flag);
+int				ft_zero_X(unsigned int num, int width, t_val *flag);
+int				ft_zero_p(unsigned long long num, int width);
 
 int				rond_point(t_val *flag, const char *str, int num);
 int				rond_point_u(t_val *flag, const char *str, unsigned int num);
 int				rond_point_x(t_val *flag, const char *str, unsigned int num);
-
+int				rond_point_X(t_val *flag, const char *str, unsigned int num);
 int				rond_point_s(t_val *flag, const char *str, char *arg);
-// int				rond_point_x(t_val *flag, const char *str, unsigned int num);
-// int				rond_point_X(t_val *flag, const char *str, unsigned int num);
-// int				rond_point_p(t_val *flag, const char *str, unsigned long long num);
+int				rond_point_p(t_val *flag, const char *str, unsigned long long num);
 
 
 
@@ -144,8 +137,18 @@ int		add_spaces_u(unsigned int num, int width);
 void	ft_print_plus_u(unsigned int num, int *count, t_val *flag);
 void	ft_print_plus_minus_u( int *count, t_val *flag);
 void	ft_print_space_u( int *count, t_val *flag);
-int		add_spaces_x(unsigned int num, int width);
+int		add_spaces_x(unsigned int num, int width, t_val *flag);
 void	ft_print_plus_x(unsigned int num, int *count, t_val *flag);
 void	ft_print_plus_minus_x( int *count, t_val *flag);
 void	ft_print_space_x( int *count, t_val *flag);
+int		add_spaces_X(unsigned int num, int width, t_val *flag);
+void	ft_print_plus_X(unsigned int num, int *count, t_val *flag);
+void	ft_print_plus_minus_X( int *count, t_val *flag);
+void	ft_print_space_X( int *count, t_val *flag);
+int	add_spaces_s(char *arg, int width);
+int	check_zero_is_flag_s(char *prs);
+void	ft_print_plus_p(unsigned long long num, int *count, t_val *flag);
+void	ft_print_plus_minus_p( int *count, t_val *flag);
+void	ft_print_space_p( int *count, t_val *flag);
+int	add_spaces_p(unsigned long long num, int width);
 #endif

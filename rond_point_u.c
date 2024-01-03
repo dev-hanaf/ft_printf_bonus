@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 17:45:15 by ahanaf            #+#    #+#             */
-/*   Updated: 2024/01/02 20:36:07 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/03 02:48:00 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,10 @@ void	handle_width_u(unsigned int num, int is_zero, t_val *flag, int *count)
 {
 	if (flag->minus)
 	{
-		// if (!flag->plus && num != 0)
-		// 	ft_print_space_u(count, flag);
-		// ft_print_plus_minus_u(count, flag);
 		*count += ft_minus(num, flag->width);
 	}
 	else if (is_zero)
 	{
-		// ft_print_plus_minus_u(count, flag);
 		*count += ft_zero_u(num, flag->width);
 	}
 	else
@@ -31,7 +27,6 @@ void	handle_width_u(unsigned int num, int is_zero, t_val *flag, int *count)
 		if (flag->plus)
 			flag->width--;
 		*count += add_spaces_u(num, flag->width);
-		// ft_print_plus_minus_u(count, flag);
 		*count += ft_putnbr_u(num);
 	}
 }
@@ -40,8 +35,6 @@ void	handle_width_precision_u(unsigned int num, t_val *flag, int *count)
 {
 	if (flag->minus)
 	{
-		// if (num != 0)
-		// 	ft_print_space_u(count, flag);
 		flag->after_width = ft_get_precision(flag->prs);
 		*count += ft_precision_of_minus_u(num, flag);
 	}
@@ -63,9 +56,6 @@ void	first_condition_part_u(unsigned int num, int is_zero, t_val *flag,
 		handle_width_precision_u(num, flag, count);
 	else
 	{
-		// if (!flag->plus && num != 0)
-		// 	ft_print_space_u(count, flag);
-		// ft_print_plus_minus_u(count, flag);
 		*count += ft_putnbr_u(num);
 	}
 }

@@ -1,52 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bonus_utils_u.c                                 :+:      :+:    :+:   */
+/*   ft_bonus_utils_p.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 17:14:50 by ahanaf            #+#    #+#             */
-/*   Updated: 2024/01/02 20:32:09 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/03 13:56:42 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	add_spaces_u(unsigned int num, int width)
+int	add_spaces_p(unsigned long long num, int width)
 {
 	int	count;
 	int	len;
 
 	count = 0;
-	len = counter_number_u(num);
-	if (num == 0)
-		width--;
+	len = counter_number_p(num);
 	while (width-- - len > 0)
 		count += ft_putchar(' ');
 	return (count);
 }
 
-void	ft_print_plus_u(unsigned int num, int *count, t_val *flag)
+void	ft_print_plus_p(unsigned long long num, int *count, t_val *flag)
 {
-	if (flag->plus && num != 0)
+	if ( flag->plus)
 	{
 		flag->width--;
-		*count += add_spaces_u(num, flag->width);
+		*count += add_spaces_p(num, flag->width);
 		*count += ft_putchar('+');
 		flag->width--;
 	}
 }
 
-void	ft_print_plus_minus_u(int *count, t_val *flag)
+void	ft_print_plus_minus_p( int *count, t_val *flag)
 {
-	if (flag->plus)
+	if ( flag->plus)
 	{
 		*count += ft_putchar('+');
 		flag->width--;
 	}
 }
 
-void	ft_print_space_u(int *count, t_val *flag)
+void	ft_print_space_p( int *count, t_val *flag)
 {
 	if (flag->space && !flag->plus)
 	{
@@ -54,3 +52,4 @@ void	ft_print_space_u(int *count, t_val *flag)
 		flag->width--;
 	}
 }
+

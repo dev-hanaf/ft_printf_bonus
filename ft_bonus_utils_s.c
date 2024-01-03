@@ -1,36 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putaddresse.c                                   :+:      :+:    :+:   */
+/*   ft_bonus_utils_s.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/29 09:01:37 by ahanaf            #+#    #+#             */
-/*   Updated: 2024/01/03 14:40:14 by ahanaf           ###   ########.fr       */
+/*   Created: 2024/01/02 17:14:50 by ahanaf            #+#    #+#             */
+/*   Updated: 2024/01/03 09:13:03 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	ft_putaddresse_helper(unsigned long long num, int *count)
+int	add_spaces_s(char *arg, int width)
 {
-	if (num >= 16)
+	int		count;
+	size_t	len;
+
+	count = 0;
+	len = ft_strlen(arg);
+	while (width - (int)len > 0)
 	{
-		ft_putaddresse_helper(num / 16, count);
-		num = num % 16;
+		count += ft_putchar(' ');
+		width--;
 	}
-	*count += ft_putchar("0123456789abcdef"[num]);
+	return (count);
 }
 
-int	ft_putaddresse(unsigned long long num)
+int	check_zero_is_flag_s(char *prs)
 {
-	static int	count = 0;
+	int	i;
 
-	if (num == 0)
+	i = 0;
+	while (prs[i])
 	{
-		count += ft_putstr("(nil)");
-		return (count);
+		if (prs[i] == '0' && i > 0)
+		{
+			if (!ft_isdigit(prs[i - 1]))
+				return (1);
+		}
+		i++;
 	}
-	ft_putaddresse_helper(num, &count);
-	return (count);
+	return (0);
 }

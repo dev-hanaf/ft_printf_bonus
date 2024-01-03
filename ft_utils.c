@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 02:02:40 by new               #+#    #+#             */
-/*   Updated: 2024/01/02 19:12:41 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/03 14:59:57 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,13 @@ int	counter_number_u(unsigned int num)
 	return (i);
 }
 
-int	counter_number_x(unsigned int num)
+int	counter_number_x(unsigned int num, t_val *flag)
 {
 	int	i;
 
 	i = 0;
+	if (num != 0 && flag->hash)
+		i += 2;
 	while (num > 0)
 	{
 		num /= 16;
@@ -65,22 +67,27 @@ int	counter_number_x(unsigned int num)
 size_t	ft_strlen(const char *str)
 {
 	size_t	i;
-
+	if (!str)
+		return (0);
 	i = 0;
 	while (str[i])
 		i++;
 	return (i);
 }
 
-// int	counter_number_p(unsigned long long  num)
-// {
-// 	int	i;
+int	counter_number_p(unsigned long long  num)
+{
+	int	i;
 
-// 	i = 0;
-// 	while (num > 0)
-// 	{
-// 		num /= 10;
-// 		i++;
-// 	}
-// 	return (i);
-// }
+	i = 0;
+	if (!num)
+		return (5);
+	// if (num != 0)
+	// 	i += 1;
+	while (num > 0)
+	{
+		num /= 16;
+		i++;
+	}
+	return (i);
+}

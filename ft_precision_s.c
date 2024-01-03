@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 05:00:59 by new               #+#    #+#             */
-/*   Updated: 2023/12/29 05:00:28 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/03 13:23:51 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,17 @@ void	ft_completion_of_minus_s(int width, int precision, char *arg,
 	size_t	len;
 
 	len = ft_strlen(arg);
-	if (width > precision)
+	if (precision <= (int)len)
+		len = (size_t)precision;
+	if (width && !precision)
 	{
-		if (precision > (int)len)
-		{
-			while (width-- - (int)len > 0)
-				*count += ft_putchar(' ');
-		}
-		else
-		{
-			while (width-- > 0)
-				*count += ft_putchar(' ');
-		}
+		while (width-- > 0)
+			*count += ft_putchar(' ');
+	}
+	else
+	{
+		while (width-- - (int)len > 0)
+			*count += ft_putchar(' ');
 	}
 }
 
@@ -42,10 +41,15 @@ int	ft_precision_of_minus_s(char *arg, int precision, int width)
 	count = 0;
 	tmp = precision;
 	tmp_arg = arg;
-	while ((precision--) > 0 && *arg)
+	if (precision >= 6 && arg == NULL)
+		count += ft_putstr("(null)");
+	if (arg != NULL)
 	{
-		count += ft_putchar(*arg);
-		arg++;
+		while ((precision--) > 0 && *arg)
+		{
+			count += ft_putchar(*arg);
+			arg++;
+		}
 	}
 	ft_completion_of_minus_s(width, tmp, tmp_arg, &count);
 	return (count);
@@ -55,6 +59,8 @@ void	ft_completion_of_regular_s(size_t len, int precision, char *arg,
 		int *count)
 {
 	int	i;
+	if (arg == NULL)
+		return;
 
 	(void)len;
 	i = 0;
@@ -72,16 +78,23 @@ int	ft_precision_s(char *arg, int precision, int width)
 
 	len = ft_strlen(arg);
 	count = 0;
+	if (precision <= (int)len)
+		len = (size_t)precision;
+	if (precision >= 6 && arg == NULL)
+		len = 6;
 	if (width && !precision)
 	{
 		while (width-- > 0)
 			count += ft_putchar(' ');
 	}
-	else if (width > precision)
+	else
 	{
-		while (width-- - (int)len)
+		while (width-- - (int)len > 0)
 			count += ft_putchar(' ');
 	}
-	ft_completion_of_regular_s(len, precision, arg, &count);
+	if (precision >= 6 && arg == NULL)
+		count += ft_putstr("(null)");
+	else
+		ft_completion_of_regular_s(len, precision, arg, &count);
 	return (count);
 }

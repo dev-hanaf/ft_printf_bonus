@@ -6,13 +6,12 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 02:32:04 by ahanaf            #+#    #+#             */
-/*   Updated: 2024/01/02 18:36:21 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/03 14:39:33 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-// add zeros * width - len
 int	ft_zero(int num, int width)
 {
 	int	count;
@@ -44,12 +43,15 @@ int	ft_zero_u(unsigned int num, int width)
 	count += ft_putnbr_u(num);
 	return (count);
 }
-int	ft_zero_x(unsigned int num, int width)
+
+int	ft_zero_x(unsigned int num, int width, t_val *flag)
 {
 	int	count;
 	int	len;
 
-	len = counter_number_u(num);
+	len = counter_number_x(num, flag);
+	if (num == 0)
+		width--;
 	count = 0;
 	while (width-- - len > 0)
 		count += ft_putchar('0');
@@ -57,15 +59,33 @@ int	ft_zero_x(unsigned int num, int width)
 	return (count);
 }
 
-// int	ft_zero_p(unsigned long long num, int width)
-// {
-// 	int	count;
-// 	int	len;
+int	ft_zero_X(unsigned int num, int width, t_val *flag)
+{
+	int	count;
+	int	len;
 
-// 	len = counter_number_p(num);
-// 	count = 0;
-// 	while (width-- - len > 0)
-// 		count += ft_putchar('0');
-// 	count += ft_putaddresse(num);
-// 	return (count);
-// }
+	len = counter_number_x(num, flag);
+	if (num == 0)
+		width--;
+	count = 0;
+	while (width-- - len > 0)
+		count += ft_putchar('0');
+	count += ft_puthexa(num, 'X');
+	return (count);
+}
+
+int	ft_zero_p(unsigned long long num, int width)
+{
+	int	count;
+	int	len;
+
+	len = counter_number_p(num);
+	if (num == 0)
+		width--;
+	count = 0;
+	count += ft_putstr("0x");
+	while (width-- - len > 0)
+		count += ft_putchar('0');
+	count += ft_putaddresse(num);
+	return (count);
+}

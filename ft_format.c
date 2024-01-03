@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 22:44:47 by ahanaf            #+#    #+#             */
-/*   Updated: 2024/01/02 18:38:39 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/03 14:06:13 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,25 +52,24 @@ void	ft_format(va_list ap, char f, t_format_args *args)
 		mode = 1;
 		flag = ft_bonus(f, mode);
 	}
+	else if (f == 'X')
+	{
+		flag.end_index = args->index;
+		*(args->count) += rond_point_X(&flag, args->str, va_arg(ap,
+					unsigned int));
+		mode = 1;
+		flag = ft_bonus(f, mode);
+	}
+	else if (f == 'p')
+	{
+		flag.end_index = args->index;
+		*(args->count) += rond_point_p(&flag, args->str, va_arg(ap,unsigned long long));
+		mode = 1;
+		flag = ft_bonus(f, mode);
+	}
 	else if (f == 'c')
 		*(args->count) += ft_putchar(va_arg(ap, int));
 	else if (f == '%')
 		*(args->count) += ft_putchar('%');
 }
 
-// // else if (f == 'x' || f == 'X')
-// // {
-// // 	flag.end_index = args->index;
-// // 	*(args->count) += rond_point_x(&flag, args->str, va_arg(ap,
-// 				unsigned int));
-// // 	mode = 1;
-// // 	flag = ft_bonus(f, mode);
-// // }
-// // else if (f == 'p')
-// // {
-// // 	flag.end_index = args->index;
-// // 	*(args->count) += rond_point_p(&flag, args->str, va_arg(ap,
-// 				unsigned long long));
-// // 	mode = 1;
-// // 	flag = ft_bonus(f, mode);
-// // }
