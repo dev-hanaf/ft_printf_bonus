@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 05:00:59 by new               #+#    #+#             */
-/*   Updated: 2024/01/03 15:03:22 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/03 18:41:15 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,11 @@ void	ft_completion_of_minus_p(t_val *flag, unsigned long long num, int *count)
 
 	len = counter_number_p(num);
 	width = 0;
-	if (flag->width > flag->after_width)
-		flag->width--;
+
 	if (flag->after_width > len)
-		width = flag->width - (flag->after_width - len) - len;
+		width = flag->width - (flag->after_width - len) - len - 2;
 	else if (flag->width > len)
-		width = flag->width - len;
+		width = flag->width - len -2 ;
 	if (flag->plus)
 		width--;
 	if (width > 0)
@@ -47,6 +46,7 @@ int	ft_precision_of_minus_p(unsigned long long num, t_val *flag)
 	len = counter_number_p(tmp);
 	if (flag->plus)
 		count += ft_putchar('+');
+	count += ft_putstr("0x");
 	if (precision > len)
 	{
 		while (precision-- - len > 0)
@@ -64,8 +64,6 @@ void	ft_completion_of_regular_p(int len, t_val *flag, unsigned long long num, in
 	
 	if ( flag->plus)
 		*count += ft_putchar('+');
-	if (!flag->plus && flag->space)
-		ft_print_space_p(count, flag);
 	*count += ft_putstr("0x");
 	if (flag->after_width > len)
 	{
@@ -88,12 +86,10 @@ int	ft_precision_p(unsigned long long num, t_val *flag)
 	len = counter_number_p(num);
 	count = 0;
 	width = 0;
-	if (flag->width > flag->after_width)
-		flag->width--;
 	if (flag->after_width > len)
-		width = flag->width - (flag->after_width - len) - len;
+		width = flag->width - (flag->after_width - len) - len -2;
 	else if (flag->width > len)
-		width = flag->width - len;
+		width = flag->width - len - 2 ;
 	if (flag->plus)
 		width--;
 	if (width > 0)

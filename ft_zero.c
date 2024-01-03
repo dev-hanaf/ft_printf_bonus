@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 02:32:04 by ahanaf            #+#    #+#             */
-/*   Updated: 2024/01/03 14:39:33 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/03 18:19:53 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ int	ft_zero_p(unsigned long long num, int width)
 		width--;
 	count = 0;
 	count += ft_putstr("0x");
+	len += 2;
 	while (width-- - len > 0)
 		count += ft_putchar('0');
 	count += ft_putaddresse(num);

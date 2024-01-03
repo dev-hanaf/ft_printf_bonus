@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 18:14:00 by ahanaf            #+#    #+#             */
-/*   Updated: 2024/01/03 14:24:10 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/03 18:21:05 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,7 @@ int	ft_minus_p(unsigned long long num, int width)
 	count = 0;
 	len = counter_number_p(num);
 	count += ft_putaddresse(num);
+	len += 2;
 	while (width - len > 0)
 	{
 		count += ft_putchar(' ');

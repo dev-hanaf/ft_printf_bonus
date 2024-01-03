@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 17:45:15 by ahanaf            #+#    #+#             */
-/*   Updated: 2024/01/03 15:01:02 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/03 18:39:56 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	handle_width_p(unsigned long long num, int is_zero, t_val *flag, int *count
 	}
 	else if (is_zero)
 	{
+		if (!flag->plus)
+			ft_print_space_p( count, flag);
 		ft_print_plus_minus_p( count, flag);
 		*count += ft_zero_p(num, flag->width);
 	}
@@ -33,6 +35,7 @@ void	handle_width_p(unsigned long long num, int is_zero, t_val *flag, int *count
 			flag->width--;
 		*count += add_spaces_p(num, flag->width);
 		ft_print_plus_minus_p( count, flag);
+		ft_print_space_p(count, flag);
 		*count += ft_putstr("0x");
 		*count += ft_putaddresse(num);
 	}
@@ -44,15 +47,12 @@ void	handle_width_precision_p(unsigned long long num, t_val *flag, int *count)
 	{
 		ft_print_space_p( count, flag);
 		flag->after_width = ft_get_precision(flag->prs);
-		if (num != 0 && !flag->after_width)
-			flag->width += 1;
-		if (num != 0 && flag->width > flag->after_width)
-			flag->width -= 1;
 		*count += ft_precision_of_minus_p(num, flag);
 	}
 	else
 	{
 		flag->after_width = ft_get_precision(flag->prs);
+		ft_print_space_p(count, flag);
 		*count += ft_precision_p(num, flag);
 	}
 }
