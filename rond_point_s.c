@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 17:45:15 by ahanaf            #+#    #+#             */
-/*   Updated: 2024/01/03 20:14:59 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/03 20:47:20 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,10 @@ void handle_only_precision_s(char *arg, t_val *flag, int *count)
 
 void	first_condition_part_s(char *arg, t_val *flag, int *count)
 {
-		// if (arg == NULL && ft_get_precision(flag->prs) >= 6 )
-		// *count += ft_putstr("(null)");
-	if (count_val_flags(flag) == 0)
+	if (count_val_flags(flag) == 0 && arg != NULL)
 		*count += ft_putstr(arg);
+	else if(count_val_flags(flag) == 0 && arg == NULL)
+		*count += ft_putstr("(null)");
 	else if (flag->width && !flag->precision)
 		handle_width_s(flag, arg, count);
 	else if (flag->width && flag->precision)

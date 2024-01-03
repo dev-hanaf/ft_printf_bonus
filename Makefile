@@ -26,6 +26,8 @@ OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
+bonus : $(NAME)
+
 $(NAME) : $(OBJ)
 
 %.o:%.c

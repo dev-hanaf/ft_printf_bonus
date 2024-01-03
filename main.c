@@ -6,13 +6,13 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 04:14:30 by new               #+#    #+#             */
-/*   Updated: 2024/01/03 20:14:59 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/03 22:42:33 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-int	main(int c, char **v)
+#include "limits.h"
+int	main()
 {
 	int	y;
 	int	x;
@@ -20,13 +20,13 @@ int	main(int c, char **v)
 	// printf(v[1]	,(unsigned int)atoi(v[2]));
 	// char	*n = v[2];
 	// char n = 'a';
-	(void)c;
+	// (void)c;
 	// (void)v;
-	int n = atoi(v[2]);
-	unsigned int n2 = (unsigned int)n;
-	x = ft_printf(v[1], n2);
+	// int n = atoi(v[2]);
+	// unsigned int n2 = (unsigned int)n;
+	x = ft_printf("%-+23.10c",'c');
 	printf("\n");
-	y = printf(v[1], n2);
+	y = printf("%-+23.10c", 'c');
 	printf("\n%d | %d", x, y);
 }
 

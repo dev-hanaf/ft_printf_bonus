@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 19:00:00 by new               #+#    #+#             */
-/*   Updated: 2024/01/03 20:14:59 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/03 22:03:14 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,11 +84,11 @@ void	ft_my_while(va_list ap, int *i, const char *str, t_format_args *args)
 {
 	int	inedx_save;
 
-	if (!str[*i])
-	{
-		*(args->count) = -1;
-		return ;
-	}
+	// if (!str[*i])
+	// {
+	// 	*(args->count) = -1;
+	// 	return ;
+	// }
 	inedx_save = *i;
 	while (str[*i])
 	{

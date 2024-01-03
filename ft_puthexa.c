@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 05:10:23 by ahanaf            #+#    #+#             */
-/*   Updated: 2024/01/03 20:14:59 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/03 21:16:13 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 int	ft_puthexa(unsigned int num, char f)
 {
-	static int	count = 0;
+	int	count = 0;
 
 	if (num >= 16)
 	{
-		ft_puthexa(num / 16, f);
+		count += ft_puthexa(num / 16, f);
 		num = num % 16;
 	}
 	if (f == 'x')
