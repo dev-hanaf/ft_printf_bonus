@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_precision.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
+/*   By: new <new@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 05:00:59 by new               #+#    #+#             */
-/*   Updated: 2024/01/03 20:14:59 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/04 04:44:30 by new              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	ft_precision_of_minus(int num, t_val *flag)
 	len = counter_number(tmp);
 	if (tmp >= 0 && flag->plus)
 		count += ft_putchar('+');
-	if (tmp < 0)
+	if (tmp < 0 && num != -2147483648)
 	{
 		count += ft_putchar('-');
 		tmp *= -1;
@@ -69,7 +69,7 @@ void	ft_completion_of_regular(int len, t_val *flag, int num, int *count)
 
 	if (num >= 0 && flag->plus)
 		*count += ft_putchar('+');
-	if (num < 0)
+	if (num < 0 && num != -2147483648)
 	{
 		*count += ft_putchar('-');
 		num *= -1;

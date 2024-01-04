@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rond_point.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
+/*   By: new <new@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 17:45:15 by ahanaf            #+#    #+#             */
-/*   Updated: 2024/01/03 20:14:59 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/04 03:29:31 by new              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	first_condition_part(int num, int is_zero, t_val *flag, int *count)
 		*count += ft_putnbr(num);
 	else if (flag->width && !flag->precision)
 		handle_width(num, is_zero, flag, count);
-	else if (flag->width && flag->precision)
+	else if (flag->precision)
 		handle_width_precision(num, flag, count);
 	else
 	{

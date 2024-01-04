@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_zero.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
+/*   By: new <new@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 02:32:04 by ahanaf            #+#    #+#             */
-/*   Updated: 2024/01/03 20:28:24 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/04 04:36:17 by new              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ int	ft_zero(int num, int width)
 	}
 	while (width-- - len > 0)
 		count += ft_putchar('0');
-	count += ft_putnbr(num);
+	if (num != 0)
+		count += ft_putnbr(num);
 	return (count);
 }
 
@@ -40,7 +41,8 @@ int	ft_zero_u(unsigned int num, int width)
 	count = 0;
 	while (width-- - len > 0)
 		count += ft_putchar('0');
-	count += ft_putnbr_u(num);
+	if (num != 0)
+		count += ft_putnbr_u(num);
 	return (count);
 }
 

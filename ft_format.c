@@ -6,7 +6,7 @@
 /*   By: new <new@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 22:44:47 by ahanaf            #+#    #+#             */
-/*   Updated: 2024/01/04 02:20:32 by new              ###   ########.fr       */
+/*   Updated: 2024/01/04 04:59:44 by new              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,12 @@ void	complete_ft_format2(va_list ap, t_val *flag, t_format_args *args,
 		*flag = ft_bonus(args->f, *mode);
 	}
 	else if (args->f == '%')
-		*(args->count) += ft_putchar('%');
+	{
+		flag->end_index = args->index;
+		*(args->count) += rond_point_precentage(flag, args->str, '%');
+		*mode = 1;
+		*flag = ft_bonus(args->f, *mode);
+	}
 }
 
 void	complete_ft_format(va_list ap, t_val *flag, t_format_args *args,

@@ -6,7 +6,7 @@
 /*   By: new <new@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 17:45:15 by ahanaf            #+#    #+#             */
-/*   Updated: 2024/01/04 01:13:35 by new              ###   ########.fr       */
+/*   Updated: 2024/01/04 03:30:46 by new              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	first_condition_part_s(char *arg, t_val *flag, int *count)
 		*count += ft_putstr(arg);
 	else if (flag->width && !flag->precision)
 		handle_width_s(flag, arg, count);
-	else if (flag->width && flag->precision)
+	else if (flag->precision)
 	{
 		if (flag->minus)
 		{

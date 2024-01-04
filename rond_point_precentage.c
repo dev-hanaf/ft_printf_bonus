@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rond_point_c.c                                     :+:      :+:    :+:   */
+/*   rond_point_prentage.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: new <new@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 17:45:15 by ahanaf            #+#    #+#             */
-/*   Updated: 2024/01/04 03:31:17 by new              ###   ########.fr       */
+/*   Updated: 2024/01/04 04:52:33 by new              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	handle_width_c(char c, int is_zero, t_val *flag, int *count)
+void	handle_width_precentage(char c, int is_zero, t_val *flag, int *count)
 {
 	if (flag->minus)
 	{
@@ -34,21 +34,21 @@ void	handle_width_c(char c, int is_zero, t_val *flag, int *count)
 	}
 }
 
-void	first_condition_part_c(char c, int is_zero, t_val *flag, int *count)
+void	first_condition_part_precentage(char c, int is_zero, t_val *flag, int *count)
 {
 	if (count_val_flags(flag) == 0)
 		*count += ft_putchar(c);
 	else if (flag->width && !flag->precision)
-		handle_width_c(c, is_zero, flag, count);
+		handle_width_precentage(c, is_zero, flag, count);
 	else if (flag->precision)
-		handle_width_c(c, is_zero, flag, count);
+		handle_width_precentage(c, is_zero, flag, count);
 	else
 	{
 		*count += ft_putchar(c);
 	}
 }
 
-int	rond_point_c(t_val *flag, const char *str, char c)
+int	rond_point_precentage(t_val *flag, const char *str, char c)
 {
 	int	count;
 	int	is_zero;
@@ -58,7 +58,7 @@ int	rond_point_c(t_val *flag, const char *str, char c)
 	is_zero = check_zero_is_flag(flag->prs);
 	count = 0;
 	flag->width = ft_width(flag->prs);
-	first_condition_part_c(c, is_zero, flag, &count);
+	first_condition_part_precentage(c, is_zero, flag, &count);
 	free(flag->prs);
 	return (count);
 }

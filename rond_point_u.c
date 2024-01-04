@@ -6,7 +6,7 @@
 /*   By: new <new@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 17:45:15 by ahanaf            #+#    #+#             */
-/*   Updated: 2024/01/04 01:40:34 by new              ###   ########.fr       */
+/*   Updated: 2024/01/04 03:30:32 by new              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	first_condition_part_u(unsigned int num, int is_zero, t_val *flag,
 		*count += ft_putnbr_u(num);
 	else if (flag->width && !flag->precision)
 		handle_width_u(num, is_zero, flag, count);
-	else if (flag->width && flag->precision)
+	else if ( flag->precision)
 		handle_width_precision_u(num, flag, count);
 	else
 	{

@@ -6,30 +6,37 @@
 /*   By: new <new@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 04:14:30 by new               #+#    #+#             */
-/*   Updated: 2024/01/04 02:13:46 by new              ###   ########.fr       */
+/*   Updated: 2024/01/04 04:47:38 by new              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "ft_printf.h"
-// #include "limits.h"
+#include "ft_printf.h"
 
-// int	main(void)
-// {
-// 	int	y;
-// 	int	x;
 
-// 	// printf(v[1]	,(unsigned int)atoi(v[2]));
-// 	// char	*n = v[2];
-// 	// char n = 'a';
-// 	// (void)c;
-// 	// (void)v;
-// 	// int n = atoi(v[2]);
-// 	// unsigned int n2 = (unsigned int)n;
-// 	x = ft_printf(": %02u :", -1);
-// 	printf("\n");
-// 	y = printf(": %02u :", -1);
-// 	printf("\n%d | %d", x, y);
-// }
+int	main(void)
+{
+	int	y;
+	int	x;
+
+	// printf(v[1]	,(unsigned int)atoi(v[2]));
+	// char	*n = v[2];
+	// char n = 'a';
+	// (void)c;
+	// (void)v;
+	// int n = atoi(v[2]);
+	// unsigned int n2 = (uncsigned int)n;
+	x = ft_printf("%5%");
+	printf("\n");
+	y = printf("%5%");
+	printf("\n%d | %d", x, y);
+}
+
+// For /Users/new/francinette/tests/printf/printfTester/tests/dot_test.cpp:
+// 57:     TEST(32, print(" %.9d ", INT_MIN));
+// 63:     TEST(38, print(" %.8d %.9d %.10d %.11d %.12d %.13d %.14d", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42));
+// 87:     TEST(61, print(" %.9i ", INT_MIN));
+// ...
+
 
 // // // int main(void)
 // // // {

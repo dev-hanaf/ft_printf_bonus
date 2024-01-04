@@ -6,7 +6,7 @@
 /*   By: new <new@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 01:51:45 by ahanaf            #+#    #+#             */
-/*   Updated: 2024/01/04 01:49:21 by new              ###   ########.fr       */
+/*   Updated: 2024/01/04 04:57:33 by new              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,9 @@ int				rond_point_xx(t_val *flag, const char *str, unsigned int num);
 int				rond_point_s(t_val *flag, const char *str, char *arg);
 int				rond_point_p(t_val *flag, const char *str,
 					unsigned long long num);
+int				rond_point_precentage(t_val *flag, const char *str, char c);
+void			handle_width_precentage(char c, int is_zero, t_val *flag, int *count);
+void			first_condition_part_precentage(char c, int is_zero, t_val *flag, int *count);
 
 ////
 void			handle_width_c(char c, int is_zero, t_val *flag, int *count);
@@ -158,4 +161,6 @@ void			ft_print_plus_p(unsigned long long num, int *count,
 void			ft_print_plus_minus_p(int *count, t_val *flag);
 void			ft_print_space_p(int *count, t_val *flag);
 int				add_spaces_p(unsigned long long num, int width);
+
+
 #endif
