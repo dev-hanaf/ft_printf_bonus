@@ -12,18 +12,18 @@
 
 #include "ft_printf.h"
 
-void	ft_completion_of_minus_p(t_val *flag, unsigned long long num, int *count)
+void	ft_completion_of_minus_p(t_val *flag, unsigned long long num,
+		int *count)
 {
 	int	len;
 	int	width;
 
 	len = counter_number_p(num);
 	width = 0;
-
 	if (flag->after_width > len)
 		width = flag->width - (flag->after_width - len) - len - 2;
 	else if (flag->width > len)
-		width = flag->width - len -2 ;
+		width = flag->width - len - 2;
 	if (flag->plus)
 		width--;
 	if (width > 0)
@@ -35,9 +35,9 @@ void	ft_completion_of_minus_p(t_val *flag, unsigned long long num, int *count)
 
 int	ft_precision_of_minus_p(unsigned long long num, t_val *flag)
 {
-	int	len;
-	int	count;
-	int	precision;
+	int					len;
+	int					count;
+	int					precision;
 	unsigned long long	tmp;
 
 	precision = flag->after_width;
@@ -58,11 +58,12 @@ int	ft_precision_of_minus_p(unsigned long long num, t_val *flag)
 	return (count);
 }
 
-void	ft_completion_of_regular_p(int len, t_val *flag, unsigned long long num, int *count)
+void	ft_completion_of_regular_p(int len, t_val *flag, unsigned long long num,
+		int *count)
 {
 	int	precision;
-	
-	if ( flag->plus)
+
+	if (flag->plus)
 		*count += ft_putchar('+');
 	*count += ft_putstr("0x");
 	if (flag->after_width > len)
@@ -87,9 +88,9 @@ int	ft_precision_p(unsigned long long num, t_val *flag)
 	count = 0;
 	width = 0;
 	if (flag->after_width > len)
-		width = flag->width - (flag->after_width - len) - len -2;
+		width = flag->width - (flag->after_width - len) - len - 2;
 	else if (flag->width > len)
-		width = flag->width - len - 2 ;
+		width = flag->width - len - 2;
 	if (flag->plus)
 		width--;
 	if (width > 0)

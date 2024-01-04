@@ -1,66 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rond_point_u.c                                     :+:      :+:    :+:   */
+/*   rond_point_c.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: new <new@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 17:45:15 by ahanaf            #+#    #+#             */
-/*   Updated: 2024/01/04 01:40:34 by new              ###   ########.fr       */
+/*   Updated: 2024/01/04 00:54:07 by new              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	handle_width_u(unsigned int num, int is_zero, t_val *flag, int *count)
+void	handle_width_c(char c, int is_zero, t_val *flag, int *count)
 {
 	if (flag->minus)
 	{
-		*count += ft_minus_u(num, flag->width);
+		*count += ft_putchar(c);
+		while (flag->width-- - 1 > 0)
+			*count += ft_putchar(' ');
 	}
 	else if (is_zero)
 	{
-		*count += ft_zero_u(num, flag->width);
+		while (flag->width-- - 1 > 0)
+			*count += ft_putchar('0');
+		*count += ft_putchar(c);
 	}
 	else
 	{
-		if (flag->plus)
-			flag->width--;
-		*count += add_spaces_u(num, flag->width);
-		*count += ft_putnbr_u(num);
+		while (flag->width-- - 1 > 0)
+			*count += ft_putchar(' ');
+		*count += ft_putchar(c);
 	}
 }
 
-void	handle_width_precision_u(unsigned int num, t_val *flag, int *count)
-{
-	if (flag->minus)
-	{
-		flag->after_width = ft_get_precision(flag->prs);
-		*count += ft_precision_of_minus_u(num, flag);
-	}
-	else
-	{
-		flag->after_width = ft_get_precision(flag->prs);
-		*count += ft_precision_u(num, flag);
-	}
-}
-
-void	first_condition_part_u(unsigned int num, int is_zero, t_val *flag,
-		int *count)
+void	first_condition_part_c(char c, int is_zero, t_val *flag, int *count)
 {
 	if (count_val_flags(flag) == 0)
-		*count += ft_putnbr_u(num);
+		*count += ft_putchar(c);
 	else if (flag->width && !flag->precision)
-		handle_width_u(num, is_zero, flag, count);
+		handle_width_c(c, is_zero, flag, count);
 	else if (flag->width && flag->precision)
-		handle_width_precision_u(num, flag, count);
+		handle_width_c(c, is_zero, flag, count);
 	else
 	{
-		*count += ft_putnbr_u(num);
+		*count += ft_putchar(c);
 	}
 }
 
-int	rond_point_u(t_val *flag, const char *str, unsigned int num)
+int	rond_point_c(t_val *flag, const char *str, char c)
 {
 	int	count;
 	int	is_zero;
@@ -70,7 +58,7 @@ int	rond_point_u(t_val *flag, const char *str, unsigned int num)
 	is_zero = check_zero_is_flag(flag->prs);
 	count = 0;
 	flag->width = ft_width(flag->prs);
-	first_condition_part_u(num, is_zero, flag, &count);
+	first_condition_part_c(c, is_zero, flag, &count);
 	free(flag->prs);
 	return (count);
 }

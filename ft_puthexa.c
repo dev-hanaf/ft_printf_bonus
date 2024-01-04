@@ -14,8 +14,9 @@
 
 int	ft_puthexa(unsigned int num, char f)
 {
-	int	count = 0;
+	int	count;
 
+	count = 0;
 	if (num >= 16)
 	{
 		count += ft_puthexa(num / 16, f);

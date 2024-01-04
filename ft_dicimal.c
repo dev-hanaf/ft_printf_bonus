@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_dicimal.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
+/*   By: new <new@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 02:00:56 by new               #+#    #+#             */
-/*   Updated: 2024/01/03 20:14:59 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/04 00:18:18 by new              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,3 @@ int	ft_putnbr(int num)
 		count += ft_putchar(num + '0');
 	return (count);
 }
-
-//	printf("\033[0;33mflag => point %d\n", flag->precision);
-// printf("flag => zero %d\n", flag->zero);
-// printf("flag => minus %d\n", flag->minus);
-// printf("flag => plus %d\n", flag->plus);
-// printf("flag => space %d\n", flag->space);
-// printf("flag => hash %d\033[0;0m\n", flag->hash);

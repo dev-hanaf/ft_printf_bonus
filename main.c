@@ -3,155 +3,156 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
+/*   By: new <new@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 04:14:30 by new               #+#    #+#             */
-/*   Updated: 2024/01/03 22:42:33 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/04 02:13:46 by new              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include "limits.h"
-int	main()
-{
-	int	y;
-	int	x;
+// #include "ft_printf.h"
+// #include "limits.h"
 
-	// printf(v[1]	,(unsigned int)atoi(v[2]));
-	// char	*n = v[2];
-	// char n = 'a';
-	// (void)c;
-	// (void)v;
-	// int n = atoi(v[2]);
-	// unsigned int n2 = (unsigned int)n;
-	x = ft_printf("%-+23.10c",'c');
-	printf("\n");
-	y = printf("%-+23.10c", 'c');
-	printf("\n%d | %d", x, y);
-}
+// int	main(void)
+// {
+// 	int	y;
+// 	int	x;
 
-// // int main(void)
-// // {
-// //     unsigned int  n = 123;
+// 	// printf(v[1]	,(unsigned int)atoi(v[2]));
+// 	// char	*n = v[2];
+// 	// char n = 'a';
+// 	// (void)c;
+// 	// (void)v;
+// 	// int n = atoi(v[2]);
+// 	// unsigned int n2 = (unsigned int)n;
+// 	x = ft_printf(": %02u :", -1);
+// 	printf("\n");
+// 	y = printf(": %02u :", -1);
+// 	printf("\n%d | %d", x, y);
+// }
 
-// //         // Vary width, precision, and the presence of '-' and '0' flags
-// //         printf(":%-5x:\n", n);
-// //         ft_printf(":%-5x:\n", n);
-// //         printf(":%-05x:\n", n);
-// //         ft_printf(":%-05x:\n", n);
-// //         printf(":%5x:\n", n);
-// //         ft_printf(":%5x:\n", n);
-// //         printf(":%05x:\n", n);
-// //         ft_printf(":%05x:\n", n);
-// //         printf(":%.2x:\n", n);
-// //         ft_printf(":%.2x:\n", n);
+// // // int main(void)
+// // // {
+// // //     unsigned int  n = 123;
 
-// //         printf(":%.5x:\n", n);
-// //         ft_printf(":%.5x:\n", n);
-// //         printf(":%-5.2x:\n", n);
-// //         ft_printf(":%-5.2x:\n", n);
-// //         printf(":%-5.5x:\n", n);
-// //         ft_printf(":%-5.5x:\n", n);
-// //         printf(":%-05.2x:\n", n);
-// //         ft_printf(":%-05.2x:\n", n);
-// //         printf(":%05.5x:\n", n);
-// //         ft_printf(":%05.5x:\n", n);
-// //         printf(":%-10.2x:\n", n);
-// //         ft_printf(":%-10.2x:\n", n);
-// //         printf(":%-10.5x:\n", n);
-// //         ft_printf(":%-10.5x:\n", n);
-// //         printf(":%-010.2x:\n", n);
-// //         ft_printf(":%-010.2x:\n", n);
-// //         printf(":%010.5x:\n", n);
-// //         ft_printf(":%010.5x:\n", n);
-// //         printf("\n");
+// // //         // Vary width, precision, and the presence of '-' and '0' flags
+// // //         printf(":%-5x:\n", n);
+// // //         ft_printf(":%-5x:\n", n);
+// // //         printf(":%-05x:\n", n);
+// // //         ft_printf(":%-05x:\n", n);
+// // //         printf(":%5x:\n", n);
+// // //         ft_printf(":%5x:\n", n);
+// // //         printf(":%05x:\n", n);
+// // //         ft_printf(":%05x:\n", n);
+// // //         printf(":%.2x:\n", n);
+// // //         ft_printf(":%.2x:\n", n);
 
-// //     return (0);
-// // }
+// // //         printf(":%.5x:\n", n);
+// // //         ft_printf(":%.5x:\n", n);
+// // //         printf(":%-5.2x:\n", n);
+// // //         ft_printf(":%-5.2x:\n", n);
+// // //         printf(":%-5.5x:\n", n);
+// // //         ft_printf(":%-5.5x:\n", n);
+// // //         printf(":%-05.2x:\n", n);
+// // //         ft_printf(":%-05.2x:\n", n);
+// // //         printf(":%05.5x:\n", n);
+// // //         ft_printf(":%05.5x:\n", n);
+// // //         printf(":%-10.2x:\n", n);
+// // //         ft_printf(":%-10.2x:\n", n);
+// // //         printf(":%-10.5x:\n", n);
+// // //         ft_printf(":%-10.5x:\n", n);
+// // //         printf(":%-010.2x:\n", n);
+// // //         ft_printf(":%-010.2x:\n", n);
+// // //         printf(":%010.5x:\n", n);
+// // //         ft_printf(":%010.5x:\n", n);
+// // //         printf("\n");
 
-// // int main(void)
-// // {
-// //     int n = 123;
+// // //     return (0);
+// // // }
 
-// //     // // Test 1
-// //     int x1 = ft_printf(":%d:", n);
-// //     puts("\n");
-// //     int y1 = printf(":%d:", n);
-// //     printf("\n%d %d\n", x1, y1);
+// // // int main(void)
+// // // {
+// // //     int n = 123;
 
-// //     // // Test 2
-// //     int x2 = ft_printf(":%10d:", n);
-// //     puts("\n");
-// //     int y2 = printf(":%10d:", n);
-// //     printf("\n%d %d\n", x2, y2);
+// // //     // // Test 1
+// // //     int x1 = ft_printf(":%d:", n);
+// // //     puts("\n");
+// // //     int y1 = printf(":%d:", n);
+// // //     printf("\n%d %d\n", x1, y1);
 
-// //     // // Test 3
-// //     int x3 = ft_printf(":%.5d:", n);
-// //     puts("\n");
-// //     int y3 = printf(":%.5d:", n);
-// //     printf("\n%d %d\n", x3, y3);
+// // //     // // Test 2
+// // //     int x2 = ft_printf(":%10d:", n);
+// // //     puts("\n");
+// // //     int y2 = printf(":%10d:", n);
+// // //     printf("\n%d %d\n", x2, y2);
 
-// //     // Test 4
-// //     int x4 = ft_printf(":%-10d:", n);
-// //     puts("\n");
-// //     int y4 = printf(":%-10d:", n);
-// //     printf("\n%d %d\n", x4, y4);
+// // //     // // Test 3
+// // //     int x3 = ft_printf(":%.5d:", n);
+// // //     puts("\n");
+// // //     int y3 = printf(":%.5d:", n);
+// // //     printf("\n%d %d\n", x3, y3);
 
-// //     // // Test 5
-// //     int x5 = ft_printf(":%15.8d:", n);
-// //     puts("\n");
-// //     int y5 = printf(":%15.8d:", n);
-// //     printf("\n%d %d\n", x5, y5);
+// // //     // Test 4
+// // //     int x4 = ft_printf(":%-10d:", n);
+// // //     puts("\n");
+// // //     int y4 = printf(":%-10d:", n);
+// // //     printf("\n%d %d\n", x4, y4);
 
-// //     // // Test 6
-// //     int x6 = ft_printf(":%-15.8d:", n);
-// //     puts("\n");
-// //     int y6 = printf(":%-15.8d:", n);
-// //     printf("\n%d %d\n", x6, y6);
+// // //     // // Test 5
+// // //     int x5 = ft_printf(":%15.8d:", n);
+// // //     puts("\n");
+// // //     int y5 = printf(":%15.8d:", n);
+// // //     printf("\n%d %d\n", x5, y5);
 
-// //     return (0);
-// // }
+// // //     // // Test 6
+// // //     int x6 = ft_printf(":%-15.8d:", n);
+// // //     puts("\n");
+// // //     int y6 = printf(":%-15.8d:", n);
+// // //     printf("\n%d %d\n", x6, y6);
 
-// // int	main(void)
-// // {
-// // 	int	n;
-// // 	int	negative;
+// // //     return (0);
+// // // }
 
-// // 	n = -123;
-// // 	// Test 1: Basic width and precision
-// // 	ft_printf(":%5.d:\n", n);
-// // 	printf(":%5.d:\n", n);
-// // 	// Test 2: Left-justified with width and precision
-// // 	ft_printf(":%-10.5d:\n", n);
-// // 	printf(":%-10.5d:\n", n);
-// // 	// Test 3: Precision without width
-// // 	ft_printf(":%.3d:\n", n);
-// // 	printf(":%.3d:\n", n);
-// // 	// Test 5: Precision greater than the number's length
-// // 	ft_printf(":%.8d:\n", n);
-// // 	printf(":%.8d:\n", n);
-// // 	// Test 6: Precision and width with a negative number
-// // 	negative = -456;
-// // 	ft_printf(":%10.4d:\n", negative);
-// // 	printf(":%10.4d:\n", negative);
-// // 	return (0);
-// // }
+// // // int	main(void)
+// // // {
+// // // 	int	n;
+// // // 	int	negative;
 
-// // int	main(void)
-// // {
-// // 	int num = 422;
+// // // 	n = -123;
+// // // 	// Test 1: Basic width and precision
+// // // 	ft_printf(":%5.d:\n", n);
+// // // 	printf(":%5.d:\n", n);
+// // // 	// Test 2: Left-justified with width and precision
+// // // 	ft_printf(":%-10.5d:\n", n);
+// // // 	printf(":%-10.5d:\n", n);
+// // // 	// Test 3: Precision without width
+// // // 	ft_printf(":%.3d:\n", n);
+// // // 	printf(":%.3d:\n", n);
+// // // 	// Test 5: Precision greater than the number's length
+// // // 	ft_printf(":%.8d:\n", n);
+// // // 	printf(":%.8d:\n", n);
+// // // 	// Test 6: Precision and width with a negative number
+// // // 	negative = -456;
+// // // 	ft_printf(":%10.4d:\n", negative);
+// // // 	printf(":%10.4d:\n", negative);
+// // // 	return (0);
+// // // }
 
-// // 	// Experiment with different format specifiers
-// // 	printf(":1. %d:\n", num);
-// // 	ft_printf(":1. %d:\n", num);
-// // 	printf(":2. %.d:\n", num);
-// // 	ft_printf(":2. %.d:\n", num);
-// // 	printf(":3. %-.d:\n", num);
-// // 	ft_printf(":3. %-.d:\n", num);
-// // 	printf(":4. %0d:\n", num);
-// // 	ft_printf(":4. %0d:\n", num);
-// // 	printf(":5. %-0d:\n", num);
-// // 	ft_printf(":5. %-0d:\n", num);
+// // // int	main(void)
+// // // {
+// // // 	int num = 422;
 
-// // 	return (0);
-// // }
+// // // 	// Experiment with different format specifiers
+// // // 	printf(":1. %d:\n", num);
+// // // 	ft_printf(":1. %d:\n", num);
+// // // 	printf(":2. %.d:\n", num);
+// // // 	ft_printf(":2. %.d:\n", num);
+// // // 	printf(":3. %-.d:\n", num);
+// // // 	ft_printf(":3. %-.d:\n", num);
+// // // 	printf(":4. %0d:\n", num);
+// // // 	ft_printf(":4. %0d:\n", num);
+// // // 	printf(":5. %-0d:\n", num);
+// // // 	ft_printf(":5. %-0d:\n", num);
+
+// // // 	return (0);
+// // // }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putaddresse.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
+/*   By: new <new@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 09:01:37 by ahanaf            #+#    #+#             */
-/*   Updated: 2024/01/03 21:12:13 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/04 02:17:07 by new              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	ft_putaddresse(unsigned long long num)
 {
-	char	*base = "0123456789abcdef";
-	
+	char	*base;
 	int		count;
 
+	base = "0123456789abcdef";
 	count = 0;
 	if (num < 16)
 	{

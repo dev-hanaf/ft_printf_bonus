@@ -20,7 +20,7 @@ int	ft_width(char *prs)
 	i = 0;
 	width = 0;
 	while (prs[i])
-	{	
+	{
 		if (prs[i] == '.')
 			return (width);
 		if (ft_isdigit(prs[i]))

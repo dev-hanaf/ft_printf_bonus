@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rond_point_s.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
+/*   By: new <new@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 17:45:15 by ahanaf            #+#    #+#             */
-/*   Updated: 2024/01/03 20:47:20 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/04 01:13:35 by new              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,30 +32,30 @@ void	handle_width_s(t_val *flag, char *arg, int *count)
 	}
 }
 
-void handle_only_precision_s(char *arg, t_val *flag, int *count)
+void	handle_only_precision_s(char *arg, t_val *flag, int *count)
 {
-		flag->after_width = ft_get_precision(flag->prs);
-		if (flag->after_width >= 6 && arg == NULL)
-			*count += ft_putstr("(null)");
-		if (flag->after_width <= (int)ft_strlen(arg))
+	flag->after_width = ft_get_precision(flag->prs);
+	if (flag->after_width >= 6 && arg == NULL)
+		*count += ft_putstr("(null)");
+	if (flag->after_width <= (int)ft_strlen(arg))
+	{
+		while (flag->after_width > 0)
 		{
-			while (flag->after_width > 0)
-			{
-				*count += ft_putchar(*arg);
-				arg++;
-				flag->after_width--;
-			}
-		}else {
-			*count += ft_putstr(arg);
+			*count += ft_putchar(*arg);
+			arg++;
+			flag->after_width--;
 		}
+	}
+	else
+	{
+		*count += ft_putstr(arg);
+	}
 }
 
 void	first_condition_part_s(char *arg, t_val *flag, int *count)
 {
-	if (count_val_flags(flag) == 0 && arg != NULL)
+	if (count_val_flags(flag) == 0)
 		*count += ft_putstr(arg);
-	else if(count_val_flags(flag) == 0 && arg == NULL)
-		*count += ft_putstr("(null)");
 	else if (flag->width && !flag->precision)
 		handle_width_s(flag, arg, count);
 	else if (flag->width && flag->precision)
@@ -74,6 +74,10 @@ void	first_condition_part_s(char *arg, t_val *flag, int *count)
 	}
 	else if (!flag->width && flag->precision)
 		handle_only_precision_s(arg, flag, count);
+	else
+	{
+		*count += ft_putstr(arg);
+	}
 }
 
 int	rond_point_s(t_val *flag, const char *str, char *arg)

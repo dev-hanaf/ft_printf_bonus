@@ -20,7 +20,7 @@ SRC = ft_printf.c \
 		rond_point_s.c ft_precision_s.c ft_putstr.c \
 		ft_bonus_utils.c ft_bonus_utils_u.c  ft_bonus_utils_x.c \
 		ft_bonus_utils_s.c ft_bonus_utils_xx.c ft_bonus_utils_p.c \
-		rond_point_p.c ft_precision_p.c 
+		rond_point_p.c ft_precision_p.c  rond_point_c.c
 		
 OBJ = $(SRC:.c=.o)
 

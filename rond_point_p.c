@@ -12,21 +12,22 @@
 
 #include "ft_printf.h"
 
-void	handle_width_p(unsigned long long num, int is_zero, t_val *flag, int *count)
+void	handle_width_p(unsigned long long num, int is_zero, t_val *flag,
+		int *count)
 {
 	if (flag->minus)
 	{
 		if (!flag->plus)
-			ft_print_space_p( count, flag);
-		ft_print_plus_minus_p( count, flag);
+			ft_print_space_p(count, flag);
+		ft_print_plus_minus_p(count, flag);
 		*count += ft_putstr("0x");
 		*count += ft_minus_p(num, flag->width);
 	}
 	else if (is_zero)
 	{
 		if (!flag->plus)
-			ft_print_space_p( count, flag);
-		ft_print_plus_minus_p( count, flag);
+			ft_print_space_p(count, flag);
+		ft_print_plus_minus_p(count, flag);
 		*count += ft_zero_p(num, flag->width);
 	}
 	else
@@ -34,18 +35,19 @@ void	handle_width_p(unsigned long long num, int is_zero, t_val *flag, int *count
 		if (flag->plus)
 			flag->width--;
 		*count += add_spaces_p(num, flag->width);
-		ft_print_plus_minus_p( count, flag);
+		ft_print_plus_minus_p(count, flag);
 		ft_print_space_p(count, flag);
 		*count += ft_putstr("0x");
 		*count += ft_putaddresse(num);
 	}
 }
 
-void	handle_width_precision_p(unsigned long long num, t_val *flag, int *count)
+void	handle_width_precision_p(unsigned long long num, t_val *flag,
+		int *count)
 {
 	if (flag->minus)
 	{
-		ft_print_space_p( count, flag);
+		ft_print_space_p(count, flag);
 		flag->after_width = ft_get_precision(flag->prs);
 		*count += ft_precision_of_minus_p(num, flag);
 	}
@@ -57,7 +59,8 @@ void	handle_width_precision_p(unsigned long long num, t_val *flag, int *count)
 	}
 }
 
-void	first_condition_part_p(unsigned long long num, int is_zero, t_val *flag, int *count)
+void	first_condition_part_p(unsigned long long num, int is_zero, t_val *flag,
+		int *count)
 {
 	if (count_val_flags(flag) == 0)
 	{
@@ -71,8 +74,8 @@ void	first_condition_part_p(unsigned long long num, int is_zero, t_val *flag, in
 	else
 	{
 		if (!flag->plus)
-			ft_print_space_p( count, flag);
-		ft_print_plus_minus_p( count, flag);
+			ft_print_space_p(count, flag);
+		ft_print_plus_minus_p(count, flag);
 		*count += ft_putstr("0x");
 		*count += ft_putaddresse(num);
 	}

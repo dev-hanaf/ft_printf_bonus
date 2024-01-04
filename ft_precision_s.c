@@ -59,9 +59,9 @@ void	ft_completion_of_regular_s(size_t len, int precision, char *arg,
 		int *count)
 {
 	int	i;
-	if (arg == NULL)
-		return;
 
+	if (arg == NULL)
+		return ;
 	(void)len;
 	i = 0;
 	while ((precision--) > 0 && arg[i])

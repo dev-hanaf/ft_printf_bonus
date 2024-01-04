@@ -75,7 +75,7 @@ void	ft_completion_of_regular(int len, t_val *flag, int num, int *count)
 		num *= -1;
 	}
 	if (!flag->plus && flag->space)
-		ft_print_space(num ,count, flag);
+		ft_print_space(num, count, flag);
 	if (flag->after_width > len)
 	{
 		precision = flag->after_width - len;

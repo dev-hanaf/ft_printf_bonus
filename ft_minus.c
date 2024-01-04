@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_minus.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
+/*   By: new <new@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 18:14:00 by ahanaf            #+#    #+#             */
-/*   Updated: 2024/01/03 20:26:33 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/04 02:19:41 by new              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,23 +86,6 @@ int	ft_minus_xx(unsigned int num, int width, t_val *flag)
 	count = 0;
 	len = counter_number_x(num, flag);
 	count += ft_puthexa(num, 'X');
-	while (width - len > 0)
-	{
-		count += ft_putchar(' ');
-		width--;
-	}
-	return (count);
-}
-
-int	ft_minus_p(unsigned long long num, int width)
-{
-	int	count;
-	int	len;
-
-	count = 0;
-	len = counter_number_p(num);
-	count += ft_putaddresse(num);
-	len += 2;
 	while (width - len > 0)
 	{
 		count += ft_putchar(' ');
