@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 05:00:59 by new               #+#    #+#             */
-/*   Updated: 2024/01/05 05:40:21 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/05 06:56:06 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	ft_completion_of_minus_u(t_val *flag, unsigned int num, int *count)
 		width = flag->width - (flag->after_width - len) - len;
 	else if (flag->width > len)
 		width = flag->width - len;
+	if (num == 0 && flag->after_width == 0 && flag->width > len - 1)
+		width = flag->width;
 	if (flag->plus)
 		width--;
 	if (width > 0)
@@ -49,7 +51,7 @@ int	ft_precision_of_minus_u(unsigned int num, t_val *flag)
 		count += ft_putchar('+');
 	if (num == 0 && precision == 0)
 		count += 0;
-	else 
+	else
 	{
 		if (precision > len)
 		{
@@ -71,7 +73,7 @@ void	ft_completion_of_regular_u(int len, t_val *flag, unsigned int num,
 		*count += ft_putchar('+');
 	if (num == 0 && flag->after_width == 0)
 		return ;
-	else 
+	else
 	{
 		if (flag->after_width > len)
 		{
@@ -98,6 +100,8 @@ int	ft_precision_u(unsigned int num, t_val *flag)
 		width = flag->width - (flag->after_width - len) - len;
 	else if (flag->width > len)
 		width = flag->width - len;
+	if (num == 0 && flag->after_width == 0 && flag->width > len - 1)
+		width = flag->width;
 	if (flag->plus)
 		width--;
 	if (width > 0)

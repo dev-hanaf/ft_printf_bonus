@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 01:51:45 by ahanaf            #+#    #+#             */
-/*   Updated: 2024/01/05 03:55:17 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/05 08:44:13 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ typedef struct s_format_args
 
 // ft_fromat.c
 void			ft_format(va_list ap, char f, t_format_args *args);
-
 // ft_printf.c
 int				ft_check_flags(char f);
 void			ft_reset_t_val(t_val *flag);
@@ -67,7 +66,6 @@ int				ft_mandatory_flags(char f);
 void			ft_my_while(va_list ap, int *i, const char *str,
 					t_format_args *args);
 int				ft_printf(const char *str, ...);
-
 // ft_utils.c
 int				ft_isdigit(int c);
 int				ft_putchar(char c);
@@ -75,28 +73,22 @@ size_t			ft_strlen(const char *str);
 // ft_dicimal.c
 int				ft_putnbr(int num);
 int				ft_putnbr_u(unsigned int n);
-
 int				ft_putstr(char *s);
-
 void			ft_putaddresse_helper(unsigned long long num, int *count);
 int				ft_putaddresse(unsigned long long num);
-
 int				ft_puthexa(unsigned int num, char f);
 int				count_val_flags(t_val *flag);
-
 char			*ft_parser(const char *str, int start, int end);
 int				counter_number(int num);
 int				counter_number_u(unsigned int num);
 int				counter_number_x(unsigned int num, t_val *flag);
 int				counter_number_p(unsigned long long num);
-
 int				ft_minus(int num, int width);
 int				ft_minus_u(unsigned int num, int width);
 int				ft_minus_s(char *arg, int width);
 int				ft_minus_x(unsigned int num, int width, t_val *flag);
 int				ft_minus_xx(unsigned int num, int width, t_val *flag);
 int				ft_minus_p(unsigned long long num, int width);
-
 int				ft_width(char *prs);
 int				ft_get_precision(char *prs);
 int				ft_precision(int num, t_val *flag);
@@ -105,20 +97,17 @@ int				ft_precision_x(unsigned int num, t_val *flag);
 int				ft_precision_xx(unsigned int num, t_val *flag);
 int				ft_precision_s(char *arg, int precision, int width);
 int				ft_precision_p(unsigned long long num, t_val *flag);
-
 int				ft_precision_of_minus(int num, t_val *flag);
 int				ft_precision_of_minus_u(unsigned int num, t_val *flag);
 int				ft_precision_of_minus_x(unsigned int num, t_val *flag);
 int				ft_precision_of_minus_xx(unsigned int num, t_val *flag);
 int				ft_precision_of_minus_s(char *arg, int precision, int width);
 int				ft_precision_of_minus_p(unsigned long long num, t_val *flag);
-
 int				ft_zero(int num, int width);
 int				ft_zero_u(unsigned int num, int width);
 int				ft_zero_x(unsigned int num, int width, t_val *flag);
 int				ft_zero_xx(unsigned int num, int width, t_val *flag);
 int				ft_zero_p(unsigned long long num, int width);
-
 int				rond_point(t_val *flag, const char *str, int num);
 int				rond_point_c(t_val *flag, const char *str, char c);
 int				rond_point_u(t_val *flag, const char *str, unsigned int num);
@@ -128,15 +117,13 @@ int				rond_point_s(t_val *flag, const char *str, char *arg);
 int				rond_point_p(t_val *flag, const char *str,
 					unsigned long long num);
 int				rond_point_precentage(t_val *flag, const char *str, char c);
-void			handle_width_precentage(char c, int is_zero, t_val *flag, int *count);
-void			first_condition_part_precentage(char c, int is_zero, t_val *flag, int *count);
-
-////
+void			handle_width_precentage(char c, int is_zero, t_val *flag,
+					int *count);
+void			first_condition_part_precentage(char c, int is_zero,
+					t_val *flag, int *count);
 void			handle_width_c(char c, int is_zero, t_val *flag, int *count);
 void			first_condition_part_c(char c, int is_zero, t_val *flag,
 					int *count);
-////
-
 int				add_spaces(int num, int width);
 void			ft_print_plus(int num, int *count, t_val *flag);
 void			ft_print_plus_minus(int num, int *count, t_val *flag);
@@ -161,6 +148,5 @@ void			ft_print_plus_p(unsigned long long num, int *count,
 void			ft_print_plus_minus_p(int *count, t_val *flag);
 void			ft_print_space_p(int *count, t_val *flag);
 int				add_spaces_p(unsigned long long num, int width);
-
 
 #endif

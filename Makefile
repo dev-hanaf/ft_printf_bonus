@@ -27,7 +27,7 @@ OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
-bonus : $(NAME)
+bonus : all
 
 $(NAME) : $(OBJ)
 
@@ -40,7 +40,6 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
-	rm -f a.out
 
 re : fclean all
 

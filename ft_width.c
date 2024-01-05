@@ -28,7 +28,7 @@ int	ft_width(char *prs)
 			if (width == 0 && prs[i] == 48)
 			{
 				i++;
-				continue;
+				continue ;
 			}
 			width = width * 10 + (prs[i] - '0');
 			if (!ft_isdigit(prs[i + 1]))
@@ -38,4 +38,3 @@ int	ft_width(char *prs)
 	}
 	return (width);
 }
-

@@ -34,7 +34,8 @@ void	handle_width_precentage(char c, int is_zero, t_val *flag, int *count)
 	}
 }
 
-void	first_condition_part_precentage(char c, int is_zero, t_val *flag, int *count)
+void	first_condition_part_precentage(char c, int is_zero, t_val *flag,
+		int *count)
 {
 	if (count_val_flags(flag) == 0)
 		*count += ft_putchar(c);

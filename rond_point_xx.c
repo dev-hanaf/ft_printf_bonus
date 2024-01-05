@@ -64,7 +64,7 @@ void	first_condition_part_xx(unsigned int num, int is_zero, t_val *flag,
 		*count += ft_puthexa(num, 'X');
 	else if (flag->width && !flag->precision)
 		handle_width_xx(num, is_zero, flag, count);
-	else if ( flag->precision)
+	else if (flag->precision)
 		handle_width_precision_xx(num, flag, count);
 	else
 	{

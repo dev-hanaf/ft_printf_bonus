@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 02:32:04 by ahanaf            #+#    #+#             */
-/*   Updated: 2024/01/05 02:36:48 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/05 05:54:46 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,10 @@ int	ft_zero(int num, int width)
 		len += 1;
 	while (width-- - len > 0)
 		count += ft_putchar('0');
-	count += ft_putnbr(num);
+	if (num == -2147483648)
+		count += ft_putstr("2147483648");
+	else
+		count += ft_putnbr(num);
 	return (count);
 }
 

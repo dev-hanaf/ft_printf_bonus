@@ -43,7 +43,6 @@ int	counter_number_u(unsigned int num)
 	int	i;
 
 	i = 0;
-
 	if (num == 0)
 		return (1);
 	while (num > 0)

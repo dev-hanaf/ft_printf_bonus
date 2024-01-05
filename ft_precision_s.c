@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 05:00:59 by new               #+#    #+#             */
-/*   Updated: 2024/01/04 10:36:45 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/05 09:36:53 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,29 +37,23 @@ int	ft_precision_of_minus_s(char *arg, int precision, int width)
 	int		count;
 	int		tmp;
 	char	*tmp_arg;
-	char *nl = "(null)";
-	
+	char	*nl;
+	int		i;
+
+	i = 0;
+	nl = "(null)";
 	count = 0;
 	tmp = precision;
 	tmp_arg = arg;
 	if (precision >= 6 && arg == NULL)
 		count += ft_putstr("(null)");
 	else if (arg == NULL)
-	{
-		while (precision-- >0 && *nl)
-		{
-			count += ft_putchar(*nl);
-			nl++;
-		}
-	}
+		while (precision-- > 0 && nl[i])
+			count += ft_putchar(nl[i++]);
+	i = 0;
 	if (arg != NULL)
-	{
-		while ((precision--) > 0 && *arg)
-		{
-			count += ft_putchar(*arg);
-			arg++;
-		}
-	}
+		while ((precision--) > 0 && arg[i])
+			count += ft_putchar(arg[i++]);
 	ft_completion_of_minus_s(width, tmp, tmp_arg, &count);
 	return (count);
 }
@@ -67,20 +61,21 @@ int	ft_precision_of_minus_s(char *arg, int precision, int width)
 void	ft_completion_of_regular_s(size_t len, int precision, char *arg,
 		int *count)
 {
-	char *nl = "(null)";
-	int	i;
+	char	*nl;
+	int		i;
 
+	nl = "(null)";
 	(void)len;
 	i = 0;
 	if (arg == NULL)
 	{
-		while (precision-- >0 && nl[i])
+		while (precision-- > 0 && nl[i])
 		{
 			*count += ft_putchar(nl[i]);
 			i++;
 		}
 	}
-	else 
+	else
 	{
 		while ((precision--) > 0 && arg[i])
 		{

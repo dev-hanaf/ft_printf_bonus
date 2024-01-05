@@ -6,11 +6,26 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 17:45:15 by ahanaf            #+#    #+#             */
-/*   Updated: 2024/01/05 03:55:27 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/05 09:32:13 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+void	complete_handle_width_is_zero(int num, int *count, t_val *flag)
+{
+	ft_print_plus_minus(num, count, flag);
+	if (flag->space && num >= 0 && flag->width)
+		flag->width--;
+	if (flag->space && num >= 0)
+		*count += ft_putchar(' ');
+	if (num == -2147483648)
+	{
+		*count += ft_putchar('-');
+		flag->width--;
+	}
+	*count += ft_zero(num, flag->width);
+}
 
 void	handle_width(int num, int is_zero, t_val *flag, int *count)
 {
@@ -23,12 +38,7 @@ void	handle_width(int num, int is_zero, t_val *flag, int *count)
 	}
 	else if (is_zero)
 	{
-		ft_print_plus_minus(num, count, flag);
-		if (flag->space && num >= 0 && flag->width)
-			flag->width--;
-		if (flag->space && num >= 0)
-			*count += ft_putchar(' ');
-		*count += ft_zero(num, flag->width);
+		complete_handle_width_is_zero(num, count, flag);
 	}
 	else
 	{

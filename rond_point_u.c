@@ -52,7 +52,7 @@ void	first_condition_part_u(unsigned int num, int is_zero, t_val *flag,
 		*count += ft_putnbr_u(num);
 	else if (flag->width && !flag->precision)
 		handle_width_u(num, is_zero, flag, count);
-	else if ( flag->precision)
+	else if (flag->precision)
 		handle_width_precision_u(num, flag, count);
 	else
 	{

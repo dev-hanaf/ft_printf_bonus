@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 05:00:59 by new               #+#    #+#             */
-/*   Updated: 2024/01/05 01:27:45 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/05 09:28:36 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	ft_precision_of_minus(int num, t_val *flag)
 void	ft_completion_of_regular(int len, t_val *flag, int num, int *count)
 {
 	int	precision;
-	
+
 	if (num >= 0 && flag->plus)
 		*count += ft_putchar('+');
 	if (num < 0)
@@ -74,7 +74,6 @@ void	ft_completion_of_regular(int len, t_val *flag, int num, int *count)
 		*count += ft_putchar('-');
 		num *= -1;
 	}
-
 	if (flag->after_width > len)
 	{
 		precision = flag->after_width - len;
@@ -87,8 +86,6 @@ void	ft_completion_of_regular(int len, t_val *flag, int num, int *count)
 		*count += ft_putnbr(num);
 }
 
-
-
 int	ft_precision(int num, t_val *flag)
 {
 	int	len;
@@ -97,7 +94,7 @@ int	ft_precision(int num, t_val *flag)
 
 	len = counter_number(num);
 	count = 0;
-	width = 0;	
+	width = 0;
 	if (flag->width > flag->after_width && num < 0)
 		flag->width--;
 	if (flag->after_width > len)
