@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: new <new@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 02:02:40 by new               #+#    #+#             */
-/*   Updated: 2024/01/04 03:38:59 by new              ###   ########.fr       */
+/*   Updated: 2024/01/04 11:41:50 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,9 @@ int	counter_number_u(unsigned int num)
 	int	i;
 
 	i = 0;
+
+	if (num == 0)
+		return (1);
 	while (num > 0)
 	{
 		num /= 10;
@@ -56,6 +59,8 @@ int	counter_number_x(unsigned int num, t_val *flag)
 	int	i;
 
 	i = 0;
+	if (num == 0)
+		return (1);
 	if (num != 0 && flag->hash)
 		i += 2;
 	while (num > 0)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: new <new@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 01:51:45 by ahanaf            #+#    #+#             */
-/*   Updated: 2024/01/04 04:57:33 by new              ###   ########.fr       */
+/*   Updated: 2024/01/05 01:41:23 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ int				ft_minus_xx(unsigned int num, int width, t_val *flag);
 int				ft_minus_p(unsigned long long num, int width);
 
 int				ft_width(char *prs);
+int				ft_width_d(char *prs);
 int				ft_get_precision(char *prs);
 int				ft_precision(int num, t_val *flag);
 int				ft_precision_u(unsigned int num, t_val *flag);

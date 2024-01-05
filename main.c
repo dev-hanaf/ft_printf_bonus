@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: new <new@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 04:14:30 by new               #+#    #+#             */
-/*   Updated: 2024/01/04 04:47:38 by new              ###   ########.fr       */
+/*   Updated: 2024/01/05 02:39:40 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,25 @@ int	main(void)
 	// (void)v;
 	// int n = atoi(v[2]);
 	// unsigned int n2 = (uncsigned int)n;
-	x = ft_printf("%5%");
-	printf("\n");
-	y = printf("%5%");
-	printf("\n%d | %d", x, y);
-}
+	// x = ft_printf(" %.1x ", 0);
+	// printf("\n");
+	// y = printf(" %.1x ", 0);
+	// printf("\n%d | %d", x, y);
 
-// For /Users/new/francinette/tests/printf/printfTester/tests/dot_test.cpp:
-// 57:     TEST(32, print(" %.9d ", INT_MIN));
-// 63:     TEST(38, print(" %.8d %.9d %.10d %.11d %.12d %.13d %.14d", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42));
-// 87:     TEST(61, print(" %.9i ", INT_MIN));
-// ...
+		 x = ft_printf(">------------<%47x>------------<", 0);
+		printf("\n"GREEN);
+		 y = printf(">------------<%47x>------------<", 0);
+
+		printf(NC"\n%d %d",x, y);
+// ft_printf("%5p, %5p, %5p, %5p, %5p, %5p", (void *)0, (void *)0xABCDE, (void *)ULONG_MAX, (void *)LONG_MIN, (void *)-1, (void *)-2352): returned: 92, but expected: 94
+// Error in test 3: ft_printf("%5p, %5p, %5p, %5p, %5p, %5p", (void *)0, (void *)0xABCDE, (void *)ULONG_MAX, (void *)LONG_MIN, (void *)-1, (void *)-2352): different memory
+}
+// 125:    TEST(97, print(" %.1x ", 0));
+// 149:    TEST(121, print(" %.11x ", LONG_MIN));
+// 153:    TEST(125, print(" %.8x %.9x %.10x %.11x %.12x %.13x %.14x", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42));
+// 155:    TEST(126, print(" %.1X ", 0));
+// 179:    TEST(150, print(" %.11X ", LONG_MIN));
+// 183:    TEST(154, print(" %.8X %.9X %.10X %.11X %.12X %.13X %.14X", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42));
 
 
 // // // int main(void)

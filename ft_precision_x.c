@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 05:00:59 by new               #+#    #+#             */
-/*   Updated: 2024/01/03 20:14:59 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/04 09:30:33 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,7 @@ int	ft_precision_of_minus_x(unsigned int num, t_val *flag)
 			count += ft_putchar('0');
 		}
 	}
-	if (tmp != 0)
-		count += ft_puthexa(tmp, 'x');
+	count += ft_puthexa(tmp, 'x');
 	ft_completion_of_minus_x(flag, num, &count);
 	return (count);
 }
@@ -77,10 +76,7 @@ void	ft_completion_of_regular_x(int len, t_val *flag, unsigned int num,
 		while (precision-- > 0)
 			*count += ft_putchar('0');
 	}
-	if (num != 0)
-	{
 		*count += ft_puthexa(num, 'x');
-	}
 }
 
 int	ft_precision_x(unsigned int num, t_val *flag)

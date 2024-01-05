@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 05:00:59 by new               #+#    #+#             */
-/*   Updated: 2024/01/03 20:14:59 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/04 10:28:50 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,15 +45,17 @@ int	ft_precision_of_minus_u(unsigned int num, t_val *flag)
 	len = counter_number_u(tmp);
 	if (flag->plus)
 		count += ft_putchar('+');
-	if (precision > len)
+	if (num == 0 && precision == 0)
+		count += 0;
+	else 
 	{
-		while (precision-- - len > 0)
+		if (precision > len)
 		{
-			count += ft_putchar('0');
+			while (precision-- - len > 0)
+				count += ft_putchar('0');
 		}
-	}
-	if (tmp != 0)
 		count += ft_putnbr_u(tmp);
+	}
 	ft_completion_of_minus_u(flag, num, &count);
 	return (count);
 }
@@ -65,14 +67,16 @@ void	ft_completion_of_regular_u(int len, t_val *flag, unsigned int num,
 
 	if (flag->plus)
 		*count += ft_putchar('+');
-	if (flag->after_width > len)
+	if (num == 0 && flag->after_width == 0)
+		return ;
+	else 
 	{
-		precision = flag->after_width - len;
-		while (precision-- > 0)
-			*count += ft_putchar('0');
-	}
-	if (num != 0)
-	{
+		if (flag->after_width > len)
+		{
+			precision = flag->after_width - len;
+			while (precision-- > 0)
+				*count += ft_putchar('0');
+		}
 		*count += ft_putnbr_u(num);
 	}
 }

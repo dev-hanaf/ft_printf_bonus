@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_zero.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: new <new@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 02:32:04 by ahanaf            #+#    #+#             */
-/*   Updated: 2024/01/04 04:36:17 by new              ###   ########.fr       */
+/*   Updated: 2024/01/05 02:36:48 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,17 @@ int	ft_zero(int num, int width)
 
 	len = counter_number(num);
 	count = 0;
-	if (num < 0)
+	if (num < 0 && num != -2147483648)
 	{
 		count += ft_putchar('-');
 		width--;
 		num *= -1;
 	}
+	if (num == 0)
+		len += 1;
 	while (width-- - len > 0)
 		count += ft_putchar('0');
-	if (num != 0)
-		count += ft_putnbr(num);
+	count += ft_putnbr(num);
 	return (count);
 }
 
@@ -41,8 +42,7 @@ int	ft_zero_u(unsigned int num, int width)
 	count = 0;
 	while (width-- - len > 0)
 		count += ft_putchar('0');
-	if (num != 0)
-		count += ft_putnbr_u(num);
+	count += ft_putnbr_u(num);
 	return (count);
 }
 
@@ -52,8 +52,6 @@ int	ft_zero_x(unsigned int num, int width, t_val *flag)
 	int	len;
 
 	len = counter_number_x(num, flag);
-	if (num == 0)
-		width--;
 	count = 0;
 	while (width-- - len > 0)
 		count += ft_putchar('0');
@@ -67,8 +65,6 @@ int	ft_zero_xx(unsigned int num, int width, t_val *flag)
 	int	len;
 
 	len = counter_number_x(num, flag);
-	if (num == 0)
-		width--;
 	count = 0;
 	while (width-- - len > 0)
 		count += ft_putchar('0');

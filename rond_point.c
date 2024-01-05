@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rond_point.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: new <new@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 17:45:15 by ahanaf            #+#    #+#             */
-/*   Updated: 2024/01/04 03:29:31 by new              ###   ########.fr       */
+/*   Updated: 2024/01/05 02:31:15 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,17 @@ void	handle_width(int num, int is_zero, t_val *flag, int *count)
 	else if (is_zero)
 	{
 		ft_print_plus_minus(num, count, flag);
+		if (flag->space && num >= 0 && flag->width)
+			flag->width--;
+		if (flag->space && num >= 0)
+			*count += ft_putchar(' ');
 		*count += ft_zero(num, flag->width);
 	}
 	else
 	{
 		if (flag->plus && num >= 0)
 			flag->width--;
+		ft_print_space(num, count, flag);
 		*count += add_spaces(num, flag->width);
 		ft_print_plus_minus(num, count, flag);
 		*count += ft_putnbr(num);
@@ -40,13 +45,20 @@ void	handle_width_precision(int num, t_val *flag, int *count)
 {
 	if (flag->minus)
 	{
-		ft_print_space(num, count, flag);
 		flag->after_width = ft_get_precision(flag->prs);
+		if (flag->space && num >= 0 && flag->width)
+			flag->width--;
+		if (flag->space && num >= 0)
+			*count += ft_putchar(' ');
 		*count += ft_precision_of_minus(num, flag);
 	}
 	else
 	{
 		flag->after_width = ft_get_precision(flag->prs);
+		if (flag->space && num >= 0 && flag->width)
+			flag->width--;
+		if (flag->space && num >= 0)
+			*count += ft_putchar(' ');
 		*count += ft_precision(num, flag);
 	}
 }
@@ -77,7 +89,8 @@ int	rond_point(t_val *flag, const char *str, int num)
 	flag->prs = ft_parser(str, flag->start_index, flag->end_index);
 	is_zero = check_zero_is_flag(flag->prs);
 	count = 0;
-	flag->width = ft_width(flag->prs);
+	flag->width = ft_width_d(flag->prs);
+	// printf("\nwidht %d\n",flag->width);
 	first_condition_part(num, is_zero, flag, &count);
 	free(flag->prs);
 	return (count);

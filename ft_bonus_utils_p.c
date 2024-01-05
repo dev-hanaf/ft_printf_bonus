@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bonus_utils_p.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: new <new@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 17:14:50 by ahanaf            #+#    #+#             */
-/*   Updated: 2024/01/04 02:20:09 by new              ###   ########.fr       */
+/*   Updated: 2024/01/04 10:51:38 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int	add_spaces_p(unsigned long long num, int width)
 
 	count = 0;
 	len = counter_number_p(num);
-	len += 2;
+	if (num)
+		len += 2;
 	while (width-- - len > 0)
 		count += ft_putchar(' ');
 	return (count);
@@ -62,7 +63,8 @@ int	ft_minus_p(unsigned long long num, int width)
 	count = 0;
 	len = counter_number_p(num);
 	count += ft_putaddresse(num);
-	len += 2;
+	if (num)
+		len += 2;
 	while (width - len > 0)
 	{
 		count += ft_putchar(' ');

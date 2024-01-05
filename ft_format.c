@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_format.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: new <new@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 22:44:47 by ahanaf            #+#    #+#             */
-/*   Updated: 2024/01/04 04:59:44 by new              ###   ########.fr       */
+/*   Updated: 2024/01/04 10:42:34 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	counter_number_p(unsigned long long num)
 
 	i = 0;
 	if (!num)
-		return (5);
+		return (3);
 	while (num > 0)
 	{
 		num /= 16;

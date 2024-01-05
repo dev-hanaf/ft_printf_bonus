@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_precision_xx.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: new <new@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 02:19:00 by new               #+#    #+#             */
-/*   Updated: 2024/01/04 02:19:08 by new              ###   ########.fr       */
+/*   Updated: 2024/01/04 09:31:09 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,7 @@ int	ft_precision_of_minus_xx(unsigned int num, t_val *flag)
 			count += ft_putchar('0');
 		}
 	}
-	if (tmp != 0)
-		count += ft_puthexa(tmp, 'X');
+	count += ft_puthexa(tmp, 'X');
 	ft_completion_of_minus_xx(flag, num, &count);
 	return (count);
 }
@@ -77,10 +76,7 @@ void	ft_completion_of_regular_xx(int len, t_val *flag, unsigned int num,
 		while (precision-- > 0)
 			*count += ft_putchar('0');
 	}
-	if (num != 0)
-	{
-		*count += ft_puthexa(num, 'X');
-	}
+	*count += ft_puthexa(num, 'X');
 }
 
 int	ft_precision_xx(unsigned int num, t_val *flag)
