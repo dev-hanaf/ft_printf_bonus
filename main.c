@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 04:14:30 by new               #+#    #+#             */
-/*   Updated: 2024/01/05 05:08:10 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/05 05:40:53 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,47 +29,15 @@ int	main(void)
 	// printf("\n");
 	// y = printf(" %.1x ", 0);
 	// printf("\n%d | %d", x, y);
-	x += ft_printf(":%5.0u:", 0);
-	//x += ft_printf("%5.u", 0);
-	//x +=ft_printf("%-5.0u", 0);
-	//x +=ft_printf("%-5.u", 0);
+
 	// x +=ft_printf("%.0x", 0);
-	// x +=ft_printf("%.x", 0);
-	// x +=ft_printf("%5.0x", 0);
-	// x +=ft_printf("%5.x", 0);
-	// x +=ft_printf("%-5.0x", 0);
-	// x +=ft_printf("%-5.x", 0);
-	// x +=ft_printf("%.0x", 0);
-	// x +=ft_printf("%.x", 0);
-	// x +=ft_printf("%5.0x", 0);
-	// x +=ft_printf("%5.x", 0);
-	// x +=ft_printf("%-5.0x", 0);
-	// x +=ft_printf("%-5.x", 0);
-	// x +=ft_printf("%.0X", 0);
-	// x +=ft_printf("%.X", 0);
-	// x +=ft_printf("%5.0X", 0);
-	// x +=ft_printf("%5.X", 0);
+	x +=ft_printf("%20.u", 1024u);
+ 	x += ft_printf("%20.0u", -1024u);
+ 	x += ft_printf("%5.u", 1);
 	printf("\n");
-	y += printf(":%5.0u:", 0);
-	//y += printf("%5.u", 0);
-	//y += printf("%-5.0u", 0);
-	//y += printf("%-5.u", 0);
-	// y += printf("%.0x", 0);
-	// y += printf("%.x", 0);
-	// y += printf("%5.0x", 0);
-	// y += printf("%5.x", 0);
-	// y += printf("%-5.0x", 0);
-	// y += printf("%-5.x", 0);
-	// y += printf("%.0x", 0);
-	// y += printf("%.x", 0);
-	// y += printf("%5.0x", 0);
-	// y += printf("%5.x", 0);
-	// y += printf("%-5.0x", 0);
-	// y += printf("%-5.x", 0);
-	// y += printf("%.0X", 0);
-	// y += printf("%.X", 0);
-	// y += printf("%5.0X", 0);
-	// y += printf("%5.X", 0);
+ 	y += printf("%20.u", 1024u);
+ 	y += printf("%20.0u", -1024u);
+	y += printf("%5.u", 1);
 
 
 		//  x = ft_printf("^.^/%010.1u^.^/",0);

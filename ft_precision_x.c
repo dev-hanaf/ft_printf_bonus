@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 05:00:59 by new               #+#    #+#             */
-/*   Updated: 2024/01/05 05:05:05 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/05 05:29:21 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	ft_completion_of_minus_x(t_val *flag, unsigned int num, int *count)
 		width = flag->width - (flag->after_width - len) - len;
 	else if (flag->width > len)
 		width = flag->width - len;
+	if (num == 0 && flag->after_width == 0 && flag->width > len)
+		width = flag->width;
 	if (flag->plus)
 		width--;
 	if (width > 0)
@@ -54,6 +56,7 @@ int	ft_precision_of_minus_x(unsigned int num, t_val *flag)
 			while (precision-- - len > 0)
 				count += ft_putchar('0');
 	}
+	if (num != 0 || flag->after_width != 0)
 	count += ft_puthexa(tmp, 'x');
 	ft_completion_of_minus_x(flag, num, &count);
 	return (count);
@@ -72,7 +75,8 @@ void	ft_completion_of_regular_x(int len, t_val *flag, unsigned int num,
 		while (precision-- > 0)
 			*count += ft_putchar('0');
 	}
-	*count += ft_puthexa(num, 'x');
+	if (num != 0 || flag->after_width != 0)
+		*count += ft_puthexa(num, 'x');
 }
 
 int	ft_precision_x(unsigned int num, t_val *flag)
@@ -90,6 +94,8 @@ int	ft_precision_x(unsigned int num, t_val *flag)
 		width = flag->width - (flag->after_width - len) - len;
 	else if (flag->width > len)
 		width = flag->width - len;
+	if (num == 0 && flag->after_width == 0 && flag->width > len)
+		width = flag->width;
 	if (flag->plus)
 		width--;
 	if (width > 0)

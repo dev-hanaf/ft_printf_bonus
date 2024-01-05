@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 02:19:00 by new               #+#    #+#             */
-/*   Updated: 2024/01/05 05:06:32 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/05 05:33:30 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	ft_completion_of_minus_xx(t_val *flag, unsigned int num, int *count)
 		width = flag->width - (flag->after_width - len) - len;
 	else if (flag->width > len)
 		width = flag->width - len;
+	if (num == 0 && flag->after_width == 0 && flag->width > len)
+		width = flag->width;
 	if (flag->plus)
 		width--;
 	if (width > 0)
@@ -54,6 +56,7 @@ int	ft_precision_of_minus_xx(unsigned int num, t_val *flag)
 			while (precision-- - len > 0)
 				count += ft_putchar('0');
 	}
+	if (num != 0 || flag->after_width != 0)
 	count += ft_puthexa(tmp, 'X');
 	ft_completion_of_minus_xx(flag, num, &count);
 	return (count);
@@ -72,6 +75,7 @@ void	ft_completion_of_regular_xx(int len, t_val *flag, unsigned int num,
 		while (precision-- > 0)
 			*count += ft_putchar('0');
 	}
+	if (num != 0 || flag->after_width != 0)
 	*count += ft_puthexa(num, 'X');
 }
 
@@ -90,6 +94,8 @@ int	ft_precision_xx(unsigned int num, t_val *flag)
 		width = flag->width - (flag->after_width - len) - len;
 	else if (flag->width > len)
 		width = flag->width - len;
+	if (num == 0 && flag->after_width == 0 && flag->width > len)
+		width = flag->width;
 	if (flag->plus)
 		width--;
 	if (width > 0)

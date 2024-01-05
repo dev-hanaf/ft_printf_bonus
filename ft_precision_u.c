@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 05:00:59 by new               #+#    #+#             */
-/*   Updated: 2024/01/05 05:01:38 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/05 05:40:21 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	ft_completion_of_minus_u(t_val *flag, unsigned int num, int *count)
 
 	len = counter_number_u(num);
 	width = 0;
+	if (flag->width > len && flag->after_width == 0 && num == 0)
+		len = 0;
 	if (flag->after_width > len)
 		width = flag->width - (flag->after_width - len) - len;
 	else if (flag->width > len)
@@ -90,14 +92,12 @@ int	ft_precision_u(unsigned int num, t_val *flag)
 	len = counter_number_u(num);
 	count = 0;
 	width = 0;
+	if (flag->width > len && flag->after_width == 0 && num == 0)
+		len = 0;
 	if (flag->after_width > len)
 		width = flag->width - (flag->after_width - len) - len;
 	else if (flag->width > len)
-	{
-		// if (num == 0)
-		// 	len = 0;
 		width = flag->width - len;
-	}
 	if (flag->plus)
 		width--;
 	if (width > 0)
