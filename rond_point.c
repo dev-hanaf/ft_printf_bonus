@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 17:45:15 by ahanaf            #+#    #+#             */
-/*   Updated: 2024/01/05 02:31:15 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/05 03:55:27 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,7 @@ int	rond_point(t_val *flag, const char *str, int num)
 	flag->prs = ft_parser(str, flag->start_index, flag->end_index);
 	is_zero = check_zero_is_flag(flag->prs);
 	count = 0;
-	flag->width = ft_width_d(flag->prs);
-	// printf("\nwidht %d\n",flag->width);
+	flag->width = ft_width(flag->prs);
 	first_condition_part(num, is_zero, flag, &count);
 	free(flag->prs);
 	return (count);

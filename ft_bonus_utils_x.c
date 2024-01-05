@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 17:14:50 by ahanaf            #+#    #+#             */
-/*   Updated: 2024/01/04 08:42:01 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/05 03:32:37 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ int	add_spaces_x(unsigned int num, int width, t_val *flag)
 
 	count = 0;
 	len = counter_number_x(num, flag);
-	if (num == 0)
-		width--;
 	while (width-- - len > 0)
 		count += ft_putchar(' ');
 	return (count);

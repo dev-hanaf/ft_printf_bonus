@@ -6,7 +6,7 @@
 /*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 05:00:59 by new               #+#    #+#             */
-/*   Updated: 2024/01/04 10:28:50 by ahanaf           ###   ########.fr       */
+/*   Updated: 2024/01/05 05:01:38 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,11 @@ int	ft_precision_u(unsigned int num, t_val *flag)
 	if (flag->after_width > len)
 		width = flag->width - (flag->after_width - len) - len;
 	else if (flag->width > len)
+	{
+		// if (num == 0)
+		// 	len = 0;
 		width = flag->width - len;
+	}
 	if (flag->plus)
 		width--;
 	if (width > 0)

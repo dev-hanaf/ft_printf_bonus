@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bonus_utils_xx.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: new <new@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ahanaf <ahanaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 02:20:56 by new               #+#    #+#             */
-/*   Updated: 2024/01/04 02:21:04 by new              ###   ########.fr       */
+/*   Updated: 2024/01/05 03:32:56 by ahanaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ int	add_spaces_xx(unsigned int num, int width, t_val *flag)
 
 	count = 0;
 	len = counter_number_x(num, flag);
-	if (num == 0)
-		width--;
 	while (width-- - len > 0)
 		count += ft_putchar(' ');
 	return (count);
